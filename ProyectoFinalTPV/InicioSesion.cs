@@ -40,9 +40,7 @@ namespace ProyectoFinalTPV
         }
         private bool VerificarSiHayUsuarios()
         {
-         
             string query = "SELECT COUNT(*) FROM Usuario";
-
             using (SqlConnection connection = new SqlConnection(m.getConnectionString()))
             {
                 try
@@ -68,6 +66,11 @@ namespace ProyectoFinalTPV
         private void crearCuentaBtn_Click(object sender, EventArgs e)
         {
             m.cargarForm(new AgregarEmpleado(), this);
+        }
+
+        private void iniciarSesionBtn_Click(object sender, EventArgs e)
+        {
+            m.cargarForm(new EligeCuenta(), this);
         }
     }
 }

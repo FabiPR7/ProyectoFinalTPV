@@ -36,16 +36,17 @@
             // 
             // iniciarSesionBtn
             // 
-            this.iniciarSesionBtn.Location = new System.Drawing.Point(229, 122);
+            this.iniciarSesionBtn.Location = new System.Drawing.Point(275, 163);
             this.iniciarSesionBtn.Name = "iniciarSesionBtn";
             this.iniciarSesionBtn.Size = new System.Drawing.Size(166, 42);
             this.iniciarSesionBtn.TabIndex = 0;
             this.iniciarSesionBtn.Text = "INICIAR SESION";
             this.iniciarSesionBtn.UseVisualStyleBackColor = true;
+            this.iniciarSesionBtn.Click += new System.EventHandler(this.iniciarSesionBtn_Click);
             // 
             // crearCuentaBtn
             // 
-            this.crearCuentaBtn.Location = new System.Drawing.Point(229, 192);
+            this.crearCuentaBtn.Location = new System.Drawing.Point(275, 165);
             this.crearCuentaBtn.Name = "crearCuentaBtn";
             this.crearCuentaBtn.Size = new System.Drawing.Size(166, 40);
             this.crearCuentaBtn.TabIndex = 2;
@@ -57,7 +58,7 @@
             // 
             this.nohaycuentasTXT.AutoSize = true;
             this.nohaycuentasTXT.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nohaycuentasTXT.Location = new System.Drawing.Point(226, 105);
+            this.nohaycuentasTXT.Location = new System.Drawing.Point(272, 209);
             this.nohaycuentasTXT.Name = "nohaycuentasTXT";
             this.nohaycuentasTXT.Size = new System.Drawing.Size(170, 14);
             this.nohaycuentasTXT.TabIndex = 3;

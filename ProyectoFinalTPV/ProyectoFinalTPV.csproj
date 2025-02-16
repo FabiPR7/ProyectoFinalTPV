@@ -52,6 +52,12 @@
     <Compile Include="AgregarEmpleado.Designer.cs">
       <DependentUpon>AgregarEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="EligeCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EligeCuenta.Designer.cs">
+      <DependentUpon>EligeCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicioBienvenida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </Compile>
     <EmbeddedResource Include="AgregarEmpleado.resx">
       <DependentUpon>AgregarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EligeCuenta.resx">
+      <DependentUpon>EligeCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioBienvenida.resx">
       <DependentUpon>InicioBienvenida.cs</DependentUpon>
