@@ -42,7 +42,6 @@
             this.iniciarSesionBtn.TabIndex = 0;
             this.iniciarSesionBtn.Text = "INICIAR SESION";
             this.iniciarSesionBtn.UseVisualStyleBackColor = true;
-        
             // 
             // crearCuentaBtn
             // 
@@ -75,7 +74,7 @@
             this.Controls.Add(this.crearCuentaBtn);
             this.Controls.Add(this.iniciarSesionBtn);
             this.Name = "InicioSesion";
-            this.Text = "InicioSesion";
+            this.Text = "89";
             this.Load += new System.EventHandler(this.InicioSesion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

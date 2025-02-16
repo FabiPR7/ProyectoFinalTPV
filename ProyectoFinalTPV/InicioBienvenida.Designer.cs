@@ -43,7 +43,6 @@
             this.label1.Size = new System.Drawing.Size(216, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bienvenido a RestauantTPV";
-       
             // 
             // progressBar1
             // 
@@ -61,7 +60,7 @@
             this.label2.Size = new System.Drawing.Size(101, 18);
             this.label2.TabIndex = 2;
             this.label2.Text = "Cargando... ";
-              // 
+            // 
             // InicioBienvenida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -77,7 +76,7 @@
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "InicioBienvenida";
             this.Text = "Form1";
-           
+            this.Load += new System.EventHandler(this.InicioBienvenida_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

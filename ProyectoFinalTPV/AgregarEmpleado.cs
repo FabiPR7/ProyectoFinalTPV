@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,7 +42,9 @@ namespace ProyectoFinalTPV
         private void aceptarAgregarEmpleadoBtn_Click(object sender, EventArgs e)
         {
             if (verificarCampos()) { 
-                MessageBox.Show("Empleado añadido correctamente");
+                InsertarUsuario(Convert.ToInt32(codigoAgregarEmpleadoTXT.Text), nameAgregarEmpleadoTXT.Text, rolAgregarEmpeladoTXT.Text == "Admin" ? 1 : 2);
+                this.Close();
+                MessageBox.Show("Cerrar la aplicacion para notar cambios.");
             }
         }
 
@@ -81,27 +84,23 @@ namespace ProyectoFinalTPV
                     return false;
                 }
             }
-
             return true;
         }
         public List<int> obtenerCodigosEmpleados()
         {
             List<int> codigosEmpleados = new List<int>();
 
-            // Consulta SQL para obtener los códigos de los empleados
-            string query = "select UsuarioID from Usuario"; // Ajusta el nombre de la tabla y columna
+            string query = "select UsuarioID from Usuario";
 
             using (SqlConnection connection = new SqlConnection(metodos.getConnectionString()))
             {
                 try
                 {
-                    connection.Open(); // Abrir la conexión
-
+                    connection.Open(); 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            // Leer los resultados
                             while (reader.Read())
                             {
                                 int codigoEmpleado = reader.GetInt32(0); // Obtener el valor de la columna CodigoEmpleado
@@ -118,5 +117,34 @@ namespace ProyectoFinalTPV
 
             return codigosEmpleados;
         }
+     
+
+        public void InsertarUsuario(int id, string nombre, int rol)
+        {
+            string query = @"
+            SET IDENTITY_INSERT Usuario ON;
+            INSERT INTO Usuario (UsuarioID, Nombre, RolID) VALUES (@UsuarioID, @Nombre, @RolID);
+            SET IDENTITY_INSERT Usuario OFF;";
+            using (SqlConnection connection = new SqlConnection(metodos.getConnectionString()))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@UsuarioID", id);
+                        command.Parameters.AddWithValue("@Nombre", nombre);
+                        command.Parameters.AddWithValue("@RolID", rol);
+                        int result = command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+
+            }
+        }
+        }
     }
-}
+

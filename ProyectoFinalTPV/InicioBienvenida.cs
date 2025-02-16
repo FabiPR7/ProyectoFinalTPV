@@ -53,6 +53,10 @@ namespace ProyectoFinalTPV
 
         }
 
+        private void InicioBienvenida_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
     class Metodos
