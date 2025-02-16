@@ -386,7 +386,7 @@ SELECT UsuarioID, Nombre, RolID FROM Usuario WHERE (UsuarioID = @UsuarioID)</Com
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="RestauranteTPVDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="RestauranteTPVDataSet" msprop:Generator_DataSetName="RestauranteTPVDataSet">
+  <xs:element name="RestauranteTPVDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="RestauranteTPVDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="RestauranteTPVDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="Categoria" msprop:Generator_RowEvHandlerName="CategoriaRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriaRowDeleted" msprop:Generator_RowDeletingName="CategoriaRowDeleting" msprop:Generator_RowEvArgName="CategoriaRowChangeEvent" msprop:Generator_TablePropName="Categoria" msprop:Generator_RowChangedName="CategoriaRowChanged" msprop:Generator_RowChangingName="CategoriaRowChanging" msprop:Generator_TableClassName="CategoriaDataTable" msprop:Generator_RowClassName="CategoriaRow" msprop:Generator_TableVarName="tableCategoria" msprop:Generator_UserTableName="Categoria">

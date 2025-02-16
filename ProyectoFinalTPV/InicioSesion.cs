@@ -13,11 +13,12 @@ namespace ProyectoFinalTPV
 {
     public partial class InicioSesion: Form
     {
+        private Metodos m = new Metodos();
       
-        private string connectionString = "Data Source=FabiPadilla07\\SQLEXPRESS01;Initial Catalog=RestauranteTPV;Integrated Security=True;Encrypt=False";
         public InicioSesion()
         {
             InitializeComponent();
+            m.adaptarForm(this);
         }
 
         private void InicioSesion_Load(object sender, EventArgs e)
@@ -26,39 +27,47 @@ namespace ProyectoFinalTPV
 
             if (hayUsuarios)
             {
-                MessageBox.Show("Hay usuarios registrados en la base de datos.");
+             iniciarSesionBtn.Enabled = true;
+             crearCuentaBtn.Enabled = false;
+             crearCuentaBtn.Visible = false;
+             nohaycuentasTXT.Visible = false;
             }
             else
             {
-                MessageBox.Show("No hay usuarios registrados en la base de datos.");
+                iniciarSesionBtn.Enabled = false;
+          
             }
         }
         private bool VerificarSiHayUsuarios()
         {
-            // Consulta SQL para contar los usuarios
+         
             string query = "SELECT COUNT(*) FROM Usuario";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(m.getConnectionString()))
             {
                 try
                 {
-                    connection.Open(); // Abrir la conexión
+                    connection.Open();
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Ejecutar la consulta y obtener el número de usuarios
+                       
                         int cantidadUsuarios = (int)command.ExecuteScalar();
 
-                        // Si hay al menos un usuario, devolver true
                         return cantidadUsuarios > 0;
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al verificar usuarios: " + ex.Message);
-                    return false; // En caso de error, asumimos que no hay usuarios
+                    return false; 
                 }
             }
+        }
+
+        private void crearCuentaBtn_Click(object sender, EventArgs e)
+        {
+            m.cargarForm(new AgregarEmpleado(), this);
         }
     }
 }

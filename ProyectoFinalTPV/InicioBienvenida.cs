@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,18 +20,9 @@ namespace ProyectoFinalTPV
             cargarProgressBarAsync();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private async Task cargarProgressBarAsync()
-        {   Random random = new Random();
+        {
+            Random random = new Random();
             for (int i = 0; i <= 100; i++)
             {
                 if (i < 80)
@@ -43,25 +35,48 @@ namespace ProyectoFinalTPV
                 {
                     if (i <= 100)
                     {
-                        progressBar1.Value = progressBar1.Value + 1 ;
+                        progressBar1.Value = progressBar1.Value + 1;
                     }
                     else
                     {
-                        
+
                         break;
                     }
                 }
             }
 
-            
-                InicioSesion form = new InicioSesion();
-                form.Show();
-            this.Enabled = false;
-            this.Visible = false;
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
+            InicioSesion form = new InicioSesion();
+            Metodos metodos = new Metodos();
+            metodos.cargarForm(form, this);
+
+
+        }
+
+    }
+
+    class Metodos
+    {
+
+        private string connectionString = "Data Source=FabiPadilla07\\SQLEXPRESS01;Initial Catalog=RestauranteTPV;Integrated Security=True;Encrypt=False";
+
+        public void cargarForm(Form formCargar, Form actual)
+        {
+            formCargar.Dock = DockStyle.Fill;
+            actual.Controls.Add(formCargar);
+            formCargar.BringToFront();
+            formCargar.Show();
+        }
+
+        public void adaptarForm(Form form)
+        {
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.TopLevel = false;
+        }
+
+        public String getConnectionString()
+        {
+            return connectionString;
         }
     }
 }
