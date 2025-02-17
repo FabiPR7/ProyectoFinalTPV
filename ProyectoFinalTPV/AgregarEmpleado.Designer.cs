@@ -199,7 +199,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(656, 427);
+            this.ClientSize = new System.Drawing.Size(668, 402);
             this.Controls.Add(nombreLabel);
             this.Controls.Add(this.rolAgregarEmpeladoTXT);
             this.Controls.Add(this.codigoAgregarEmpleadoTXT);
