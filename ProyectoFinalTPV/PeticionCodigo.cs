@@ -14,10 +14,13 @@ namespace ProyectoFinalTPV
 {
     public partial class PeticionCodigo : Form
     {
+        public bool codigoBooleano { get; private set; }
+        Metodos m = new Metodos();
         private string codigo;
         public PeticionCodigo(string codigo)
         {
             this.codigo = codigo;
+            codigoBooleano = false;
             InitializeComponent();
         }
 
@@ -105,10 +108,11 @@ namespace ProyectoFinalTPV
         {
             if (codigo.Equals(codigoTXT.Text))
             {
-                MessageBox.Show("Codigo correcto");
+                codigoBooleano = true;
+                this.Close();
             }
             else {
-                MessageBox.Show("Codigo incorrecto");
+               MessageBox.Show("Código incorrecto");
             }
         }
     }

@@ -211,7 +211,7 @@
             this.DoubleBuffered = true;
             this.Name = "AgregarEmpleado";
             this.Text = "AgregarEmpleado";
-            this.Load += new System.EventHandler(this.AgregarEmpleado_Load);
+            
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).EndInit();

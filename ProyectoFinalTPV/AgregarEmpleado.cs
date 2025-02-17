@@ -23,14 +23,6 @@ namespace ProyectoFinalTPV
         }
 
 
-
-        private void AgregarEmpleado_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'restauranteTPVDataSet11.Roles' Puede moverla o quitarla según sea necesario.
-            this.rolesTableAdapter1.Fill(this.restauranteTPVDataSet11.Roles);
-
-        }
-
         private void aceptarAgregarEmpleadoBtn_Click(object sender, EventArgs e)
         {
             if (verificarCampos()) { 

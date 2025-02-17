@@ -71,7 +71,7 @@ namespace ProyectoFinalTPV
 
         private void iniciarSesionBtn_Click(object sender, EventArgs e)
         {
-            m.cargarForm(new EligeCuenta(), this);
+            m.cargarForm(new EligeCuenta("elegir"), this);
         }
     }
 }

@@ -16,11 +16,13 @@ namespace ProyectoFinalTPV
     {
         Metodos metodos = new Metodos();
         private string nombreUsuario = "";
+        private string accion;
 
-        public EligeCuenta()
+        public EligeCuenta(string accion)
         {
             InitializeComponent();
             metodos.adaptarForm(this);
+            this.accion = accion;
             visibilizarBotones();
         }
 
@@ -237,12 +239,67 @@ namespace ProyectoFinalTPV
         }
         public void activarPeticionCodigo()
         {
-   
-            PeticionCodigo p = new PeticionCodigo(obtenerCodigo());
-            MessageBox.Show(getNombreUsuario());
-            p.ShowDialog();
+            if (accion.Equals("elegir"))
+            {
+                PeticionCodigo p = new PeticionCodigo(obtenerCodigo());
+                MessageBox.Show(getNombreUsuario());
+                p.ShowDialog();
+                bool codigo = p.codigoBooleano;
+                if (codigo)
+                {
+                    MenuPrincipal menu = new MenuPrincipal(nombreUsuario);
+                    metodos.cargarForm(menu, this);
+                }
+            }
+            else if (accion.Equals("eliminar"))
+            {
+                DialogResult result = MessageBox.Show(
+                            "¿Estás seguro de que quieres continuar?",
+                             "Confirmación",                          
+                             MessageBoxButtons.YesNo,                 
+                             MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                     int id = ObtenerUsuarioIDPorNombre(getNombreUsuario());
+                        if (id != -1)
+                        {
+                            eliminarUsuario(id);
+                        }
+                }
+              
+              
+            }
         }
 
+        public void eliminarUsuario(int id)
+        {
+            string sql = "DELETE FROM Usuario WHERE UsuarioID = @UsuarioID";
+            using (SqlConnection connection = new SqlConnection(metodos.getConnectionString2()))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@UsuarioID", id);
+                        int result = command.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Usuario eliminado correctamente.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo eliminar el usuario.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar el usuario: " + ex.Message);
+                }
+            }
+        }
         public string obtenerCodigo() {
             return ObtenerUsuarioIDPorNombre(getNombreUsuario()).ToString();
         }

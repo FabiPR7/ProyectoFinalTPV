@@ -12,9 +12,21 @@ namespace ProyectoFinalTPV
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
+        Metodos m = new Metodos();
+       private string nombreUsuario;
+        public MenuPrincipal(string nombreUsuario)
         {
+
             InitializeComponent();
+            m.adaptarForm(this);
+            this.nombreUsuario = nombreUsuario;
+            nombreUs.Text = nombreUsuario;
+        }
+
+        private void perfilButton_Click(object sender, EventArgs e)
+        {
+            AdministrarCuenta administrarCuenta = new AdministrarCuenta(nombreUsuario);
+            m.cargarForm(administrarCuenta, this);
         }
     }
 }
