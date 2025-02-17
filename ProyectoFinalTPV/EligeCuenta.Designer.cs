@@ -45,6 +45,7 @@
             this.btn13 = new System.Windows.Forms.Button();
             this.btn14 = new System.Windows.Forms.Button();
             this.btn15 = new System.Windows.Forms.Button();
+            this.volverBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -223,6 +224,17 @@
             this.btn15.Visible = false;
             this.btn15.Click += new System.EventHandler(this.btn15_Click);
             // 
+            // volverBtn
+            // 
+            this.volverBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("volverBtn.BackgroundImage")));
+            this.volverBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.volverBtn.Location = new System.Drawing.Point(12, 12);
+            this.volverBtn.Name = "volverBtn";
+            this.volverBtn.Size = new System.Drawing.Size(33, 31);
+            this.volverBtn.TabIndex = 16;
+            this.volverBtn.UseVisualStyleBackColor = true;
+            this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
+            // 
             // EligeCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,6 +242,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(668, 402);
+            this.Controls.Add(this.volverBtn);
             this.Controls.Add(this.btn13);
             this.Controls.Add(this.btn14);
             this.Controls.Add(this.btn15);
@@ -273,5 +286,6 @@
         private System.Windows.Forms.Button btn13;
         private System.Windows.Forms.Button btn14;
         private System.Windows.Forms.Button btn15;
+        private System.Windows.Forms.Button volverBtn;
     }
 }

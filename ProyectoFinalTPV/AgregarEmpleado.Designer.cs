@@ -42,21 +42,22 @@
             this.rolesTableAdapter = new ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.RolesTableAdapter();
             this.tableAdapterManager = new ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.TableAdapterManager();
             this.rolAgregarEmpeladoTXT = new System.Windows.Forms.ComboBox();
+            this.rolesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.restauranteTPVDataSet11 = new ProyectoFinalTPV.RestauranteTPVDataSet1();
+            this.rolesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.rolesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.restauranteTPVDataSet1 = new ProyectoFinalTPV.RestauranteTPVDataSet();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.restauranteTPVDataSet11 = new ProyectoFinalTPV.RestauranteTPVDataSet1();
-            this.rolesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.rolesTableAdapter1 = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.RolesTableAdapter();
-            this.rolesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.volverBtn = new System.Windows.Forms.Button();
             nombreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // nombreLabel
@@ -159,6 +160,21 @@
             this.rolAgregarEmpeladoTXT.TabIndex = 10;
             this.rolAgregarEmpeladoTXT.ValueMember = "Nombre";
             // 
+            // rolesBindingSource3
+            // 
+            this.rolesBindingSource3.DataMember = "Roles";
+            this.rolesBindingSource3.DataSource = this.restauranteTPVDataSet11;
+            // 
+            // restauranteTPVDataSet11
+            // 
+            this.restauranteTPVDataSet11.DataSetName = "RestauranteTPVDataSet1";
+            this.restauranteTPVDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rolesBindingSource2
+            // 
+            this.rolesBindingSource2.DataMember = "Roles";
+            this.rolesBindingSource2.DataSource = this.restauranteTPVDataSet11;
+            // 
             // rolesBindingSource1
             // 
             this.rolesBindingSource1.DataMember = "Roles";
@@ -174,24 +190,20 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // restauranteTPVDataSet11
-            // 
-            this.restauranteTPVDataSet11.DataSetName = "RestauranteTPVDataSet1";
-            this.restauranteTPVDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rolesBindingSource2
-            // 
-            this.rolesBindingSource2.DataMember = "Roles";
-            this.rolesBindingSource2.DataSource = this.restauranteTPVDataSet11;
-            // 
             // rolesTableAdapter1
             // 
             this.rolesTableAdapter1.ClearBeforeFill = true;
             // 
-            // rolesBindingSource3
+            // volverBtn
             // 
-            this.rolesBindingSource3.DataMember = "Roles";
-            this.rolesBindingSource3.DataSource = this.restauranteTPVDataSet11;
+            this.volverBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("volverBtn.BackgroundImage")));
+            this.volverBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.volverBtn.Location = new System.Drawing.Point(12, 12);
+            this.volverBtn.Name = "volverBtn";
+            this.volverBtn.Size = new System.Drawing.Size(33, 31);
+            this.volverBtn.TabIndex = 17;
+            this.volverBtn.UseVisualStyleBackColor = true;
+            this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
             // 
             // AgregarEmpleado
             // 
@@ -200,6 +212,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(668, 402);
+            this.Controls.Add(this.volverBtn);
             this.Controls.Add(nombreLabel);
             this.Controls.Add(this.rolAgregarEmpeladoTXT);
             this.Controls.Add(this.codigoAgregarEmpleadoTXT);
@@ -211,14 +224,13 @@
             this.DoubleBuffered = true;
             this.Name = "AgregarEmpleado";
             this.Text = "AgregarEmpleado";
-            
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +256,6 @@
         private System.Windows.Forms.BindingSource rolesBindingSource2;
         private RestauranteTPVDataSet1TableAdapters.RolesTableAdapter rolesTableAdapter1;
         private System.Windows.Forms.BindingSource rolesBindingSource3;
+        private System.Windows.Forms.Button volverBtn;
     }
 }

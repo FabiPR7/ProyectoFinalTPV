@@ -35,13 +35,14 @@
             this.cerrarSesionBtn = new System.Windows.Forms.Button();
             this.AgregarUsBtn = new System.Windows.Forms.Button();
             this.eliminarUsBtn = new System.Windows.Forms.Button();
+            this.volverBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nombreUs
             // 
             this.nombreUs.AutoSize = true;
             this.nombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreUs.Location = new System.Drawing.Point(25, 25);
+            this.nombreUs.Location = new System.Drawing.Point(67, 23);
             this.nombreUs.Name = "nombreUs";
             this.nombreUs.Size = new System.Drawing.Size(57, 20);
             this.nombreUs.TabIndex = 0;
@@ -97,6 +98,17 @@
             this.eliminarUsBtn.UseVisualStyleBackColor = true;
             this.eliminarUsBtn.Click += new System.EventHandler(this.eliminarUsBtn_Click);
             // 
+            // volverBtn
+            // 
+            this.volverBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("volverBtn.BackgroundImage")));
+            this.volverBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.volverBtn.Location = new System.Drawing.Point(12, 12);
+            this.volverBtn.Name = "volverBtn";
+            this.volverBtn.Size = new System.Drawing.Size(33, 31);
+            this.volverBtn.TabIndex = 17;
+            this.volverBtn.UseVisualStyleBackColor = true;
+            this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
+            // 
             // AdministrarCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +116,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(668, 402);
+            this.Controls.Add(this.volverBtn);
             this.Controls.Add(this.eliminarUsBtn);
             this.Controls.Add(this.AgregarUsBtn);
             this.Controls.Add(this.cerrarSesionBtn);
@@ -126,5 +139,6 @@
         private System.Windows.Forms.Button cerrarSesionBtn;
         private System.Windows.Forms.Button AgregarUsBtn;
         private System.Windows.Forms.Button eliminarUsBtn;
+        private System.Windows.Forms.Button volverBtn;
     }
 }

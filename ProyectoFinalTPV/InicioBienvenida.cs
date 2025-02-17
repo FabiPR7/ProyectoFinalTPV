@@ -78,6 +78,11 @@ namespace ProyectoFinalTPV
             form.TopLevel = false;
         }
 
+        public void cerrarForm(Form form)
+        {
+            form.Close();
+        }
+
         public String getConnectionString()
         {
             return connectionString;

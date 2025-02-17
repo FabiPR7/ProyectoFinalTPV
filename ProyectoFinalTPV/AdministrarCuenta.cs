@@ -43,5 +43,10 @@ namespace ProyectoFinalTPV
             EligeCuenta eligeCuenta = new EligeCuenta("eliminar");
             m.cargarForm(eligeCuenta, this);
         }
+
+        private void volverBtn_Click(object sender, EventArgs e)
+        {
+            m.cerrarForm(this);
+        }
     }
 }

@@ -242,7 +242,6 @@ namespace ProyectoFinalTPV
             if (accion.Equals("elegir"))
             {
                 PeticionCodigo p = new PeticionCodigo(obtenerCodigo());
-                MessageBox.Show(getNombreUsuario());
                 p.ShowDialog();
                 bool codigo = p.codigoBooleano;
                 if (codigo)
@@ -254,7 +253,7 @@ namespace ProyectoFinalTPV
             else if (accion.Equals("eliminar"))
             {
                 DialogResult result = MessageBox.Show(
-                            "¿Estás seguro de que quieres continuar?",
+                            "¿Estás seguro de que quieres eliminar a este usuario?",
                              "Confirmación",                          
                              MessageBoxButtons.YesNo,                 
                              MessageBoxIcon.Warning);
@@ -265,6 +264,7 @@ namespace ProyectoFinalTPV
                         if (id != -1)
                         {
                             eliminarUsuario(id);
+                        MessageBox.Show("Usuario eliminado,cerrar aplicación para notar cambios");
                         }
                 }
               
@@ -306,6 +306,11 @@ namespace ProyectoFinalTPV
 
         public string getNombreUsuario() { 
             return nombreUsuario;
+        }
+
+        private void volverBtn_Click(object sender, EventArgs e)
+        {
+            metodos.cerrarForm(this);
         }
     }
 }

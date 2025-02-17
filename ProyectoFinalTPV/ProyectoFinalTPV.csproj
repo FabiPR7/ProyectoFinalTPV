@@ -64,6 +64,12 @@
     <Compile Include="EligeCuenta.Designer.cs">
       <DependentUpon>EligeCuenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="HacerPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HacerPedido.Designer.cs">
+      <DependentUpon>HacerPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicioBienvenida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EligeCuenta.resx">
       <DependentUpon>EligeCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HacerPedido.resx">
+      <DependentUpon>HacerPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioBienvenida.resx">
       <DependentUpon>InicioBienvenida.cs</DependentUpon>

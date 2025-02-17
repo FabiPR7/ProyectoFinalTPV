@@ -129,6 +129,11 @@ namespace ProyectoFinalTPV
 
             }
         }
+
+        private void volverBtn_Click(object sender, EventArgs e)
+        {
+            metodos.cerrarForm(this);
         }
+    }
     }
 
