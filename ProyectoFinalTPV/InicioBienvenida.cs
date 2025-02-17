@@ -63,7 +63,7 @@ namespace ProyectoFinalTPV
     {
 
         private string connectionString = "Data Source=FabiPadilla07\\SQLEXPRESS01;Initial Catalog=RestauranteTPV;Integrated Security=True;Encrypt=False";
-
+        private string connectionString2 = "Data Source=C06PC13\\SQLEXPRESS;Initial Catalog=RestauranteTPV;Integrated Security=True;Encrypt=False";
         public void cargarForm(Form formCargar, Form actual)
         {
             formCargar.Dock = DockStyle.Fill;
@@ -81,6 +81,10 @@ namespace ProyectoFinalTPV
         public String getConnectionString()
         {
             return connectionString;
+        }
+        public String getConnectionString2()
+        {
+            return connectionString2;
         }
     }
 }

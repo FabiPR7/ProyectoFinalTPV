@@ -70,12 +70,23 @@
     <Compile Include="InicioSesion.Designer.cs">
       <DependentUpon>InicioSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="PeticionCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PeticionCodigo.Designer.cs">
+      <DependentUpon>PeticionCodigo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestauranteTPVDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RestauranteTPVDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RestauranteTPVDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestauranteTPVDataSet1.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AgregarEmpleado.resx">
       <DependentUpon>AgregarEmpleado.cs</DependentUpon>
@@ -88,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeticionCodigo.resx">
+      <DependentUpon>PeticionCodigo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,6 +131,17 @@
     </None>
     <None Include="RestauranteTPVDataSet.xss">
       <DependentUpon>RestauranteTPVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RestauranteTPVDataSet1.xsc">
+      <DependentUpon>RestauranteTPVDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="RestauranteTPVDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestauranteTPVDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestauranteTPVDataSet1.xss">
+      <DependentUpon>RestauranteTPVDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

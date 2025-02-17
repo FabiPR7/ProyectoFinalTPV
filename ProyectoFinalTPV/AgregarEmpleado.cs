@@ -22,20 +22,12 @@ namespace ProyectoFinalTPV
             metodos.adaptarForm(this);
         }
 
-        private void rolesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.rolesBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.restauranteTPVDataSet);
 
-        }
 
         private void AgregarEmpleado_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'restauranteTPVDataSet1.Roles' Puede moverla o quitarla según sea necesario.
-            this.rolesTableAdapter.Fill(this.restauranteTPVDataSet1.Roles);
-            // TODO: esta línea de código carga datos en la tabla 'restauranteTPVDataSet.Roles' Puede moverla o quitarla según sea necesario.
-            this.rolesTableAdapter.Fill(this.restauranteTPVDataSet.Roles);
+            // TODO: esta línea de código carga datos en la tabla 'restauranteTPVDataSet11.Roles' Puede moverla o quitarla según sea necesario.
+            this.rolesTableAdapter1.Fill(this.restauranteTPVDataSet11.Roles);
 
         }
 
@@ -92,7 +84,7 @@ namespace ProyectoFinalTPV
 
             string query = "select UsuarioID from Usuario";
 
-            using (SqlConnection connection = new SqlConnection(metodos.getConnectionString()))
+            using (SqlConnection connection = new SqlConnection(metodos.getConnectionString2()))
             {
                 try
                 {
@@ -125,7 +117,7 @@ namespace ProyectoFinalTPV
             SET IDENTITY_INSERT Usuario ON;
             INSERT INTO Usuario (UsuarioID, Nombre, RolID) VALUES (@UsuarioID, @Nombre, @RolID);
             SET IDENTITY_INSERT Usuario OFF;";
-            using (SqlConnection connection = new SqlConnection(metodos.getConnectionString()))
+            using (SqlConnection connection = new SqlConnection(metodos.getConnectionString2()))
             {
                 try
                 {

@@ -29,19 +29,20 @@ namespace ProyectoFinalTPV
             {
              iniciarSesionBtn.Enabled = true;
              crearCuentaBtn.Enabled = false;
-             crearCuentaBtn.Visible = false;
              nohaycuentasTXT.Visible = false;
             }
             else
             {
                 iniciarSesionBtn.Enabled = false;
-          
+                iniciarSesionBtn.Visible = false;
+                crearCuentaBtn.Enabled = true;
+                nohaycuentasTXT.Visible = true;
             }
         }
         private bool VerificarSiHayUsuarios()
         {
             string query = "SELECT COUNT(*) FROM Usuario";
-            using (SqlConnection connection = new SqlConnection(m.getConnectionString()))
+            using (SqlConnection connection = new SqlConnection(m.getConnectionString2()))
             {
                 try
                 {

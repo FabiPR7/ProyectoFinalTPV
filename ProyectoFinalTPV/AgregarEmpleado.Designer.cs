@@ -42,21 +42,37 @@
             this.rolesTableAdapter = new ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.RolesTableAdapter();
             this.tableAdapterManager = new ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.TableAdapterManager();
             this.rolAgregarEmpeladoTXT = new System.Windows.Forms.ComboBox();
-            this.restauranteTPVDataSet1 = new ProyectoFinalTPV.RestauranteTPVDataSet();
             this.rolesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.restauranteTPVDataSet1 = new ProyectoFinalTPV.RestauranteTPVDataSet();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.restauranteTPVDataSet11 = new ProyectoFinalTPV.RestauranteTPVDataSet1();
+            this.rolesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesTableAdapter1 = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.RolesTableAdapter();
+            this.rolesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             nombreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource3)).BeginInit();
             this.SuspendLayout();
+            // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(278, 197);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(32, 13);
+            nombreLabel.TabIndex = 9;
+            nombreLabel.Text = "ROL:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calisto MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(235, 38);
+            this.label1.Location = new System.Drawing.Point(226, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 17);
             this.label1.TabIndex = 0;
@@ -65,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(200, 130);
+            this.label2.Location = new System.Drawing.Point(191, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 13);
             this.label2.TabIndex = 1;
@@ -74,7 +90,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(267, 189);
+            this.label4.Location = new System.Drawing.Point(258, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 3;
@@ -82,7 +98,7 @@
             // 
             // aceptarAgregarEmpleadoBtn
             // 
-            this.aceptarAgregarEmpleadoBtn.Location = new System.Drawing.Point(238, 286);
+            this.aceptarAgregarEmpleadoBtn.Location = new System.Drawing.Point(229, 321);
             this.aceptarAgregarEmpleadoBtn.Name = "aceptarAgregarEmpleadoBtn";
             this.aceptarAgregarEmpleadoBtn.Size = new System.Drawing.Size(176, 39);
             this.aceptarAgregarEmpleadoBtn.TabIndex = 4;
@@ -92,7 +108,7 @@
             // 
             // nameAgregarEmpleadoTXT
             // 
-            this.nameAgregarEmpleadoTXT.Location = new System.Drawing.Point(325, 123);
+            this.nameAgregarEmpleadoTXT.Location = new System.Drawing.Point(316, 158);
             this.nameAgregarEmpleadoTXT.Name = "nameAgregarEmpleadoTXT";
             this.nameAgregarEmpleadoTXT.Size = new System.Drawing.Size(100, 20);
             this.nameAgregarEmpleadoTXT.TabIndex = 5;
@@ -109,7 +125,7 @@
             // 
             // codigoAgregarEmpleadoTXT
             // 
-            this.codigoAgregarEmpleadoTXT.Location = new System.Drawing.Point(325, 186);
+            this.codigoAgregarEmpleadoTXT.Location = new System.Drawing.Point(316, 221);
             this.codigoAgregarEmpleadoTXT.Name = "codigoAgregarEmpleadoTXT";
             this.codigoAgregarEmpleadoTXT.Size = new System.Drawing.Size(100, 20);
             this.codigoAgregarEmpleadoTXT.TabIndex = 9;
@@ -130,42 +146,52 @@
             this.tableAdapterManager.UpdateOrder = ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsuarioTableAdapter = null;
             // 
-            // nombreLabel
-            // 
-            nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(287, 162);
-            nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(32, 13);
-            nombreLabel.TabIndex = 9;
-            nombreLabel.Text = "ROL:";
-            // 
             // rolAgregarEmpeladoTXT
             // 
             this.rolAgregarEmpeladoTXT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rolesBindingSource, "Nombre", true));
-            this.rolAgregarEmpeladoTXT.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.rolesBindingSource, "Nombre", true));
-            this.rolAgregarEmpeladoTXT.DataSource = this.rolesBindingSource1;
+            this.rolAgregarEmpeladoTXT.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.rolesBindingSource3, "Nombre", true));
+            this.rolAgregarEmpeladoTXT.DataSource = this.rolesBindingSource2;
             this.rolAgregarEmpeladoTXT.DisplayMember = "Nombre";
             this.rolAgregarEmpeladoTXT.FormattingEnabled = true;
-            this.rolAgregarEmpeladoTXT.Location = new System.Drawing.Point(325, 159);
+            this.rolAgregarEmpeladoTXT.Location = new System.Drawing.Point(316, 194);
             this.rolAgregarEmpeladoTXT.Name = "rolAgregarEmpeladoTXT";
             this.rolAgregarEmpeladoTXT.Size = new System.Drawing.Size(100, 21);
             this.rolAgregarEmpeladoTXT.TabIndex = 10;
             this.rolAgregarEmpeladoTXT.ValueMember = "Nombre";
-            // 
-            // restauranteTPVDataSet1
-            // 
-            this.restauranteTPVDataSet1.DataSetName = "RestauranteTPVDataSet";
-            this.restauranteTPVDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // rolesBindingSource1
             // 
             this.rolesBindingSource1.DataMember = "Roles";
             this.rolesBindingSource1.DataSource = this.restauranteTPVDataSet1;
             // 
+            // restauranteTPVDataSet1
+            // 
+            this.restauranteTPVDataSet1.DataSetName = "RestauranteTPVDataSet";
+            this.restauranteTPVDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // restauranteTPVDataSet11
+            // 
+            this.restauranteTPVDataSet11.DataSetName = "RestauranteTPVDataSet1";
+            this.restauranteTPVDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rolesBindingSource2
+            // 
+            this.rolesBindingSource2.DataMember = "Roles";
+            this.rolesBindingSource2.DataSource = this.restauranteTPVDataSet11;
+            // 
+            // rolesTableAdapter1
+            // 
+            this.rolesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // rolesBindingSource3
+            // 
+            this.rolesBindingSource3.DataMember = "Roles";
+            this.rolesBindingSource3.DataSource = this.restauranteTPVDataSet11;
             // 
             // AgregarEmpleado
             // 
@@ -173,7 +199,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(668, 402);
+            this.ClientSize = new System.Drawing.Size(656, 427);
             this.Controls.Add(nombreLabel);
             this.Controls.Add(this.rolAgregarEmpeladoTXT);
             this.Controls.Add(this.codigoAgregarEmpleadoTXT);
@@ -188,8 +214,11 @@
             this.Load += new System.EventHandler(this.AgregarEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +240,9 @@
         private RestauranteTPVDataSet restauranteTPVDataSet1;
         private System.Windows.Forms.BindingSource rolesBindingSource1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private RestauranteTPVDataSet1 restauranteTPVDataSet11;
+        private System.Windows.Forms.BindingSource rolesBindingSource2;
+        private RestauranteTPVDataSet1TableAdapters.RolesTableAdapter rolesTableAdapter1;
+        private System.Windows.Forms.BindingSource rolesBindingSource3;
     }
 }
