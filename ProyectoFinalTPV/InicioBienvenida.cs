@@ -89,7 +89,7 @@ namespace ProyectoFinalTPV
         }
         public String getConnectionString2()
         {
-            return connectionString;
+            return connectionString2;
         }
     }
 }

@@ -58,6 +58,12 @@
     <Compile Include="AgregarEmpleado.Designer.cs">
       <DependentUpon>AgregarEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfigurComida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurComida.Designer.cs">
+      <DependentUpon>ConfigurComida.cs</DependentUpon>
+    </Compile>
     <Compile Include="EligeCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarEmpleado.resx">
       <DependentUpon>AgregarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigurComida.resx">
+      <DependentUpon>ConfigurComida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EligeCuenta.resx">
       <DependentUpon>EligeCuenta.cs</DependentUpon>
