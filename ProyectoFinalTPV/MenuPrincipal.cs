@@ -28,5 +28,11 @@ namespace ProyectoFinalTPV
             AdministrarCuenta administrarCuenta = new AdministrarCuenta(nombreUsuario);
             m.cargarForm(administrarCuenta, this);
         }
+
+        private void hacerPedidoBtn_Click(object sender, EventArgs e)
+        {
+            HacerPedido hacerPedido = new HacerPedido();
+            m.cargarForm(hacerPedido,this);
+        }
     }
 }

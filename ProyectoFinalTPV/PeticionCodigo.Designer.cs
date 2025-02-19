@@ -137,7 +137,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(217, 237);
+            this.button10.Location = new System.Drawing.Point(81, 347);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(62, 50);
             this.button10.TabIndex = 9;
@@ -147,7 +147,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(217, 181);
+            this.button11.Location = new System.Drawing.Point(149, 347);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(62, 50);
             this.button11.TabIndex = 10;
@@ -157,7 +157,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(217, 293);
+            this.button12.Location = new System.Drawing.Point(12, 349);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(62, 50);
             this.button12.TabIndex = 11;
@@ -188,7 +188,7 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(215, 86);
+            this.button13.Location = new System.Drawing.Point(151, 86);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(70, 46);
             this.button13.TabIndex = 14;
@@ -200,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 355);
+            this.ClientSize = new System.Drawing.Size(233, 409);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.codigoTXT);

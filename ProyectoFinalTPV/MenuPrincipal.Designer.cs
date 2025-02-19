@@ -44,6 +44,7 @@
             this.hacerPedidoBtn.TabIndex = 0;
             this.hacerPedidoBtn.Text = "HACER PEDIDO";
             this.hacerPedidoBtn.UseVisualStyleBackColor = true;
+            this.hacerPedidoBtn.Click += new System.EventHandler(this.hacerPedidoBtn_Click);
             // 
             // verPedidoBtn
             // 
@@ -66,7 +67,7 @@
             // nombreUs
             // 
             this.nombreUs.AutoSize = true;
-            this.nombreUs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.nombreUs.BackColor = System.Drawing.Color.Transparent;
             this.nombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreUs.ForeColor = System.Drawing.Color.Snow;
             this.nombreUs.Location = new System.Drawing.Point(37, 39);

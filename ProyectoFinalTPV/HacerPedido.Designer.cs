@@ -30,50 +30,41 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label nombreLabel;
-            System.Windows.Forms.Label precioLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HacerPedido));
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.precioLabel1 = new System.Windows.Forms.Label();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restauranteTPVDataSet = new ProyectoFinalTPV.RestauranteTPVDataSet();
-            this.nombreLabel1 = new System.Windows.Forms.Label();
             this.productoTableAdapter = new ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.ProductoTableAdapter();
             this.tableAdapterManager = new ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.TableAdapterManager();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.layaoutPanelCategoria = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.restauranteTPVDataSet1 = new ProyectoFinalTPV.RestauranteTPVDataSet1();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriaTableAdapter = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.CategoriaTableAdapter();
+            this.tableAdapterManager1 = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.TableAdapterManager();
+            this.nombreComboBox = new System.Windows.Forms.ComboBox();
             nombreLabel = new System.Windows.Forms.Label();
-            precioLabel = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nombreLabel
             // 
             nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(11, 54);
+            nombreLabel.BackColor = System.Drawing.Color.Transparent;
+            nombreLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            nombreLabel.Location = new System.Drawing.Point(51, 64);
             nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(10, 13);
-            nombreLabel.TabIndex = 0;
-            nombreLabel.Text = " ";
-            // 
-            // precioLabel
-            // 
-            precioLabel.AutoSize = true;
-            precioLabel.Location = new System.Drawing.Point(11, 77);
-            precioLabel.Name = "precioLabel";
-            precioLabel.Size = new System.Drawing.Size(40, 13);
-            precioLabel.TabIndex = 3;
-            precioLabel.Text = "Precio:";
-            precioLabel.Click += new System.EventHandler(this.precioLabel_Click);
+            nombreLabel.Size = new System.Drawing.Size(47, 13);
+            nombreLabel.TabIndex = 4;
+            nombreLabel.Text = "Nombre:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
             this.label1.Location = new System.Drawing.Point(42, 25);
@@ -81,29 +72,6 @@
             this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Categorias";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(precioLabel);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.precioLabel1);
-            this.panel1.Controls.Add(nombreLabel);
-            this.panel1.Controls.Add(this.nombreLabel1);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(146, 100);
-            this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // precioLabel1
-            // 
-            this.precioLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "Precio", true));
-            this.precioLabel1.Location = new System.Drawing.Point(72, 44);
-            this.precioLabel1.Name = "precioLabel1";
-            this.precioLabel1.Size = new System.Drawing.Size(74, 23);
-            this.precioLabel1.TabIndex = 4;
-            this.precioLabel1.Text = "label2";
             // 
             // productoBindingSource
             // 
@@ -114,15 +82,6 @@
             // 
             this.restauranteTPVDataSet.DataSetName = "RestauranteTPVDataSet";
             this.restauranteTPVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nombreLabel1
-            // 
-            this.nombreLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "Nombre", true));
-            this.nombreLabel1.Location = new System.Drawing.Point(78, 77);
-            this.nombreLabel1.Name = "nombreLabel1";
-            this.nombreLabel1.Size = new System.Drawing.Size(86, 23);
-            this.nombreLabel1.TabIndex = 1;
-            this.nombreLabel1.Text = "label2";
             // 
             // productoTableAdapter
             // 
@@ -140,21 +99,15 @@
             this.tableAdapterManager.UpdateOrder = ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsuarioTableAdapter = null;
             // 
-            // flowLayoutPanel1
+            // layaoutPanelCategoria
             // 
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 97);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(623, 293);
-            this.flowLayoutPanel1.TabIndex = 3;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(149, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(121, 100);
-            this.panel2.TabIndex = 2;
+            this.layaoutPanelCategoria.AutoScroll = true;
+            this.layaoutPanelCategoria.BackColor = System.Drawing.Color.Transparent;
+            this.layaoutPanelCategoria.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.layaoutPanelCategoria.Location = new System.Drawing.Point(12, 107);
+            this.layaoutPanelCategoria.Name = "layaoutPanelCategoria";
+            this.layaoutPanelCategoria.Size = new System.Drawing.Size(644, 283);
+            this.layaoutPanelCategoria.TabIndex = 3;
             // 
             // button1
             // 
@@ -165,6 +118,46 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // restauranteTPVDataSet1
+            // 
+            this.restauranteTPVDataSet1.DataSetName = "RestauranteTPVDataSet1";
+            this.restauranteTPVDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoriaBindingSource
+            // 
+            this.categoriaBindingSource.DataMember = "Categoria";
+            this.categoriaBindingSource.DataSource = this.restauranteTPVDataSet1;
+            // 
+            // categoriaTableAdapter
+            // 
+            this.categoriaTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.CategoriaTableAdapter = this.categoriaTableAdapter;
+            this.tableAdapterManager1.MesaTableAdapter = null;
+            this.tableAdapterManager1.MetodoPagoTableAdapter = null;
+            this.tableAdapterManager1.PedidoTableAdapter = null;
+            this.tableAdapterManager1.ProductoTableAdapter = null;
+            this.tableAdapterManager1.RolesTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.UsuarioTableAdapter = null;
+            // 
+            // nombreComboBox
+            // 
+            this.nombreComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoriaBindingSource, "Nombre", true));
+            this.nombreComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.restauranteTPVDataSet1, "Categoria.Nombre", true));
+            this.nombreComboBox.DataSource = this.restauranteTPVDataSet1;
+            this.nombreComboBox.DisplayMember = "Categoria.Nombre";
+            this.nombreComboBox.FormattingEnabled = true;
+            this.nombreComboBox.Location = new System.Drawing.Point(104, 61);
+            this.nombreComboBox.Name = "nombreComboBox";
+            this.nombreComboBox.Size = new System.Drawing.Size(121, 21);
+            this.nombreComboBox.TabIndex = 5;
+            this.nombreComboBox.ValueMember = "Categoria.Nombre";
+            this.nombreComboBox.SelectedValueChanged += new System.EventHandler(this.nombreComboBox_SelectedValueChanged);
+            // 
             // HacerPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,19 +165,20 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(668, 402);
+            this.ClientSize = new System.Drawing.Size(676, 410);
+            this.Controls.Add(nombreLabel);
+            this.Controls.Add(this.nombreComboBox);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.layaoutPanelCategoria);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.Name = "HacerPedido";
             this.Text = "HacerPedido";
             this.Load += new System.EventHandler(this.HacerPedido_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,15 +187,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
         private RestauranteTPVDataSet restauranteTPVDataSet;
         private System.Windows.Forms.BindingSource productoBindingSource;
         private RestauranteTPVDataSetTableAdapters.ProductoTableAdapter productoTableAdapter;
         private RestauranteTPVDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label nombreLabel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label precioLabel1;
+        private System.Windows.Forms.FlowLayoutPanel layaoutPanelCategoria;
         private System.Windows.Forms.Button button1;
+        private RestauranteTPVDataSet1 restauranteTPVDataSet1;
+        private System.Windows.Forms.BindingSource categoriaBindingSource;
+        private RestauranteTPVDataSet1TableAdapters.CategoriaTableAdapter categoriaTableAdapter;
+        private RestauranteTPVDataSet1TableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.ComboBox nombreComboBox;
     }
 }
