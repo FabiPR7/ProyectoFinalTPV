@@ -138,5 +138,11 @@ namespace ProyectoFinalTPV
             public string Nombre { get; set; }
             public decimal Precio { get; set; }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ConfigurComida configurComida = new ConfigurComida();
+            m.cargarForm(configurComida,this);
+        }
     }
 }

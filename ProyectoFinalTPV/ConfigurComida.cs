@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,91 @@ namespace ProyectoFinalTPV
 {
     public partial class ConfigurComida : Form
     {
+        Metodos m = new Metodos();
+        HacerPedido HacerPedido = new HacerPedido();
+      List<  HacerPedido.Producto > productos = new List<HacerPedido.Producto> ();
+
         public ConfigurComida()
         {
             InitializeComponent();
+            m.adaptarForm(this);
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listaComidas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConfigurComida_Load(object sender, EventArgs e)
+        {
+            CargarCategorias();
+
+        }
+        private void CargarCategorias()
+        {
+            string query = "SELECT CategoriaID, nombre FROM Categoria";
+            listaCategorias.Items.Clear();
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            {
+                try
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                listaCategorias.Items.Add($"{reader["nombre"]}");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void listaCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listaComidas.Items.Clear();
+         productos =  HacerPedido.ObtenerProductosPorCategoria(HacerPedido.ObtenerIdPorNombre(listaCategorias.SelectedItem.ToString()));
+            foreach (HacerPedido.Producto prod in productos) { 
+                listaComidas.Items.Add(prod.Nombre);
+            }
+        }
+
+        private void listaCategorias_SelectedValueChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void agregarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Agregar_Categoria agregar_Categoria = new Agregar_Categoria();
+            m.cargarForm(agregar_Categoria,this);
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarComida agregar_Comida = new AgregarComida();
+            m.cargarForm(agregar_Comida, this);
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
-}
+}      
