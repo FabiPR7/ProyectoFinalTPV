@@ -37,10 +37,10 @@
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productoTableAdapter = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.ProductoTableAdapter();
             this.tableAdapterManager = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.TableAdapterManager();
+            this.categoriaTableAdapter = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.CategoriaTableAdapter();
             this.nombreComboBox = new System.Windows.Forms.ComboBox();
             this.precioTextBox = new System.Windows.Forms.TextBox();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriaTableAdapter = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.CategoriaTableAdapter();
             this.categriaComboBox = new System.Windows.Forms.ComboBox();
             this.precioLbl = new System.Windows.Forms.Label();
             this.categoriaNombre = new System.Windows.Forms.Label();
@@ -50,6 +50,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(46, 154);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(47, 13);
+            nombreLabel.TabIndex = 16;
+            nombreLabel.Text = "Nombre:";
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(21, 20);
@@ -58,6 +67,7 @@
             this.button2.TabIndex = 14;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -104,14 +114,9 @@
             this.tableAdapterManager.UpdateOrder = ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsuarioTableAdapter = null;
             // 
-            // nombreLabel
+            // categoriaTableAdapter
             // 
-            nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(46, 154);
-            nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(47, 13);
-            nombreLabel.TabIndex = 16;
-            nombreLabel.Text = "Nombre:";
+            this.categoriaTableAdapter.ClearBeforeFill = true;
             // 
             // nombreComboBox
             // 
@@ -134,10 +139,6 @@
             // 
             this.categoriaBindingSource.DataMember = "Categoria";
             this.categoriaBindingSource.DataSource = this.restauranteTPVDataSet1;
-            // 
-            // categoriaTableAdapter
-            // 
-            this.categoriaTableAdapter.ClearBeforeFill = true;
             // 
             // categriaComboBox
             // 

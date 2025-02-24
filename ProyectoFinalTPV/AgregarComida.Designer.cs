@@ -42,10 +42,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             nombreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(23, 184);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(55, 13);
+            nombreLabel.TabIndex = 2;
+            nombreLabel.Text = "Categoria:";
             // 
             // label1
             // 
@@ -82,23 +93,18 @@
             this.tableAdapterManager.UpdateOrder = ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsuarioTableAdapter = null;
             // 
-            // nombreLabel
-            // 
-            nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(23, 184);
-            nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(55, 13);
-            nombreLabel.TabIndex = 2;
-            nombreLabel.Text = "Categoria:";
-            // 
             // nombreComboBox
             // 
             this.nombreComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoriaBindingSource, "Nombre", true));
+            this.nombreComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.restauranteTPVDataSet1, "Categoria.Nombre", true));
+            this.nombreComboBox.DataSource = this.categoriaBindingSource1;
+            this.nombreComboBox.DisplayMember = "Nombre";
             this.nombreComboBox.FormattingEnabled = true;
             this.nombreComboBox.Location = new System.Drawing.Point(84, 181);
             this.nombreComboBox.Name = "nombreComboBox";
             this.nombreComboBox.Size = new System.Drawing.Size(121, 21);
             this.nombreComboBox.TabIndex = 3;
+            this.nombreComboBox.ValueMember = "Nombre";
             // 
             // textBox1
             // 
@@ -150,6 +156,12 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // categoriaBindingSource1
+            // 
+            this.categoriaBindingSource1.DataMember = "Categoria";
+            this.categoriaBindingSource1.DataSource = this.restauranteTPVDataSet1;
             // 
             // AgregarComida
             // 
@@ -170,6 +182,7 @@
             this.Load += new System.EventHandler(this.AgregarComida_Load);
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +202,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.BindingSource categoriaBindingSource1;
     }
 }

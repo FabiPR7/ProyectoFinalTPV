@@ -17,7 +17,7 @@ namespace ProyectoFinalTPV
         private Metodos m;
 
         public EditarOEliminarCategoria(string accion)
-        {
+        {   
             InitializeComponent();
             this.accion = accion;
             cargarAccion(accion);
@@ -45,7 +45,7 @@ namespace ProyectoFinalTPV
             if (accion.Equals("eliminar")) {
                 accionCategoriaTxt.Text = "Eliminar Categoria";
                 cambiarCategoriaTextBox.Visible = false;
-                cambiarCategoriaTextBox.Visible = false;
+                cambiarCategoriaTXT.Visible = false;
             }
             if (accion.Equals("editar"))
             {
@@ -57,14 +57,18 @@ namespace ProyectoFinalTPV
         {
             if (accion.Equals("eliminar"))
             {
-               DialogResult respuesta =  MessageBox.Show("¿Estas seguro que quieres eliminar?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+               DialogResult respuesta =  MessageBox.Show("¿Estas seguro que quieres eliminar esta categoria?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.OK) {
                     EliminarCategoria(nombreComboBox.Text);
                 }
             }
             if (accion.Equals("editar"))
             {
-                ActualizarCategoria(nombreComboBox.Text, cambiarCategoriaTXT.Text);
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro que quieres editar esta categoria?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                if (respuesta == DialogResult.OK)
+                {
+                    ActualizarCategoria(nombreComboBox.Text, cambiarCategoriaTXT.Text);
+                }
             }
         }
         private void EliminarCategoria(string nombreCategoria)
@@ -101,10 +105,9 @@ namespace ProyectoFinalTPV
         }
         private void ActualizarCategoria(string nombreActual, string nuevoNombre)
         {
-            string connectionString = "Server=TU_SERVIDOR;Database=TU_BASE_DATOS;Integrated Security=True;";
             string query = "UPDATE Categoria SET nombre = @nuevoNombre WHERE nombre = @nombreActual";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
             {
                 try
                 {
@@ -136,6 +139,11 @@ namespace ProyectoFinalTPV
 private void button2_Click(object sender, EventArgs e)
         {
             m.cerrarForm(this);
+        }
+
+        private void cambiarCategoriaTXT_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

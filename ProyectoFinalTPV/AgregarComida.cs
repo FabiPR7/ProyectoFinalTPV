@@ -16,7 +16,6 @@ namespace ProyectoFinalTPV
         public AgregarComida()
         {
             InitializeComponent();
-            m.adaptarForm(this);
         }
 
         private void categoriaBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -32,6 +31,11 @@ namespace ProyectoFinalTPV
             // TODO: esta línea de código carga datos en la tabla 'restauranteTPVDataSet1.Categoria' Puede moverla o quitarla según sea necesario.
             this.categoriaTableAdapter.Fill(this.restauranteTPVDataSet1.Categoria);
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

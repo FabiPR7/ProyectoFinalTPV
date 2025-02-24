@@ -41,7 +41,19 @@ namespace ProyectoFinalTPV
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (precioTextBox.Text == "" || categoriaNombre.Text == "")
+            {
+                MessageBox.Show("Rellena todos los datos");
+            }
+            else {
+                if (accion == "eliminar") {
+                    EliminarComida(nombreComboBox.Text);
+                }
+                if (accion == "editar") {
 
+                    
+                }
+            }
         }
 
         public void cargarAccion(string accion)
@@ -129,6 +141,11 @@ namespace ProyectoFinalTPV
                     MessageBox.Show("Error al actualizar categoría: " + ex.Message);
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            m.cerrarForm(this);
         }
     }
 }
