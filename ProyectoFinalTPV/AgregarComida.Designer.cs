@@ -35,14 +35,14 @@
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriaTableAdapter = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.CategoriaTableAdapter();
             this.tableAdapterManager = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.TableAdapterManager();
-            this.nombreComboBox = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nombreCategoriaComboBox = new System.Windows.Forms.ComboBox();
+            this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.precioTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             nombreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
@@ -93,25 +93,30 @@
             this.tableAdapterManager.UpdateOrder = ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsuarioTableAdapter = null;
             // 
-            // nombreComboBox
+            // nombreCategoriaComboBox
             // 
-            this.nombreComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoriaBindingSource, "Nombre", true));
-            this.nombreComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.restauranteTPVDataSet1, "Categoria.Nombre", true));
-            this.nombreComboBox.DataSource = this.categoriaBindingSource1;
-            this.nombreComboBox.DisplayMember = "Nombre";
-            this.nombreComboBox.FormattingEnabled = true;
-            this.nombreComboBox.Location = new System.Drawing.Point(84, 181);
-            this.nombreComboBox.Name = "nombreComboBox";
-            this.nombreComboBox.Size = new System.Drawing.Size(121, 21);
-            this.nombreComboBox.TabIndex = 3;
-            this.nombreComboBox.ValueMember = "Nombre";
+            this.nombreCategoriaComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoriaBindingSource, "Nombre", true));
+            this.nombreCategoriaComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.restauranteTPVDataSet1, "Categoria.Nombre", true));
+            this.nombreCategoriaComboBox.DataSource = this.categoriaBindingSource1;
+            this.nombreCategoriaComboBox.DisplayMember = "Nombre";
+            this.nombreCategoriaComboBox.FormattingEnabled = true;
+            this.nombreCategoriaComboBox.Location = new System.Drawing.Point(84, 181);
+            this.nombreCategoriaComboBox.Name = "nombreCategoriaComboBox";
+            this.nombreCategoriaComboBox.Size = new System.Drawing.Size(121, 21);
+            this.nombreCategoriaComboBox.TabIndex = 3;
+            this.nombreCategoriaComboBox.ValueMember = "Nombre";
             // 
-            // textBox1
+            // categoriaBindingSource1
             // 
-            this.textBox1.Location = new System.Drawing.Point(84, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 4;
+            this.categoriaBindingSource1.DataMember = "Categoria";
+            this.categoriaBindingSource1.DataSource = this.restauranteTPVDataSet1;
+            // 
+            // nombreTextBox
+            // 
+            this.nombreTextBox.Location = new System.Drawing.Point(84, 111);
+            this.nombreTextBox.Name = "nombreTextBox";
+            this.nombreTextBox.Size = new System.Drawing.Size(120, 20);
+            this.nombreTextBox.TabIndex = 4;
             // 
             // label2
             // 
@@ -122,12 +127,12 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Precio:";
             // 
-            // textBox2
+            // precioTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(84, 146);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 6;
+            this.precioTextBox.Location = new System.Drawing.Point(84, 146);
+            this.precioTextBox.Name = "precioTextBox";
+            this.precioTextBox.Size = new System.Drawing.Size(121, 20);
+            this.precioTextBox.TabIndex = 6;
             // 
             // label3
             // 
@@ -147,6 +152,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -158,11 +164,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // categoriaBindingSource1
-            // 
-            this.categoriaBindingSource1.DataMember = "Categoria";
-            this.categoriaBindingSource1.DataSource = this.restauranteTPVDataSet1;
-            // 
             // AgregarComida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,11 +172,11 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.precioTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nombreTextBox);
             this.Controls.Add(nombreLabel);
-            this.Controls.Add(this.nombreComboBox);
+            this.Controls.Add(this.nombreCategoriaComboBox);
             this.Controls.Add(this.label1);
             this.Name = "AgregarComida";
             this.Text = "AgregarComida";
@@ -195,10 +196,10 @@
         private System.Windows.Forms.BindingSource categoriaBindingSource;
         private RestauranteTPVDataSet1TableAdapters.CategoriaTableAdapter categoriaTableAdapter;
         private RestauranteTPVDataSet1TableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ComboBox nombreComboBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox nombreCategoriaComboBox;
+        private System.Windows.Forms.TextBox nombreTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox precioTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

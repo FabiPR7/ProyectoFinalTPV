@@ -87,36 +87,42 @@ namespace ProyectoFinalTPV
         {
             Agregar_Categoria agregar_Categoria = new Agregar_Categoria();
             agregar_Categoria.ShowDialog();
+            CargarCategorias();
         }
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarComida agregar_Comida = new AgregarComida();
            agregar_Comida.ShowDialog();
+            CargarCategorias();
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditarOEliminarComida editarOEliminarComida = new EditarOEliminarComida("editar");
             editarOEliminarComida.ShowDialog();
+            CargarCategorias();
         }
 
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             EditarOEliminarCategoria editarOEliminarCategoria = new EditarOEliminarCategoria("editar");
             editarOEliminarCategoria.ShowDialog();
+            CargarCategorias();
         }
 
         private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             EditarOEliminarCategoria editarOEliminarCategoria = new EditarOEliminarCategoria("eliminar");
             editarOEliminarCategoria.ShowDialog();
+            CargarCategorias();
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditarOEliminarComida editarOEliminarComida = new EditarOEliminarComida("eliminar");
             editarOEliminarComida.ShowDialog();
+            CargarCategorias();
         }
     }
 }      

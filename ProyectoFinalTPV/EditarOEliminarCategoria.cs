@@ -67,7 +67,7 @@ namespace ProyectoFinalTPV
                 DialogResult respuesta = MessageBox.Show("¿Estas seguro que quieres editar esta categoria?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 if (respuesta == DialogResult.OK)
                 {
-                    ActualizarCategoria(nombreComboBox.Text, cambiarCategoriaTXT.Text);
+                    ActualizarCategoria(nombreComboBox.Text, cambiarCategoriaTextBox.Text);
                 }
             }
         }

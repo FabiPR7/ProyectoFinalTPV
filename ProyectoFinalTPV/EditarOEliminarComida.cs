@@ -47,7 +47,7 @@ namespace ProyectoFinalTPV
             }
             else {
                 if (accion == "eliminar") {
-                    EliminarComida(nombreComboBox.Text);
+                    EliminarComida(nombreCambiarTxt.Text);
                 }
                 if (accion == "editar") {
 
@@ -61,7 +61,7 @@ namespace ProyectoFinalTPV
 
             if (accion.Equals("eliminar"))
             {
-                accionCategoriaTxt.Text = "Eliminar Categoria";
+                accionTxt.Text = "Eliminar Categoria";
                 precioTextBox.Visible = false;
                 precioLbl.Visible = false;
                 categriaComboBox.Visible = false;
@@ -69,7 +69,7 @@ namespace ProyectoFinalTPV
             }
             if (accion.Equals("editar"))
             {
-                accionCategoriaTxt.Text = "Editar Categoria";
+                accionTxt.Text = "Editar Categoria";
             }
         }
 
@@ -145,7 +145,7 @@ namespace ProyectoFinalTPV
 
         private void button2_Click(object sender, EventArgs e)
         {
-            m.cerrarForm(this);
+          this.Close();
         }
     }
 }
