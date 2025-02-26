@@ -124,5 +124,10 @@ namespace ProyectoFinalTPV
             editarOEliminarComida.ShowDialog();
             CargarCategorias();
         }
+
+        private void volverBtn_Click(object sender, EventArgs e)
+        {
+            m.cerrarForm(this);
+        }
     }
 }      

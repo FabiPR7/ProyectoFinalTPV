@@ -32,7 +32,8 @@ namespace ProyectoFinalTPV
             panel.BackColor = Color.White;
             panel.Size = new Size(123, 100); // Ajusta el tamaño según necesites
             panel.BorderStyle = BorderStyle.FixedSingle; // Opcional, para ver el borde
-
+            panel.Tag = preciot;
+            panel.Name = nombret;
             Label nombre = new Label();
             nombre.Text = nombret;
             nombre.Location = new Point(4, 31); // Posición dentro del Panel
@@ -47,10 +48,20 @@ namespace ProyectoFinalTPV
             precio.TextAlign= ContentAlignment.MiddleCenter;
             panel.Controls.Add(nombre);
             panel.Controls.Add(precio);
-
+            panel.Click += Panel_Click;
             layaoutPanelCategoria.Controls.Add(panel);
         }
-
+        private void Panel_Click(object sender, EventArgs e)
+        {
+            Panel panelClickeado = sender as Panel;
+            if (panelClickeado != null)
+            {
+                string nombreProducot = panelClickeado.Name;
+                string precioProducto = panelClickeado.Tag.ToString();
+                listpedidos.Items.Add(nombreProducot + "    "+ precioProducto);
+             precioAcumuladolbl.Text = (float.Parse(precioProducto) + float.Parse(precioAcumuladolbl.Text)).ToString();
+            }
+        }
         public int ObtenerIdPorNombre(string nombreCategoria)
         {
             int id = 0;
@@ -144,5 +155,80 @@ namespace ProyectoFinalTPV
             ConfigurComida configurComida = new ConfigurComida();
             m.cargarForm(configurComida,this);
         }
+
+        private void volverBtn_Click(object sender, EventArgs e)
+        {
+            m.cerrarForm(this);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listpedidos.SelectedItem != null) // Verifica que haya un ítem seleccionado
+            {
+                string itemSeleccionado = listpedidos.SelectedItem.ToString();
+
+                // Confirmar la eliminación
+                DialogResult resultado = MessageBox.Show($"¿Deseas eliminar '{itemSeleccionado}'?", "Confirmar eliminación",
+                                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    listpedidos.Items.Remove(listpedidos.SelectedItem); // Elimina el ítem seleccionado
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un elemento antes de eliminar.");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show($"¿Seguro que quieres eliminar todo el pedido?", "Confirmar eliminación",
+                                                       MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                listpedidos.Items.Clear(); // Elimina el ítem seleccionado
+               
+            }
+        }
+
+        public decimal ObtenerPrecioPorNombre(string nombreProducto)
+        {
+            decimal precio = -1; // Valor por defecto si no se encuentra
+
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT Precio FROM Producto WHERE Nombre = @Nombre";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Nombre", nombreProducto);
+                        object resultado = cmd.ExecuteScalar(); // Obtiene un único valor
+
+                        if (resultado != null)
+                        {
+                            precio = Convert.ToDecimal(resultado);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Producto no encontrado.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+
+            return precio;
+        }
+
+
     }
 }

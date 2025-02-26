@@ -17,9 +17,13 @@ namespace ProyectoFinalTPV
         private Metodos m;
         public EditarOEliminarComida(string accion)
         {
-            
+
             InitializeComponent();
+            
             this.accion = accion;
+            m = new Metodos();
+            cargarAccion(accion);
+
         }
 
         private void productoBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -41,18 +45,26 @@ namespace ProyectoFinalTPV
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (precioTextBox.Text == "" || categoriaNombre.Text == "")
+            if (accion == "eliminar")
             {
-                MessageBox.Show("Rellena todos los datos");
+                DialogResult resultado = MessageBox.Show("¿Estas seguro de eliminar el Producto: " + nombeAcambiarText.Text + "?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (resultado == DialogResult.OK)
+                {
+                    EliminarComida(nombeAcambiarText.Text);
+                }
             }
-            else {
-                if (accion == "eliminar") {
-                    EliminarComida(nombreCambiarTxt.Text);
-                }
-                if (accion == "editar") {
+            if (accion == "editar")
+            {
 
-                    
+                if (precioTextBox.Text == "" || categoriaNombre.Text == "" || textBox1.Text == "" || nombeAcambiarText.Text == "")
+                {
+                    MessageBox.Show("Rellena todos los datos");
                 }
+                else
+                {
+                    ActualizarProdudcto(nombeAcambiarText.Text, textBox1.Text, float.Parse(precioTextBox.Text), ObtenerCategoriaID(categriaComboBox.Text));
+                }
+
             }
         }
 
@@ -64,8 +76,11 @@ namespace ProyectoFinalTPV
                 accionTxt.Text = "Eliminar Categoria";
                 precioTextBox.Visible = false;
                 precioLbl.Visible = false;
+                cambiarAText.Visible = false;
                 categriaComboBox.Visible = false;
                 categoriaNombre.Visible = false;
+                textBox1.Visible = false;
+                label1.Visible = false;
             }
             if (accion.Equals("editar"))
             {
@@ -110,42 +125,98 @@ namespace ProyectoFinalTPV
                 }
             }
         }
-        private void ActualizarCategoria(string nombreActual, string nuevoNombre, float precio)
+        private void ActualizarProdudcto(string nombreActual, string nuevoNombre, float precio, int id)
         {
-            string query = "UPDATE Producto SET nombre = @nuevoNombre, precio = @precio,  WHERE nombre = @nombreActual";
-
             using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
             {
                 try
                 {
                     conn.Open();
+
+                    // 🔹 Verificar si el categoriaID existe en la tabla Categoria antes de actualizar
+                    if (!CategoriaExiste(ObtenerCategoriaID(categriaComboBox.Text)))
+                    {
+                        MessageBox.Show("Error: La categoría especificada no existe en la base de datos.");
+                        return;
+                    }
+
+                    string query = "UPDATE Producto SET Nombre = @nuevoNombre, Precio = @precio, CategoriaID = @categoria WHERE Nombre = @nombreActual";
+
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@nombreActual", nombreActual);
                         cmd.Parameters.AddWithValue("@nuevoNombre", nuevoNombre);
+                        cmd.Parameters.AddWithValue("@precio", precio);
+                        cmd.Parameters.AddWithValue("@categoria", ObtenerCategoriaID(categriaComboBox.Text));
 
                         int filasAfectadas = cmd.ExecuteNonQuery();
+
                         if (filasAfectadas > 0)
                         {
-                            MessageBox.Show("Categoría actualizada correctamente.");
-
+                            MessageBox.Show("Producto actualizado correctamente.");
                         }
                         else
                         {
-                            MessageBox.Show("No se encontró la categoría para actualizar.");
+                            MessageBox.Show("No se encontró el producto para actualizar.");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al actualizar categoría: " + ex.Message);
+                    MessageBox.Show("Error al actualizar producto: " + ex.Message);
                 }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-          this.Close();
+            this.Close();
+        }
+
+        public int ObtenerCategoriaID(string nombreCategoria)
+        {
+            int categoriaID = -1; // Valor por defecto si no se encuentra
+
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT CategoriaID FROM Categoria WHERE Nombre = @Nombre";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                      
+                        cmd.Parameters.AddWithValue("@Nombre", nombreCategoria);
+                        object resultado = cmd.ExecuteScalar();
+
+                        if (resultado != null)
+                        {
+                            categoriaID = Convert.ToInt32(resultado);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+
+            return categoriaID;
+        }
+        private bool CategoriaExiste(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Categoria WHERE CategoriaID = @id";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
         }
     }
 }

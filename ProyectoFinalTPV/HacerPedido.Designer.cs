@@ -43,11 +43,22 @@
             this.categoriaTableAdapter = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.CategoriaTableAdapter();
             this.tableAdapterManager1 = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.TableAdapterManager();
             this.nombreComboBox = new System.Windows.Forms.ComboBox();
+            this.volverBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.precioAcumuladolbl = new System.Windows.Forms.Label();
+            this.listpedidos = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.button3 = new System.Windows.Forms.Button();
             nombreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nombreLabel
@@ -55,7 +66,7 @@
             nombreLabel.AutoSize = true;
             nombreLabel.BackColor = System.Drawing.Color.Transparent;
             nombreLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            nombreLabel.Location = new System.Drawing.Point(51, 64);
+            nombreLabel.Location = new System.Drawing.Point(231, 40);
             nombreLabel.Name = "nombreLabel";
             nombreLabel.Size = new System.Drawing.Size(47, 13);
             nombreLabel.TabIndex = 4;
@@ -67,7 +78,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(42, 25);
+            this.label1.Location = new System.Drawing.Point(280, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 0;
@@ -104,16 +115,16 @@
             this.layaoutPanelCategoria.AutoScroll = true;
             this.layaoutPanelCategoria.BackColor = System.Drawing.Color.Transparent;
             this.layaoutPanelCategoria.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.layaoutPanelCategoria.Location = new System.Drawing.Point(12, 107);
+            this.layaoutPanelCategoria.Location = new System.Drawing.Point(20, 64);
             this.layaoutPanelCategoria.Name = "layaoutPanelCategoria";
-            this.layaoutPanelCategoria.Size = new System.Drawing.Size(644, 283);
+            this.layaoutPanelCategoria.Size = new System.Drawing.Size(330, 283);
             this.layaoutPanelCategoria.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(581, 14);
+            this.button1.Location = new System.Drawing.Point(617, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 53);
+            this.button1.Size = new System.Drawing.Size(47, 33);
             this.button1.TabIndex = 4;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -152,12 +163,105 @@
             this.nombreComboBox.DataSource = this.restauranteTPVDataSet1;
             this.nombreComboBox.DisplayMember = "Categoria.Nombre";
             this.nombreComboBox.FormattingEnabled = true;
-            this.nombreComboBox.Location = new System.Drawing.Point(104, 61);
+            this.nombreComboBox.Location = new System.Drawing.Point(284, 37);
             this.nombreComboBox.Name = "nombreComboBox";
             this.nombreComboBox.Size = new System.Drawing.Size(121, 21);
             this.nombreComboBox.TabIndex = 5;
             this.nombreComboBox.ValueMember = "Categoria.Nombre";
             this.nombreComboBox.SelectedValueChanged += new System.EventHandler(this.nombreComboBox_SelectedValueChanged);
+            // 
+            // volverBtn
+            // 
+            this.volverBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("volverBtn.BackgroundImage")));
+            this.volverBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.volverBtn.Location = new System.Drawing.Point(12, 14);
+            this.volverBtn.Name = "volverBtn";
+            this.volverBtn.Size = new System.Drawing.Size(33, 31);
+            this.volverBtn.TabIndex = 17;
+            this.volverBtn.UseVisualStyleBackColor = true;
+            this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(166, 360);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 18;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.precioAcumuladolbl);
+            this.panel1.Location = new System.Drawing.Point(20, 353);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(644, 53);
+            this.panel1.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(579, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(27, 29);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "€";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(525, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 1;
+            // 
+            // precioAcumuladolbl
+            // 
+            this.precioAcumuladolbl.AutoSize = true;
+            this.precioAcumuladolbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioAcumuladolbl.Location = new System.Drawing.Point(500, 19);
+            this.precioAcumuladolbl.Name = "precioAcumuladolbl";
+            this.precioAcumuladolbl.Size = new System.Drawing.Size(62, 29);
+            this.precioAcumuladolbl.TabIndex = 0;
+            this.precioAcumuladolbl.Text = "0.00";
+            // 
+            // listpedidos
+            // 
+            this.listpedidos.FormattingEnabled = true;
+            this.listpedidos.Location = new System.Drawing.Point(429, 70);
+            this.listpedidos.Name = "listpedidos";
+            this.listpedidos.Size = new System.Drawing.Size(235, 277);
+            this.listpedidos.TabIndex = 20;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(356, 79);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(67, 31);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(387, 102);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(8, 4);
+            this.checkedListBox1.TabIndex = 22;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(356, 131);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(67, 31);
+            this.button3.TabIndex = 23;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // HacerPedido
             // 
@@ -167,6 +271,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(676, 410);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.listpedidos);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.volverBtn);
             this.Controls.Add(nombreLabel);
             this.Controls.Add(this.nombreComboBox);
             this.Controls.Add(this.button1);
@@ -180,6 +291,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,5 +312,15 @@
         private RestauranteTPVDataSet1TableAdapters.CategoriaTableAdapter categoriaTableAdapter;
         private RestauranteTPVDataSet1TableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.ComboBox nombreComboBox;
+        private System.Windows.Forms.Button volverBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox listpedidos;
+        private System.Windows.Forms.Label precioAcumuladolbl;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Button button3;
     }
 }
