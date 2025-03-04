@@ -11,13 +11,16 @@ using System.Windows.Forms;
 
 namespace ProyectoFinalTPV
 {
-    public partial class HacerPedido: Form
+    public partial class HacerPedido : Form
     {
         Metodos m = new Metodos();
-        public HacerPedido()
+        string usuario;
+
+        public HacerPedido(string usuario)
         {
             InitializeComponent();
             m.adaptarForm(this);
+            this.usuario = usuario;
         }
 
         private void HacerPedido_Load(object sender, EventArgs e)
@@ -26,8 +29,9 @@ namespace ProyectoFinalTPV
             this.categoriaTableAdapter.Fill(this.restauranteTPVDataSet1.Categoria);
 
         }
-       
-        public void rellenarFlowLayout(string nombret, string preciot) {
+
+        public void rellenarFlowLayout(string nombret, string preciot)
+        {
             Panel panel = new Panel();
             panel.BackColor = Color.White;
             panel.Size = new Size(123, 100); // Ajusta el tamaño según necesites
@@ -38,14 +42,14 @@ namespace ProyectoFinalTPV
             nombre.Text = nombret;
             nombre.Location = new Point(4, 31); // Posición dentro del Panel
             nombre.ForeColor = Color.Black;
-            nombre.AutoSize = true; 
-            nombre.TextAlign= ContentAlignment.MiddleCenter;
+            nombre.AutoSize = true;
+            nombre.TextAlign = ContentAlignment.MiddleCenter;
             Label precio = new Label();
             precio.Text = preciot;
             precio.AutoSize = true;
             precio.Location = new Point(4, 58); // Posición dentro del Panel
             precio.ForeColor = Color.Black;
-            precio.TextAlign= ContentAlignment.MiddleCenter;
+            precio.TextAlign = ContentAlignment.MiddleCenter;
             panel.Controls.Add(nombre);
             panel.Controls.Add(precio);
             panel.Click += Panel_Click;
@@ -58,8 +62,8 @@ namespace ProyectoFinalTPV
             {
                 string nombreProducot = panelClickeado.Name;
                 string precioProducto = panelClickeado.Tag.ToString();
-                listpedidos.Items.Add(nombreProducot + "    "+ precioProducto);
-             precioAcumuladolbl.Text = (float.Parse(precioProducto) + float.Parse(precioAcumuladolbl.Text)).ToString();
+                listpedidos.Items.Add(nombreProducot + "    " + precioProducto);
+                precioAcumuladolbl.Text = (float.Parse(precioProducto) + float.Parse(precioAcumuladolbl.Text)).ToString();
             }
         }
         public int ObtenerIdPorNombre(string nombreCategoria)
@@ -84,7 +88,8 @@ namespace ProyectoFinalTPV
                         {
                             id = Convert.ToInt32(result);
                         }
-                        else {
+                        else
+                        {
                             MessageBox.Show("Es null");
                         }
                     }
@@ -135,16 +140,17 @@ namespace ProyectoFinalTPV
 
         private void nombreComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
-           layaoutPanelCategoria.Controls.Clear();
+            layaoutPanelCategoria.Controls.Clear();
             List<Producto> productos = ObtenerProductosPorCategoria(ObtenerIdPorNombre(nombreComboBox.Text));
-            foreach(Producto pro in productos) {
+            foreach (Producto pro in productos)
+            {
                 rellenarFlowLayout(pro.Nombre, pro.Precio.ToString());
             }
-           
+
         }
 
-        
-            public class Producto
+
+        public class Producto
         {
             public string Nombre { get; set; }
             public decimal Precio { get; set; }
@@ -153,7 +159,7 @@ namespace ProyectoFinalTPV
         private void button1_Click(object sender, EventArgs e)
         {
             ConfigurComida configurComida = new ConfigurComida();
-            m.cargarForm(configurComida,this);
+            m.cargarForm(configurComida, this);
         }
 
         private void volverBtn_Click(object sender, EventArgs e)
@@ -163,17 +169,14 @@ namespace ProyectoFinalTPV
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (listpedidos.SelectedItem != null) // Verifica que haya un ítem seleccionado
+            if (listpedidos.SelectedItem != null) 
             {
                 string itemSeleccionado = listpedidos.SelectedItem.ToString();
-
-                // Confirmar la eliminación
                 DialogResult resultado = MessageBox.Show($"¿Deseas eliminar '{itemSeleccionado}'?", "Confirmar eliminación",
-                                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
-                    listpedidos.Items.Remove(listpedidos.SelectedItem); // Elimina el ítem seleccionado
+                    listpedidos.Items.Remove(listpedidos.SelectedItem);
                 }
             }
             else
@@ -189,14 +192,14 @@ namespace ProyectoFinalTPV
 
             if (resultado == DialogResult.Yes)
             {
-                listpedidos.Items.Clear(); // Elimina el ítem seleccionado
-               
+                listpedidos.Items.Clear(); 
+
             }
         }
 
         public decimal ObtenerPrecioPorNombre(string nombreProducto)
         {
-            decimal precio = -1; // Valor por defecto si no se encuentra
+            decimal precio = -1; 
 
             using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
             {
@@ -208,7 +211,7 @@ namespace ProyectoFinalTPV
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Nombre", nombreProducto);
-                        object resultado = cmd.ExecuteScalar(); // Obtiene un único valor
+                        object resultado = cmd.ExecuteScalar(); 
 
                         if (resultado != null)
                         {
@@ -229,6 +232,162 @@ namespace ProyectoFinalTPV
             return precio;
         }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            GuardarPedido();
+            MessageBox.Show("Pedido Hecho");
+        }
+        public int ObtenerUsuarioIDPorNombre(string nombre)
+        {
+            MessageBox.Show(nombre);
+            string query = "SELECT UsuarioID FROM Usuario WHERE Nombre = @Nombre";
+            using (SqlConnection connection = new SqlConnection(m.getConnectionString2()))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+
+                        command.Parameters.AddWithValue("@Nombre", nombre);
+
+                        object result = command.ExecuteScalar();
+
+
+                        if (result != null)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            return -1;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al obtener el UsuarioID: " + ex.Message);
+                    return -1;
+                }
+            }
+        }
+        public void GuardarPedido()
+        {
+            using (SqlConnection connection = new SqlConnection(m.getConnectionString2()))
+            {
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+
+                try
+                {
+
+
+                    if (numeroMesa.Value <= 0)
+                    {
+                        MessageBox.Show("Elige un número de mesa válido.");
+                        return;
+                    }
+
+
+                    string insertPedidoQuery = @"
+                INSERT INTO Pedido (MesaID, UsuarioID, FechaPedido)
+                VALUES (@MesaID, @UsuarioID, @FechaPedido);
+                SELECT SCOPE_IDENTITY();";
+
+                    using (SqlCommand command = new SqlCommand(insertPedidoQuery, connection, transaction))
+                    {
+                        command.Parameters.AddWithValue("@MesaID", numeroMesa.Value);
+                        command.Parameters.AddWithValue("@UsuarioID", ObtenerUsuarioIDPorNombre(usuario));
+                        command.Parameters.AddWithValue("@FechaPedido", DateTime.Now);
+
+                        int pedidoID = Convert.ToInt32(command.ExecuteScalar());
+                        MessageBox.Show($"Pedido insertado con ID: {pedidoID}");
+
+                        InsertarPedidosDetalle(pedidoID, connection, transaction);
+                    }
+
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw new Exception("Error al guardar el pedido", ex);
+                }
+            }
+        }
+        public Dictionary<string, int> ContarPalabras(List<string> palabras)
+        {
+            Dictionary<string, int> conteoPalabras = new Dictionary<string, int>();
+
+            foreach (string palabra in palabras)
+            {
+                if (conteoPalabras.ContainsKey(palabra))
+                {
+                    conteoPalabras[palabra]++;
+                }
+                else
+                {
+                    conteoPalabras[palabra] = 1;
+                }
+            }
+
+            return conteoPalabras;
+        }
+
+        private void InsertarPedidosDetalle(int pedidoID, SqlConnection connection, SqlTransaction transaction)
+        {
+            List<string> pedidos = new List<string>();
+            foreach (string text in listpedidos.Items)
+            {
+                pedidos.Add(text.Substring(0, text.IndexOf("    ")));
+
+            }
+            Dictionary<string, int> pedidosDic = ContarPalabras(pedidos);
+            foreach (var producto in pedidosDic)
+            {
+                string insertDetalleQuery = @"
+            INSERT INTO PedidoProducto (PedidoID, ProductoID, Cantidad)
+            VALUES (@PedidoID, @ProductoID, @Cantidad);";
+
+                using (SqlCommand command = new SqlCommand(insertDetalleQuery, connection, transaction))
+                {
+                    command.Parameters.AddWithValue("@PedidoID", pedidoID);
+                    command.Parameters.AddWithValue("@ProductoID", ObtenerProductoIDPorNombre(producto.Key));
+                    command.Parameters.AddWithValue("@Cantidad", producto.Value);
+                    command.ExecuteNonQuery();
+
+                }
+            }
+        }
+
+        private int ObtenerProductoIDPorNombre(string nombreProducto)
+        {
+            using (SqlConnection connection = new SqlConnection(m.getConnectionString2()))
+            {
+                connection.Open();
+                string query = "SELECT ProductoID FROM Producto WHERE Nombre = @Nombre";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Nombre", nombreProducto);
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        throw new Exception($"Producto no encontrado: {nombreProducto}");
+                    }
+                }
+            }
+        }
 
     }
 }
+

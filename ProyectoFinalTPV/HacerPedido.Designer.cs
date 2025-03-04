@@ -53,12 +53,16 @@
             this.button2 = new System.Windows.Forms.Button();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.numeroMesa = new System.Windows.Forms.NumericUpDown();
+            this.nMesa = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             nombreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroMesa)).BeginInit();
             this.SuspendLayout();
             // 
             // nombreLabel
@@ -66,7 +70,7 @@
             nombreLabel.AutoSize = true;
             nombreLabel.BackColor = System.Drawing.Color.Transparent;
             nombreLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            nombreLabel.Location = new System.Drawing.Point(231, 40);
+            nombreLabel.Location = new System.Drawing.Point(66, 40);
             nombreLabel.Name = "nombreLabel";
             nombreLabel.Size = new System.Drawing.Size(47, 13);
             nombreLabel.TabIndex = 4;
@@ -78,7 +82,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(280, 14);
+            this.label1.Location = new System.Drawing.Point(115, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 0;
@@ -122,11 +126,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(617, 12);
+            this.button1.Location = new System.Drawing.Point(604, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 33);
+            this.button1.Size = new System.Drawing.Size(60, 33);
             this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
+            this.button1.Text = "Ajustes";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -163,7 +167,7 @@
             this.nombreComboBox.DataSource = this.restauranteTPVDataSet1;
             this.nombreComboBox.DisplayMember = "Categoria.Nombre";
             this.nombreComboBox.FormattingEnabled = true;
-            this.nombreComboBox.Location = new System.Drawing.Point(284, 37);
+            this.nombreComboBox.Location = new System.Drawing.Point(119, 37);
             this.nombreComboBox.Name = "nombreComboBox";
             this.nombreComboBox.Size = new System.Drawing.Size(121, 21);
             this.nombreComboBox.TabIndex = 5;
@@ -241,7 +245,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(67, 31);
             this.button2.TabIndex = 21;
-            this.button2.Text = "button2";
+            this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -255,13 +259,43 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(356, 131);
+            this.button3.Location = new System.Drawing.Point(356, 174);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(67, 31);
+            this.button3.Size = new System.Drawing.Size(67, 41);
             this.button3.TabIndex = 23;
-            this.button3.Text = "button3";
+            this.button3.Text = "Eliminar Todo";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // numeroMesa
+            // 
+            this.numeroMesa.Location = new System.Drawing.Point(406, 38);
+            this.numeroMesa.Name = "numeroMesa";
+            this.numeroMesa.Size = new System.Drawing.Size(120, 20);
+            this.numeroMesa.TabIndex = 24;
+            // 
+            // nMesa
+            // 
+            this.nMesa.AutoSize = true;
+            this.nMesa.BackColor = System.Drawing.Color.Transparent;
+            this.nMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nMesa.ForeColor = System.Drawing.Color.Snow;
+            this.nMesa.Location = new System.Drawing.Point(402, 11);
+            this.nMesa.Name = "nMesa";
+            this.nMesa.Size = new System.Drawing.Size(76, 20);
+            this.nMesa.TabIndex = 25;
+            this.nMesa.Text = "Nº Mesa";
+            this.nMesa.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(356, 270);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(67, 31);
+            this.button4.TabIndex = 26;
+            this.button4.Text = "Guardar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // HacerPedido
             // 
@@ -271,6 +305,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(676, 410);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.nMesa);
+            this.Controls.Add(this.numeroMesa);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.button2);
@@ -293,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroMesa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,5 +360,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.NumericUpDown numeroMesa;
+        private System.Windows.Forms.Label nMesa;
+        private System.Windows.Forms.Button button4;
     }
 }

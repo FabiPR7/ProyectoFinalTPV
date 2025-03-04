@@ -13,13 +13,15 @@ namespace ProyectoFinalTPV
 {
     public partial class ConfigurComida : Form
     {
+       private string usuario = "";
         Metodos m = new Metodos();
-        HacerPedido HacerPedido = new HacerPedido();
-      List<  HacerPedido.Producto > productos = new List<HacerPedido.Producto> ();
+        HacerPedido HacerPedido;
+      List<HacerPedido.Producto > productos = new List<HacerPedido.Producto> ();
 
         public ConfigurComida()
         {
             InitializeComponent();
+            HacerPedido = new HacerPedido(usuario);
             m.adaptarForm(this);
         }
 

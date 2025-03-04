@@ -41,7 +41,6 @@
             this.codigoAgregarEmpleadoTXT = new System.Windows.Forms.TextBox();
             this.rolesTableAdapter = new ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.RolesTableAdapter();
             this.tableAdapterManager = new ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.TableAdapterManager();
-            this.rolAgregarEmpeladoTXT = new System.Windows.Forms.ComboBox();
             this.rolesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.restauranteTPVDataSet11 = new ProyectoFinalTPV.RestauranteTPVDataSet1();
             this.rolesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
@@ -50,6 +49,10 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.rolesTableAdapter1 = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.RolesTableAdapter();
             this.volverBtn = new System.Windows.Forms.Button();
+            this.rolesBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.tableAdapterManager1 = new ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.TableAdapterManager();
+            this.rolAgregarEmpeladoTXT = new System.Windows.Forms.ComboBox();
+            this.rolesBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             nombreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
@@ -58,6 +61,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource5)).BeginInit();
             this.SuspendLayout();
             // 
             // nombreLabel
@@ -147,19 +152,6 @@
             this.tableAdapterManager.UpdateOrder = ProyectoFinalTPV.RestauranteTPVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsuarioTableAdapter = null;
             // 
-            // rolAgregarEmpeladoTXT
-            // 
-            this.rolAgregarEmpeladoTXT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rolesBindingSource, "Nombre", true));
-            this.rolAgregarEmpeladoTXT.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.rolesBindingSource3, "Nombre", true));
-            this.rolAgregarEmpeladoTXT.DataSource = this.rolesBindingSource2;
-            this.rolAgregarEmpeladoTXT.DisplayMember = "Nombre";
-            this.rolAgregarEmpeladoTXT.FormattingEnabled = true;
-            this.rolAgregarEmpeladoTXT.Location = new System.Drawing.Point(316, 194);
-            this.rolAgregarEmpeladoTXT.Name = "rolAgregarEmpeladoTXT";
-            this.rolAgregarEmpeladoTXT.Size = new System.Drawing.Size(100, 21);
-            this.rolAgregarEmpeladoTXT.TabIndex = 10;
-            this.rolAgregarEmpeladoTXT.ValueMember = "Nombre";
-            // 
             // rolesBindingSource3
             // 
             this.rolesBindingSource3.DataMember = "Roles";
@@ -205,6 +197,41 @@
             this.volverBtn.UseVisualStyleBackColor = true;
             this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
             // 
+            // rolesBindingSource4
+            // 
+            this.rolesBindingSource4.DataMember = "Roles";
+            this.rolesBindingSource4.DataSource = this.restauranteTPVDataSet11;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.CategoriaTableAdapter = null;
+            this.tableAdapterManager1.MesaTableAdapter = null;
+            this.tableAdapterManager1.MetodoPagoTableAdapter = null;
+            this.tableAdapterManager1.PedidoTableAdapter = null;
+            this.tableAdapterManager1.ProductoTableAdapter = null;
+            this.tableAdapterManager1.RolesTableAdapter = this.rolesTableAdapter1;
+            this.tableAdapterManager1.UpdateOrder = ProyectoFinalTPV.RestauranteTPVDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.UsuarioTableAdapter = null;
+            // 
+            // rolAgregarEmpeladoTXT
+            // 
+            this.rolAgregarEmpeladoTXT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rolesBindingSource2, "Nombre", true));
+            this.rolAgregarEmpeladoTXT.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.rolesBindingSource5, "Nombre", true));
+            this.rolAgregarEmpeladoTXT.DataSource = this.rolesBindingSource5;
+            this.rolAgregarEmpeladoTXT.DisplayMember = "Nombre";
+            this.rolAgregarEmpeladoTXT.FormattingEnabled = true;
+            this.rolAgregarEmpeladoTXT.Location = new System.Drawing.Point(316, 189);
+            this.rolAgregarEmpeladoTXT.Name = "rolAgregarEmpeladoTXT";
+            this.rolAgregarEmpeladoTXT.Size = new System.Drawing.Size(121, 21);
+            this.rolAgregarEmpeladoTXT.TabIndex = 18;
+            this.rolAgregarEmpeladoTXT.ValueMember = "Nombre";
+            // 
+            // rolesBindingSource5
+            // 
+            this.rolesBindingSource5.DataMember = "Roles";
+            this.rolesBindingSource5.DataSource = this.restauranteTPVDataSet11;
+            // 
             // AgregarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,9 +239,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(668, 402);
+            this.Controls.Add(this.rolAgregarEmpeladoTXT);
             this.Controls.Add(this.volverBtn);
             this.Controls.Add(nombreLabel);
-            this.Controls.Add(this.rolAgregarEmpeladoTXT);
             this.Controls.Add(this.codigoAgregarEmpleadoTXT);
             this.Controls.Add(this.nameAgregarEmpleadoTXT);
             this.Controls.Add(this.aceptarAgregarEmpleadoBtn);
@@ -231,6 +258,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,7 +277,6 @@
         private System.Windows.Forms.TextBox codigoAgregarEmpleadoTXT;
         private RestauranteTPVDataSetTableAdapters.RolesTableAdapter rolesTableAdapter;
         private RestauranteTPVDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ComboBox rolAgregarEmpeladoTXT;
         private RestauranteTPVDataSet restauranteTPVDataSet1;
         private System.Windows.Forms.BindingSource rolesBindingSource1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -257,5 +285,9 @@
         private RestauranteTPVDataSet1TableAdapters.RolesTableAdapter rolesTableAdapter1;
         private System.Windows.Forms.BindingSource rolesBindingSource3;
         private System.Windows.Forms.Button volverBtn;
+        private System.Windows.Forms.BindingSource rolesBindingSource4;
+        private RestauranteTPVDataSet1TableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.ComboBox rolAgregarEmpeladoTXT;
+        private System.Windows.Forms.BindingSource rolesBindingSource5;
     }
 }
