@@ -46,9 +46,9 @@ namespace ProyectoFinalTPV
                 MessageBox.Show("Rellena todos los datos");
             }
             else {
-                MessageBox.Show("Aqui entra");
+            
                 agregarComida(nombreTextBox.Text, float.Parse(precioTextBox.Text), ObtenerCategoriaID(nombreCategoriaComboBox.Text));
-                MessageBox.Show("Ya lo probo");
+              
             }
         }
 
@@ -67,11 +67,8 @@ namespace ProyectoFinalTPV
                         cmd.Parameters.AddWithValue("@Precio", precio);
                         cmd.Parameters.AddWithValue("@CategoriaID", categoriaID);
                         MessageBox.Show("Lo ejecuta");
-                        int filasAfectadas = cmd.ExecuteNonQuery();
-                        if (filasAfectadas > 0)
-                            MessageBox.Show("Comida agregada correctamente.");
-                        else
-                            MessageBox.Show("No se pudo agregar la comida.");
+                        cmd.ExecuteNonQuery();
+                       
                     }
                 }
                 catch (Exception ex)

@@ -177,6 +177,8 @@ namespace ProyectoFinalTPV
                 if (resultado == DialogResult.Yes)
                 {
                     listpedidos.Items.Remove(listpedidos.SelectedItem);
+                    decimal restar = decimal.Parse(itemSeleccionado.Substring(itemSeleccionado.IndexOf("    ")));
+                    precioAcumuladolbl.Text = (decimal.Parse(precioAcumuladolbl.Text) - restar).ToString();
                 }
             }
             else
@@ -189,7 +191,7 @@ namespace ProyectoFinalTPV
         {
             DialogResult resultado = MessageBox.Show($"¿Seguro que quieres eliminar todo el pedido?", "Confirmar eliminación",
                                                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
+            precioAcumuladolbl.Text = "0";
             if (resultado == DialogResult.Yes)
             {
                 listpedidos.Items.Clear(); 
@@ -239,9 +241,14 @@ namespace ProyectoFinalTPV
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (listpedidos.Items.Count > 0)
+            {
+                GuardarPedido();
+            }
+            else {
+                MessageBox.Show("No hay productos seleccionados");
+            }
 
-            GuardarPedido();
-            MessageBox.Show("Pedido Hecho");
         }
         public int ObtenerUsuarioIDPorNombre(string nombre)
         {
@@ -296,8 +303,8 @@ namespace ProyectoFinalTPV
 
 
                     string insertPedidoQuery = @"
-                INSERT INTO Pedido (MesaID, UsuarioID, FechaPedido)
-                VALUES (@MesaID, @UsuarioID, @FechaPedido);
+                INSERT INTO Pedido (MesaID, UsuarioID, FechaPedido, Pagado)
+                VALUES (@MesaID, @UsuarioID, @FechaPedido,@Pagado);
                 SELECT SCOPE_IDENTITY();";
 
                     using (SqlCommand command = new SqlCommand(insertPedidoQuery, connection, transaction))
@@ -305,9 +312,12 @@ namespace ProyectoFinalTPV
                         command.Parameters.AddWithValue("@MesaID", numeroMesa.Value);
                         command.Parameters.AddWithValue("@UsuarioID", ObtenerUsuarioIDPorNombre(usuario));
                         command.Parameters.AddWithValue("@FechaPedido", DateTime.Now);
+                        command.Parameters.AddWithValue("@Pagado", 0);
 
                         int pedidoID = Convert.ToInt32(command.ExecuteScalar());
-                        MessageBox.Show($"Pedido insertado con ID: {pedidoID}");
+                        if (pedidoID > 0) {
+                            MessageBox.Show("Pedido Guardado");
+                        }
 
                         InsertarPedidosDetalle(pedidoID, connection, transaction);
                     }
@@ -317,7 +327,7 @@ namespace ProyectoFinalTPV
                 catch (Exception ex)
                 {
                     transaction.Rollback();
-                    throw new Exception("Error al guardar el pedido", ex);
+                    MessageBox.Show("Error al guardar el pedido, no hay mesas con este numero");
                 }
             }
         }
@@ -360,8 +370,7 @@ namespace ProyectoFinalTPV
                     command.Parameters.AddWithValue("@PedidoID", pedidoID);
                     command.Parameters.AddWithValue("@ProductoID", ObtenerProductoIDPorNombre(producto.Key));
                     command.Parameters.AddWithValue("@Cantidad", producto.Value);
-                    command.ExecuteNonQuery();
-
+               
                 }
             }
         }

@@ -34,5 +34,17 @@ namespace ProyectoFinalTPV
             HacerPedido hacerPedido = new HacerPedido(nombreUsuario);
             m.cargarForm(hacerPedido,this);
         }
+
+        private void verPedidoBtn_Click(object sender, EventArgs e)
+        {
+            VerPedidos verPedidos = new VerPedidos();
+            m.cargarForm(verPedidos,this);
+        }
+
+        private void PagarPedido_Click(object sender, EventArgs e)
+        {
+            PagarPedido pag = new PagarPedido();
+            m.cargarForm(pag,this);
+        }
     }
 }

@@ -118,6 +118,18 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagarPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagarPedido.Designer.cs">
+      <DependentUpon>PagarPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagarVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagarVentana.Designer.cs">
+      <DependentUpon>PagarVentana.cs</DependentUpon>
+    </Compile>
     <Compile Include="PeticionCodigo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,10 +143,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestauranteTPVDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RestauranteTPVDataSet1.cs">
+      <DependentUpon>RestauranteTPVDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RestauranteTPVDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RestauranteTPVDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VerPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerPedidos.Designer.cs">
+      <DependentUpon>VerPedidos.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AdministrarCuenta.resx">
       <DependentUpon>AdministrarCuenta.cs</DependentUpon>
@@ -172,6 +193,12 @@
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PagarPedido.resx">
+      <DependentUpon>PagarPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagarVentana.resx">
+      <DependentUpon>PagarVentana.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PeticionCodigo.resx">
       <DependentUpon>PeticionCodigo.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +211,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VerPedidos.resx">
+      <DependentUpon>VerPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

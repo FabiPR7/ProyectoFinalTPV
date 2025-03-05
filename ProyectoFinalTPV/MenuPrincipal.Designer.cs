@@ -54,6 +54,7 @@
             this.verPedidoBtn.TabIndex = 1;
             this.verPedidoBtn.Text = "VER PEDIDOS";
             this.verPedidoBtn.UseVisualStyleBackColor = true;
+            this.verPedidoBtn.Click += new System.EventHandler(this.verPedidoBtn_Click);
             // 
             // PagarPedido
             // 
@@ -63,6 +64,7 @@
             this.PagarPedido.TabIndex = 2;
             this.PagarPedido.Text = "PAGAR PEDIDO";
             this.PagarPedido.UseVisualStyleBackColor = true;
+            this.PagarPedido.Click += new System.EventHandler(this.PagarPedido_Click);
             // 
             // nombreUs
             // 
