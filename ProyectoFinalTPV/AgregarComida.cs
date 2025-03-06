@@ -8,15 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinalTPV.Clases;
 
 namespace ProyectoFinalTPV
 {
     public partial class AgregarComida : Form
     {
-        Metodos m = new Metodos();
+        Producto p;
+        Categoria c;
         public AgregarComida()
         {
             InitializeComponent();
+            p = new Producto();
+            c = new Categoria();
         }
 
         private void categoriaBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -24,19 +28,12 @@ namespace ProyectoFinalTPV
             this.Validate();
             this.categoriaBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.restauranteTPVDataSet1);
-
         }
 
         private void AgregarComida_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'restauranteTPVDataSet1.Categoria' Puede moverla o quitarla según sea necesario.
             this.categoriaTableAdapter.Fill(this.restauranteTPVDataSet1.Categoria);
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,68 +42,10 @@ namespace ProyectoFinalTPV
             {
                 MessageBox.Show("Rellena todos los datos");
             }
-            else {
-            
-                agregarComida(nombreTextBox.Text, float.Parse(precioTextBox.Text), ObtenerCategoriaID(nombreCategoriaComboBox.Text));
-              
+            else {            
+                p.agregarComida(nombreTextBox.Text, float.Parse(precioTextBox.Text), c.ObtenerIdPorNombre(nombreCategoriaComboBox.Text));
             }
         }
 
-        public void agregarComida(string nombre, float precio, int categoriaID)
-        {
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = "INSERT INTO Producto (Nombre, Precio, CategoriaID) VALUES (@Nombre, @Precio, @CategoriaID)";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Nombre", nombre);
-                        cmd.Parameters.AddWithValue("@Precio", precio);
-                        cmd.Parameters.AddWithValue("@CategoriaID", categoriaID);
-                        MessageBox.Show("Lo ejecuta");
-                        cmd.ExecuteNonQuery();
-                       
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-        }
-
-        public int ObtenerCategoriaID(string nombreCategoria)
-        {
-            int categoriaID = -1; // Valor por defecto si no se encuentra
-
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = "SELECT CategoriaID FROM Categoria WHERE Nombre = @Nombre";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Nombre", nombreCategoria);
-                        object resultado = cmd.ExecuteScalar(); 
-
-                        if (resultado != null)
-                        {
-                            categoriaID = Convert.ToInt32(resultado);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-
-            return categoriaID;
-        }
     }
 }

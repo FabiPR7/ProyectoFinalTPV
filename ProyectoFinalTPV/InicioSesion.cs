@@ -8,12 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinalTPV.Clases;
 
 namespace ProyectoFinalTPV
 {
     public partial class InicioSesion: Form
     {
-        private Metodos m = new Metodos();
+        private MiForm m = new MiForm();
       
         public InicioSesion()
         {
@@ -23,9 +24,8 @@ namespace ProyectoFinalTPV
 
         private void InicioSesion_Load(object sender, EventArgs e)
         {
-            bool hayUsuarios = VerificarSiHayUsuarios();
-
-            if (hayUsuarios)
+            Usuario u = new Usuario();
+            if (u.VerificarSiHayUsuarios())
             {
              iniciarSesionBtn.Enabled = true;
              crearCuentaBtn.Enabled = false;
@@ -39,31 +39,7 @@ namespace ProyectoFinalTPV
                 nohaycuentasTXT.Visible = true;
             }
         }
-        private bool VerificarSiHayUsuarios()
-        {
-            string query = "SELECT COUNT(*) FROM Usuario";
-            using (SqlConnection connection = new SqlConnection(m.getConnectionString2()))
-            {
-                try
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                       
-                        int cantidadUsuarios = (int)command.ExecuteScalar();
-
-                        return cantidadUsuarios > 0;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al verificar usuarios: " + ex.Message);
-                    return false; 
-                }
-            }
-        }
-
+       
         private void crearCuentaBtn_Click(object sender, EventArgs e)
         {
             m.cargarForm(new AgregarEmpleado(), this);

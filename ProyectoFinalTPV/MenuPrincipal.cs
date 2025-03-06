@@ -7,17 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinalTPV.Clases;
 
 namespace ProyectoFinalTPV
 {
     public partial class MenuPrincipal : Form
     {
-        Metodos m = new Metodos();
+        MiForm m;
        private string nombreUsuario;
         public MenuPrincipal(string nombreUsuario)
         {
-
             InitializeComponent();
+            m = new MiForm();
             m.adaptarForm(this);
             this.nombreUsuario = nombreUsuario;
             nombreUs.Text = nombreUsuario;
@@ -45,6 +46,12 @@ namespace ProyectoFinalTPV
         {
             PagarPedido pag = new PagarPedido();
             m.cargarForm(pag,this);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Informes informes = new Informes(nombreUsuario);
+            m.cargarForm(informes, this);
         }
     }
 }

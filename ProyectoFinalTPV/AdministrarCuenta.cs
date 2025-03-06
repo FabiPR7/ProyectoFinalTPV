@@ -7,15 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinalTPV.Clases;
 
 namespace ProyectoFinalTPV
 {
     public partial class AdministrarCuenta: Form
     {
-       private Metodos m = new Metodos();
+        private MiForm m;
         public AdministrarCuenta(string nombre)
         {
             InitializeComponent();
+            m = new MiForm();
             m.adaptarForm(this);
             nombreUs.Text = nombre;
         }

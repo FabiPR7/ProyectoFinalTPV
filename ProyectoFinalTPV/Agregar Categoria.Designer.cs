@@ -93,7 +93,6 @@
             this.Controls.Add(this.label3);
             this.Name = "Agregar_Categoria";
             this.Text = "Agregar_Categoria";
-            this.Load += new System.EventHandler(this.Agregar_Categoria_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -285,7 +285,6 @@
             this.nMesa.Size = new System.Drawing.Size(76, 20);
             this.nMesa.TabIndex = 25;
             this.nMesa.Text = "Nº Mesa";
-            this.nMesa.Click += new System.EventHandler(this.label5_Click);
             // 
             // button4
             // 

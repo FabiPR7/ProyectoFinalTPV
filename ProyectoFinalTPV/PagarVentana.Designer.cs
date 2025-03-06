@@ -53,21 +53,23 @@
             // 
             // button1
             // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Location = new System.Drawing.Point(208, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 79);
             this.button1.TabIndex = 0;
-            this.button1.Text = "EFECTIVO";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Location = new System.Drawing.Point(328, 8);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 79);
             this.button2.TabIndex = 1;
-            this.button2.Text = "TARJETA";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -102,7 +104,7 @@
             this.b0.TabIndex = 24;
             this.b0.Text = "0";
             this.b0.UseVisualStyleBackColor = true;
-            this.b0.Click += new System.EventHandler(this.button10_Click);
+            this.b0.Click += new System.EventHandler(this.Button_Click);
             // 
             // b9
             // 
@@ -113,7 +115,7 @@
             this.b9.TabIndex = 23;
             this.b9.Text = "9";
             this.b9.UseVisualStyleBackColor = true;
-            this.b9.Click += new System.EventHandler(this.button9_Click);
+            this.b9.Click += new System.EventHandler(this.Button_Click);
             // 
             // b8
             // 
@@ -124,7 +126,7 @@
             this.b8.TabIndex = 22;
             this.b8.Text = "8";
             this.b8.UseVisualStyleBackColor = true;
-            this.b8.Click += new System.EventHandler(this.button8_Click);
+            this.b8.Click += new System.EventHandler(this.Button_Click);
             // 
             // b7
             // 
@@ -135,7 +137,7 @@
             this.b7.TabIndex = 21;
             this.b7.Text = "7";
             this.b7.UseVisualStyleBackColor = true;
-            this.b7.Click += new System.EventHandler(this.button7_Click);
+            this.b7.Click += new System.EventHandler(this.Button_Click);
             // 
             // b6
             // 
@@ -146,7 +148,7 @@
             this.b6.TabIndex = 20;
             this.b6.Text = "6";
             this.b6.UseVisualStyleBackColor = true;
-            this.b6.Click += new System.EventHandler(this.button6_Click);
+            this.b6.Click += new System.EventHandler(this.Button_Click);
             // 
             // b5
             // 
@@ -157,7 +159,7 @@
             this.b5.TabIndex = 19;
             this.b5.Text = "5";
             this.b5.UseVisualStyleBackColor = true;
-            this.b5.Click += new System.EventHandler(this.button5_Click);
+            this.b5.Click += new System.EventHandler(this.Button_Click);
             // 
             // b4
             // 
@@ -168,7 +170,7 @@
             this.b4.TabIndex = 18;
             this.b4.Text = "4";
             this.b4.UseVisualStyleBackColor = true;
-            this.b4.Click += new System.EventHandler(this.button4_Click);
+            this.b4.Click += new System.EventHandler(this.Button_Click);
             // 
             // b3
             // 
@@ -179,7 +181,7 @@
             this.b3.TabIndex = 17;
             this.b3.Text = "3";
             this.b3.UseVisualStyleBackColor = true;
-            this.b3.Click += new System.EventHandler(this.button3_Click);
+            this.b3.Click += new System.EventHandler(this.Button_Click);
             // 
             // b2
             // 
@@ -190,7 +192,7 @@
             this.b2.TabIndex = 16;
             this.b2.Text = "2";
             this.b2.UseVisualStyleBackColor = true;
-            this.b2.Click += new System.EventHandler(this.button14_Click);
+            this.b2.Click += new System.EventHandler(this.Button_Click);
             // 
             // b1
             // 
@@ -201,7 +203,7 @@
             this.b1.TabIndex = 15;
             this.b1.Text = "1";
             this.b1.UseVisualStyleBackColor = true;
-            this.b1.Click += new System.EventHandler(this.button15_Click);
+            this.b1.Click += new System.EventHandler(this.Button_Click);
             // 
             // codigoTXT
             // 
@@ -223,7 +225,7 @@
             this.bpunto.TabIndex = 26;
             this.bpunto.Text = ".";
             this.bpunto.UseVisualStyleBackColor = true;
-            this.bpunto.Click += new System.EventHandler(this.button12_Click);
+            this.bpunto.Click += new System.EventHandler(this.Button_Click);
             // 
             // volverBtn
             // 
@@ -265,12 +267,13 @@
             this.precio.Size = new System.Drawing.Size(21, 24);
             this.precio.TabIndex = 32;
             this.precio.Text = "0";
-            this.precio.Click += new System.EventHandler(this.label3_Click);
             // 
             // PagarVentana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(425, 380);
             this.Controls.Add(this.precio);
             this.Controls.Add(this.label2);
@@ -292,6 +295,7 @@
             this.Controls.Add(this.b1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.DoubleBuffered = true;
             this.Name = "PagarVentana";
             this.Text = "PagarVentana";
             this.ResumeLayout(false);

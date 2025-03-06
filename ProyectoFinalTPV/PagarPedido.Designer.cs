@@ -80,11 +80,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(668, 402);
             this.Controls.Add(this.nombreUs);
             this.Controls.Add(this.volverBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
+            this.DoubleBuffered = true;
             this.Name = "PagarPedido";
             this.Text = "PagarPedido";
             this.ResumeLayout(false);

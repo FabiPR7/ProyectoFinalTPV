@@ -9,13 +9,16 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinalTPV.Clases;
 
 namespace ProyectoFinalTPV
 {
 
     public partial class AgregarEmpleado : Form
     {
-        private Metodos metodos = new Metodos();
+        private MiForm metodos = new MiForm();
+        private Usuario u = new Usuario();
+
         public AgregarEmpleado()
         {
             InitializeComponent();
@@ -26,7 +29,7 @@ namespace ProyectoFinalTPV
         private void aceptarAgregarEmpleadoBtn_Click(object sender, EventArgs e)
         {
             if (verificarCampos()) { 
-                InsertarUsuario(Convert.ToInt32(codigoAgregarEmpleadoTXT.Text), nameAgregarEmpleadoTXT.Text, rolAgregarEmpeladoTXT.Text == "Admin" ? 1 : 2);
+                u.InsertarUsuario(Convert.ToInt32(codigoAgregarEmpleadoTXT.Text), nameAgregarEmpleadoTXT.Text, rolAgregarEmpeladoTXT.Text == "Admin" ? 1 : 2);
                 this.Close();
                 MessageBox.Show("Cerrar la aplicacion para notar cambios.");
             }
@@ -50,7 +53,7 @@ namespace ProyectoFinalTPV
                             MessageBox.Show("El código debe tener 4 numeros");
                             return false;
                         }
-                        if(obtenerCodigosEmpleados().Contains(n))
+                        if(u.obtenerCodigosEmpleados().Contains(n))
                         {
                             MessageBox.Show("El código ya existe");
                             return false;
@@ -70,65 +73,7 @@ namespace ProyectoFinalTPV
             }
             return true;
         }
-        public List<int> obtenerCodigosEmpleados()
-        {
-            List<int> codigosEmpleados = new List<int>();
-
-            string query = "select UsuarioID from Usuario";
-
-            using (SqlConnection connection = new SqlConnection(metodos.getConnectionString2()))
-            {
-                try
-                {
-                    connection.Open(); 
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                int codigoEmpleado = reader.GetInt32(0); // Obtener el valor de la columna CodigoEmpleado
-                                codigosEmpleados.Add(codigoEmpleado);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error al obtener los códigos de empleados: " + ex.Message);
-                }
-            }
-
-            return codigosEmpleados;
-        }
      
-
-        public void InsertarUsuario(int id, string nombre, int rol)
-        {
-            string query = @"
-            SET IDENTITY_INSERT Usuario ON;
-            INSERT INTO Usuario (UsuarioID, Nombre, RolID) VALUES (@UsuarioID, @Nombre, @RolID);
-            SET IDENTITY_INSERT Usuario OFF;";
-            using (SqlConnection connection = new SqlConnection(metodos.getConnectionString2()))
-            {
-                try
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@UsuarioID", id);
-                        command.Parameters.AddWithValue("@Nombre", nombre);
-                        command.Parameters.AddWithValue("@RolID", rol);
-                        int result = command.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-
-            }
-        }
 
         private void volverBtn_Click(object sender, EventArgs e)
         {

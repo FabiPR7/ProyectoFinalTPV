@@ -111,7 +111,7 @@
             this.toolStripComboBox1,
             this.comidaToolStripMenuItem});
             this.eDITARDATOSToolStripMenuItem.Name = "eDITARDATOSToolStripMenuItem";
-            this.eDITARDATOSToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.eDITARDATOSToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.eDITARDATOSToolStripMenuItem.Text = "EDITAR DATOS";
             // 
             // toolStripComboBox1
@@ -192,6 +192,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(676, 410);
             this.Controls.Add(this.volverBtn);
             this.Controls.Add(this.label3);
@@ -200,6 +202,7 @@
             this.Controls.Add(this.listaCategorias);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ConfigurComida";
             this.Text = "ConfigurComida";

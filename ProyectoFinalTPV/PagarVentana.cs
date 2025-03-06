@@ -5,31 +5,36 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinalTPV.Clases;
 
 namespace ProyectoFinalTPV
 {
     public partial class PagarVentana : Form
     {
         string pedido;
+        Pedido p;
         public PagarVentana(string pedido)
         {
             this.pedido = pedido;
             InitializeComponent();
+            p = new Pedido();
             string patron = @"\d+,\d{2}€";
             Match match = Regex.Match(pedido, patron);
             precio.Text = match.Value;
         }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-          
-
+        private void Button_Click(object sender, EventArgs e)
+        {    
+            Button btn = sender as Button;
+            if (btn != null)
+            {
+                escribirCodigo(btn.Text);
+            }
         }
-
 
 
         public void escribirCodigo(String s)
@@ -47,61 +52,7 @@ namespace ProyectoFinalTPV
             }
         }
 
-        private void button15_Click(object sender, EventArgs e)
-        {
-            escribirCodigo("1");
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-            escribirCodigo("2");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            escribirCodigo("3");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            escribirCodigo("4");
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            escribirCodigo("5");
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            escribirCodigo("6");
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            escribirCodigo("7");
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            escribirCodigo("8");
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            escribirCodigo("9");
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            escribirCodigo(".");
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            escribirCodigo("0");
-        }
-
+        
         private void button11_Click_1(object sender, EventArgs e)
         {
             if (codigoTXT.Text.Length > 0)
@@ -133,16 +84,10 @@ namespace ProyectoFinalTPV
             this.Close();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void baceptar_Click(object sender, EventArgs e)
         {
             if (decimal.Parse(precio.Text.Substring(0,precio.Text.IndexOf("€"))) > decimal.Parse(codigoTXT.Text))
             {
-
                 MessageBox.Show("El importe dado es menor que el costo del pedido");
             }
             else {
@@ -151,14 +96,13 @@ namespace ProyectoFinalTPV
                     decimal precioDecimal = decimal.Parse(precio.Text.Substring(0, precio.Text.IndexOf("€")));
                     decimal importeDecimal = decimal.Parse(codigoTXT.Text);
                     MessageBox.Show("Cambio: " + (importeDecimal - precioDecimal));
-
                 }
                 else {
                     MessageBox.Show("Cambio: 0.00");
                 }
                 int numeroMesa = ExtraerNumeroMesa(pedido);      
                 DateTime fechaPedido = ExtraerFecha(pedido);
-                ActualizarPedidoAPagado(numeroMesa, fechaPedido);
+                p.ActualizarPedidoAPagado(numeroMesa, fechaPedido);
                 MessageBox.Show("Pedido pagado");
                 this.Close();
             }
@@ -199,34 +143,6 @@ namespace ProyectoFinalTPV
             else
             {
                 throw new Exception("No se encontró la fecha.");
-            }
-        }
-
-        public static void ActualizarPedidoAPagado(int numeroMesa, DateTime fechaPedido)
-        {
-         
-            string query = @"
-            UPDATE Pedido
-            SET Pagado = 1
-            WHERE MesaID = @MesaID AND FechaPedido = @Fecha";
-
-            using (SqlConnection connection = new SqlConnection(new Metodos().getConnectionString2()))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@MesaID", numeroMesa);
-                command.Parameters.AddWithValue("@Fecha", fechaPedido);
-
-                connection.Open();
-                int rowsAffected = command.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
-                {
-                    Console.WriteLine("Pedido actualizado a Pagado correctamente.");
-                }
-                else
-                {
-                    Console.WriteLine("No se encontró el pedido con la mesa y fecha especificadas.");
-                }
             }
         }
     }

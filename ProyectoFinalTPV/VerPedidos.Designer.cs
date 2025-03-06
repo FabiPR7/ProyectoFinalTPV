@@ -178,7 +178,7 @@
             this.nombreUs.AutoSize = true;
             this.nombreUs.BackColor = System.Drawing.Color.Transparent;
             this.nombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreUs.ForeColor = System.Drawing.Color.Snow;
+            this.nombreUs.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.nombreUs.Location = new System.Drawing.Point(33, 50);
             this.nombreUs.Name = "nombreUs";
             this.nombreUs.Size = new System.Drawing.Size(131, 20);
@@ -200,11 +200,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(668, 402);
             this.Controls.Add(this.volverBtn);
             this.Controls.Add(this.nombreUs);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView1);
+            this.DoubleBuffered = true;
             this.Name = "VerPedidos";
             this.Text = "VerPedidos";
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();

@@ -74,11 +74,9 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
-            this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "InicioBienvenida";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.InicioBienvenida_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

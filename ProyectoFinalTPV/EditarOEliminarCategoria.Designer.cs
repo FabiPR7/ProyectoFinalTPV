@@ -85,7 +85,6 @@
             this.cambiarCategoriaTXT.Size = new System.Drawing.Size(59, 13);
             this.cambiarCategoriaTXT.TabIndex = 3;
             this.cambiarCategoriaTXT.Text = "cambiar a :";
-            this.cambiarCategoriaTXT.Click += new System.EventHandler(this.cambiarCategoriaTXT_Click);
             // 
             // cambiarCategoriaTextBox
             // 

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinalTPV.Clases;
 
 namespace ProyectoFinalTPV
 {
@@ -44,52 +45,9 @@ namespace ProyectoFinalTPV
                     }
                 }
             }
-
-
             InicioSesion form = new InicioSesion();
-            Metodos metodos = new Metodos();
+            MiForm metodos = new MiForm();
             metodos.cargarForm(form, this);
-
-
-        }
-
-        private void InicioBienvenida_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
-
-    class Metodos
-    {
-
-        private string connectionString = "Data Source=FabiPadilla07\\SQLEXPRESS01;Initial Catalog=RestauranteTPV;Integrated Security=True;Encrypt=False";
-        private string connectionString2 = "Data Source=C06PC13\\SQLEXPRESS;Initial Catalog=RestauranteTPV;Integrated Security=True;Encrypt=False";
-        public void cargarForm(Form formCargar, Form actual)
-        {
-            formCargar.Dock = DockStyle.Fill;
-            actual.Controls.Add(formCargar);
-            formCargar.BringToFront();
-            formCargar.Show();
-        }
-
-        public void adaptarForm(Form form)
-        {
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.TopLevel = false;
-        }
-
-        public void cerrarForm(Form form)
-        {
-            form.Close();
-        }
-
-        public String getConnectionString()
-        {
-            return connectionString;
-        }
-        public String getConnectionString2()
-        {
-            return connectionString2;
         }
     }
 }

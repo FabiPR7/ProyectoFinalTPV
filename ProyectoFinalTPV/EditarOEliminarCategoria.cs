@@ -8,20 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinalTPV.Clases;
 
 namespace ProyectoFinalTPV
 {
     public partial class EditarOEliminarCategoria : Form
     {
         private string accion;
-        private Metodos m;
-
+        private MiForm m;
+        Categoria c;
         public EditarOEliminarCategoria(string accion)
         {   
             InitializeComponent();
             this.accion = accion;
             cargarAccion(accion);
-            m = new Metodos();
+            m = new MiForm();
+            c = new Categoria();
         }
 
         private void categoriaBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -59,7 +61,7 @@ namespace ProyectoFinalTPV
             {
                DialogResult respuesta =  MessageBox.Show("¿Estas seguro que quieres eliminar esta categoria?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.OK) {
-                    EliminarCategoria(nombreComboBox.Text);
+                   c.EliminarCategoria(nombreComboBox.Text);
                 }
             }
             if (accion.Equals("editar"))
@@ -67,83 +69,14 @@ namespace ProyectoFinalTPV
                 DialogResult respuesta = MessageBox.Show("¿Estas seguro que quieres editar esta categoria?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 if (respuesta == DialogResult.OK)
                 {
-                    ActualizarCategoria(nombreComboBox.Text, cambiarCategoriaTextBox.Text);
+                    c.ActualizarCategoria(nombreComboBox.Text, cambiarCategoriaTextBox.Text);
                 }
             }
         }
-        private void EliminarCategoria(string nombreCategoria)
-        {
-          
-            string query = "DELETE FROM Categoria WHERE nombre = @nombre";
-
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
-            {
-                try
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@nombre", nombreCategoria); // Evita inyección SQL
-
-                        int filasAfectadas = cmd.ExecuteNonQuery();
-                        if (filasAfectadas > 0)
-                        {
-                            MessageBox.Show("Categoría eliminada correctamente.");
      
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se encontró la categoría.");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al eliminar categoría: " + ex.Message);
-                }
-            }
-        }
-        private void ActualizarCategoria(string nombreActual, string nuevoNombre)
-        {
-            string query = "UPDATE Categoria SET nombre = @nuevoNombre WHERE nombre = @nombreActual";
-
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
-            {
-                try
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@nombreActual", nombreActual);
-                        cmd.Parameters.AddWithValue("@nuevoNombre", nuevoNombre);
-
-                        int filasAfectadas = cmd.ExecuteNonQuery();
-                        if (filasAfectadas > 0)
-                        {
-                            MessageBox.Show("Categoría actualizada correctamente.");
-                        
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se encontró la categoría para actualizar.");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al actualizar categoría: " + ex.Message);
-                }
-            }
-        }
-
-private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             m.cerrarForm(this);
-        }
-
-        private void cambiarCategoriaTXT_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

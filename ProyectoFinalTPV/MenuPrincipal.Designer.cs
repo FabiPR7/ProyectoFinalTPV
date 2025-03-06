@@ -34,11 +34,12 @@
             this.PagarPedido = new System.Windows.Forms.Button();
             this.nombreUs = new System.Windows.Forms.Label();
             this.perfilButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // hacerPedidoBtn
             // 
-            this.hacerPedidoBtn.Location = new System.Drawing.Point(256, 116);
+            this.hacerPedidoBtn.Location = new System.Drawing.Point(230, 129);
             this.hacerPedidoBtn.Name = "hacerPedidoBtn";
             this.hacerPedidoBtn.Size = new System.Drawing.Size(172, 32);
             this.hacerPedidoBtn.TabIndex = 0;
@@ -48,7 +49,7 @@
             // 
             // verPedidoBtn
             // 
-            this.verPedidoBtn.Location = new System.Drawing.Point(256, 197);
+            this.verPedidoBtn.Location = new System.Drawing.Point(230, 210);
             this.verPedidoBtn.Name = "verPedidoBtn";
             this.verPedidoBtn.Size = new System.Drawing.Size(172, 32);
             this.verPedidoBtn.TabIndex = 1;
@@ -58,7 +59,7 @@
             // 
             // PagarPedido
             // 
-            this.PagarPedido.Location = new System.Drawing.Point(256, 276);
+            this.PagarPedido.Location = new System.Drawing.Point(230, 289);
             this.PagarPedido.Name = "PagarPedido";
             this.PagarPedido.Size = new System.Drawing.Size(172, 32);
             this.PagarPedido.TabIndex = 2;
@@ -82,12 +83,23 @@
             // 
             this.perfilButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("perfilButton.BackgroundImage")));
             this.perfilButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.perfilButton.Location = new System.Drawing.Point(593, 15);
+            this.perfilButton.Location = new System.Drawing.Point(603, 15);
             this.perfilButton.Name = "perfilButton";
-            this.perfilButton.Size = new System.Drawing.Size(63, 44);
+            this.perfilButton.Size = new System.Drawing.Size(53, 44);
             this.perfilButton.TabIndex = 4;
             this.perfilButton.UseVisualStyleBackColor = true;
             this.perfilButton.Click += new System.EventHandler(this.perfilButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(614, 346);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(42, 44);
+            this.button1.TabIndex = 5;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MenuPrincipal
             // 
@@ -96,6 +108,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(668, 402);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.perfilButton);
             this.Controls.Add(this.nombreUs);
             this.Controls.Add(this.PagarPedido);
@@ -116,5 +129,6 @@
         private System.Windows.Forms.Button PagarPedido;
         private System.Windows.Forms.Label nombreUs;
         private System.Windows.Forms.Button perfilButton;
+        private System.Windows.Forms.Button button1;
     }
 }
