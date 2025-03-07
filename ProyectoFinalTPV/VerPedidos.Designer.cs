@@ -208,8 +208,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "VerPedidos";
             this.Text = "VerPedidos";
+            this.Load += new System.EventHandler(this.VerPedidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();

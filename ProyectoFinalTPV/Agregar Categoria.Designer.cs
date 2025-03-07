@@ -91,6 +91,8 @@
             this.Controls.Add(this.nombreTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Agregar_Categoria";
             this.Text = "Agregar_Categoria";
             this.ResumeLayout(false);

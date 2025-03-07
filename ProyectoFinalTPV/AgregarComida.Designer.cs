@@ -177,6 +177,7 @@
             this.Controls.Add(nombreLabel);
             this.Controls.Add(this.nombreCategoriaComboBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AgregarComida";
             this.Text = "AgregarComida";
             this.Load += new System.EventHandler(this.AgregarComida_Load);

@@ -52,6 +52,11 @@ namespace ProyectoFinalTPV
                 p.ActualizarListView(p.ObtenerNoPagados(), listView1);
             }
         }
+
+        private void VerPedidos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

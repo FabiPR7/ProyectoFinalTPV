@@ -143,6 +143,7 @@
             this.button10.TabIndex = 9;
             this.button10.Text = "0";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.Button_Click);
             // 
             // button11
             // 
@@ -214,6 +215,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PeticionCodigo";
             this.Text = "PeticionCodigo";
             this.ResumeLayout(false);

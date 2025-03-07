@@ -49,6 +49,7 @@
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.Size = new System.Drawing.Size(668, 378);
             this.crystalReportViewer1.TabIndex = 0;
+            this.crystalReportViewer1.Load += new System.EventHandler(this.crystalReportViewer1_Load);
             // 
             // menuStrip1
             // 
@@ -74,21 +75,21 @@
             // pedidosToolStripMenuItem
             // 
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.pedidosToolStripMenuItem.Text = "Pedidos";
             this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // comidasToolStripMenuItem
             // 
             this.comidasToolStripMenuItem.Name = "comidasToolStripMenuItem";
-            this.comidasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.comidasToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.comidasToolStripMenuItem.Text = "Comidas";
             this.comidasToolStripMenuItem.Click += new System.EventHandler(this.comidasToolStripMenuItem_Click);
             // 

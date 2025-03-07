@@ -41,24 +41,24 @@
             this.precioTextBox = new System.Windows.Forms.TextBox();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categriaComboBox = new System.Windows.Forms.ComboBox();
+            this.categoriaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.precioLbl = new System.Windows.Forms.Label();
             this.categoriaNombre = new System.Windows.Forms.Label();
             this.nombeAcambiarText = new System.Windows.Forms.ComboBox();
-            this.cambiarAText = new System.Windows.Forms.Label();
-            this.productoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.productoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cambiarAText = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             nombreLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // nombreLabel1
@@ -76,7 +76,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 14;
-            this.button2.Text = "button2";
+            this.button2.Text = "SALIR";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -86,7 +86,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
-            this.button1.Text = "Aceptar";
+            this.button1.Text = "ACEPTAR";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -155,6 +155,16 @@
             this.categriaComboBox.TabIndex = 20;
             this.categriaComboBox.ValueMember = "Nombre";
             // 
+            // categoriaBindingSource2
+            // 
+            this.categoriaBindingSource2.DataMember = "Categoria";
+            this.categoriaBindingSource2.DataSource = this.restauranteTPVDataSet1;
+            // 
+            // categoriaBindingSource1
+            // 
+            this.categoriaBindingSource1.DataMember = "Categoria";
+            this.categoriaBindingSource1.DataSource = this.restauranteTPVDataSet1;
+            // 
             // precioLbl
             // 
             this.precioLbl.AutoSize = true;
@@ -186,6 +196,16 @@
             this.nombeAcambiarText.TabIndex = 23;
             this.nombeAcambiarText.ValueMember = "Nombre";
             // 
+            // productoBindingSource2
+            // 
+            this.productoBindingSource2.DataMember = "Producto";
+            this.productoBindingSource2.DataSource = this.restauranteTPVDataSet1;
+            // 
+            // productoBindingSource1
+            // 
+            this.productoBindingSource1.DataMember = "Producto";
+            this.productoBindingSource1.DataSource = this.restauranteTPVDataSet1;
+            // 
             // cambiarAText
             // 
             this.cambiarAText.AutoSize = true;
@@ -195,32 +215,12 @@
             this.cambiarAText.TabIndex = 24;
             this.cambiarAText.Text = "cambiar a:";
             // 
-            // productoBindingSource1
-            // 
-            this.productoBindingSource1.DataMember = "Producto";
-            this.productoBindingSource1.DataSource = this.restauranteTPVDataSet1;
-            // 
-            // productoBindingSource2
-            // 
-            this.productoBindingSource2.DataMember = "Producto";
-            this.productoBindingSource2.DataSource = this.restauranteTPVDataSet1;
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(100, 192);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(121, 20);
             this.textBox1.TabIndex = 25;
-            // 
-            // categoriaBindingSource1
-            // 
-            this.categoriaBindingSource1.DataMember = "Categoria";
-            this.categoriaBindingSource1.DataSource = this.restauranteTPVDataSet1;
-            // 
-            // categoriaBindingSource2
-            // 
-            this.categoriaBindingSource2.DataMember = "Categoria";
-            this.categoriaBindingSource2.DataSource = this.restauranteTPVDataSet1;
             // 
             // label1
             // 
@@ -248,16 +248,18 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.accionTxt);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "EditarOEliminarComida";
             this.Text = "EditarOEliminarComida";
             this.Load += new System.EventHandler(this.EditarOEliminarComida_Load);
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

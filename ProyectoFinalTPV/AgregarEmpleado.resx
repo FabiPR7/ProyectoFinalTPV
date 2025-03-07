@@ -138,17 +138,11 @@
   <metadata name="restauranteTPVDataSet11.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>334, 54</value>
   </metadata>
-  <metadata name="restauranteTPVDataSet11.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>334, 54</value>
-  </metadata>
   <metadata name="rolesBindingSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>519, 54</value>
   </metadata>
   <metadata name="rolesBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 54</value>
-  </metadata>
-  <metadata name="restauranteTPVDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>665, 17</value>
   </metadata>
   <metadata name="restauranteTPVDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>665, 17</value>
@@ -301,7 +295,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABF0AAAMgCAYAAADx/B3DAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAA/7JJREFUeF7s/Web28bSLuCe33rOu4LXsq0sWdG2gpVzzjlaWVaWFW0lK8vKOU/Q
+        vQAADr0BR/uQrQAA/7JJREFUeF7s/Web28bSLuCe33rOu4LXsq0sWdG2gpVzzjlaWVaWFW0lK8vKOU/Q
         yH73vvbnOmhielgsVjcaYDM/H+5LRHdVAWAAgRLJ+f/8v//3/wgAAAAAAAAAAOJC0wUAAAAAAAAAoA7Q
         dAEAAAAAAAAAqAM0XQAAAAAAAAAA6gBNFwAAAAAAAACAOkDTBQAAAAAAAACgDtB0AQAAAAAAAACoAzRd
         AAAAAAAAAADqAE0XAAAAAAAAAIA6yN106e39pOihvr7e0r+pyvmeHr5sY9KcRurvD/S5J8jnz72B+gCg

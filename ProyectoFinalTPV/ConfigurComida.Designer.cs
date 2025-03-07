@@ -66,7 +66,6 @@
             this.listaCategorias.Size = new System.Drawing.Size(245, 277);
             this.listaCategorias.TabIndex = 1;
             this.listaCategorias.SelectedIndexChanged += new System.EventHandler(this.listaCategorias_SelectedIndexChanged);
-            this.listaCategorias.SelectedValueChanged += new System.EventHandler(this.listaCategorias_SelectedValueChanged);
             // 
             // label2
             // 
@@ -84,7 +83,6 @@
             this.listaComidas.Name = "listaComidas";
             this.listaComidas.Size = new System.Drawing.Size(262, 277);
             this.listaComidas.TabIndex = 3;
-            this.listaComidas.SelectedIndexChanged += new System.EventHandler(this.listaComidas_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -111,7 +109,7 @@
             this.toolStripComboBox1,
             this.comidaToolStripMenuItem});
             this.eDITARDATOSToolStripMenuItem.Name = "eDITARDATOSToolStripMenuItem";
-            this.eDITARDATOSToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.eDITARDATOSToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.eDITARDATOSToolStripMenuItem.Text = "EDITAR DATOS";
             // 
             // toolStripComboBox1
@@ -123,7 +121,6 @@
             this.toolStripComboBox1.Name = "toolStripComboBox1";
             this.toolStripComboBox1.Size = new System.Drawing.Size(125, 22);
             this.toolStripComboBox1.Text = "Categoria";
-            this.toolStripComboBox1.Click += new System.EventHandler(this.toolStripComboBox1_Click);
             // 
             // agregarToolStripMenuItem1
             // 
@@ -203,7 +200,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "ConfigurComida";
             this.Text = "ConfigurComida";
             this.Load += new System.EventHandler(this.ConfigurComida_Load);

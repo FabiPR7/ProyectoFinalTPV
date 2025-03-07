@@ -166,6 +166,7 @@
             this.nombreComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.restauranteTPVDataSet1, "Categoria.Nombre", true));
             this.nombreComboBox.DataSource = this.restauranteTPVDataSet1;
             this.nombreComboBox.DisplayMember = "Categoria.Nombre";
+            this.nombreComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.nombreComboBox.FormattingEnabled = true;
             this.nombreComboBox.Location = new System.Drawing.Point(119, 37);
             this.nombreComboBox.Name = "nombreComboBox";
@@ -320,6 +321,7 @@
             this.Controls.Add(this.layaoutPanelCategoria);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "HacerPedido";
             this.Text = "HacerPedido";
             this.Load += new System.EventHandler(this.HacerPedido_Load);

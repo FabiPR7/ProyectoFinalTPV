@@ -249,6 +249,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AgregarEmpleado";
             this.Text = "AgregarEmpleado";
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet)).EndInit();

@@ -83,12 +83,15 @@ namespace ProyectoFinalTPV.Clases
         public List<Pedido> ObtenerTodos()
         {
             List<Pedido> pedidos = new List<Pedido>();
-            string query = @"
-            SELECT p.MesaID, SUM(pp.Cantidad * prod.Precio) AS PrecioTotal, p.FechaPedido, p.Pagado
-            FROM Pedido p
-            INNER JOIN PedidoProducto pp ON p.PedidoID = pp.PedidoID
-            INNER JOIN Producto prod ON pp.ProductoID = prod.ProductoID
-            GROUP BY p.MesaID, p.FechaPedido, p.Pagado";
+            string query = @"SELECT p.PedidoID, p.MesaID, 
+       (SELECT SUM(pp.Cantidad * prod.Precio) 
+        FROM PedidoProducto pp 
+        INNER JOIN Producto prod ON pp.ProductoID = prod.ProductoID 
+        WHERE pp.PedidoID = p.PedidoID) AS PrecioTotal, 
+       p.FechaPedido, 
+       p.Pagado
+FROM Pedido p
+ORDER BY p.FechaPedido DESC";
             using (SqlConnection connection = new SqlConnection(m.getConnectionString2()))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -96,10 +99,10 @@ namespace ProyectoFinalTPV.Clases
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    int mesa = reader.IsDBNull(0) ? 1 : reader.GetInt32(0);
-                    decimal precioTotal = reader.IsDBNull(1) ? 0 : reader.GetDecimal(1);
-                    DateTime fecha = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
-                    int pagado = reader.IsDBNull(3) ? 0 : reader.GetInt32(3);
+                    int mesa = reader.IsDBNull(1) ? 1 : reader.GetInt32(1);
+                    decimal precioTotal = reader.IsDBNull(2) ? 0 : reader.GetDecimal(2);
+                    DateTime fecha = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                    int pagado = reader.IsDBNull(4) ? 0 : reader.GetInt32(4);
 
                     pedidos.Add(new Pedido
                     {
@@ -137,9 +140,9 @@ namespace ProyectoFinalTPV.Clases
                         return;
                     }
                     string insertPedidoQuery = @"
-                INSERT INTO Pedido (MesaID, UsuarioID, FechaPedido, Pagado)
-                VALUES (@MesaID, @UsuarioID, @FechaPedido,@Pagado);
-                SELECT SCOPE_IDENTITY();";
+                       INSERT INTO Pedido (MesaID, UsuarioID, FechaPedido, Pagado)
+                        VALUES (@MesaID, @UsuarioID, @FechaPedido,@Pagado);
+                         SELECT SCOPE_IDENTITY();";
 
                     using (SqlCommand command = new SqlCommand(insertPedidoQuery, connection, transaction))
                     {

@@ -15,7 +15,7 @@ namespace ProyectoFinalTPV
     public partial class HacerPedido : Form
     {
         MiForm m;
-        Producto prod;
+      Producto prod;
         Categoria c;
         Usuario u;
         Pedido pedido;
@@ -29,6 +29,7 @@ namespace ProyectoFinalTPV
             u = new Usuario();
             pedido = new Pedido();
             m.adaptarForm(this);
+            c = new Categoria();
             this.usuario = usuario;
         }
 

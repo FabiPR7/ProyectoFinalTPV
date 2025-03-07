@@ -24,8 +24,13 @@ namespace ProyectoFinalTPV
             InitializeComponent();
             p = new Pedido();
             string patron = @"\d+,\d{2}€";
-            Match match = Regex.Match(pedido, patron);
+            Match match = Regex.Match(pedido, patron); 
             precio.Text = match.Value;
+            if (precio.Text.Length <= 0)
+            {
+                 precio.Text = "0";
+            }
+         
         }
         private void Button_Click(object sender, EventArgs e)
         {    
@@ -85,26 +90,57 @@ namespace ProyectoFinalTPV
         }
 
         private void baceptar_Click(object sender, EventArgs e)
+
         {
-            if (decimal.Parse(precio.Text.Substring(0,precio.Text.IndexOf("€"))) > decimal.Parse(codigoTXT.Text))
+            if (!precio.Text.Equals("0"))
             {
-                MessageBox.Show("El importe dado es menor que el costo del pedido");
+                if (decimal.Parse(precio.Text.Substring(0, precio.Text.IndexOf("€"))) > decimal.Parse(codigoTXT.Text))
+                {
+                    MessageBox.Show("El importe dado es menor que el costo del pedido");
+                }
+                else
+                {
+                    if (decimal.Parse(precio.Text.Substring(0, precio.Text.IndexOf("€"))) < decimal.Parse(codigoTXT.Text))
+                    {
+                        decimal precioDecimal = decimal.Parse(precio.Text.Substring(0, precio.Text.IndexOf("€")));
+                        decimal importeDecimal = decimal.Parse(codigoTXT.Text);
+                        MessageBox.Show("Cambio: " + (importeDecimal - precioDecimal));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cambio: 0.00");
+                    }
+                    int numeroMesa = ExtraerNumeroMesa(pedido);
+                    DateTime fechaPedido = ExtraerFecha(pedido);
+                    p.ActualizarPedidoAPagado(numeroMesa, fechaPedido);
+                    MessageBox.Show("Pedido pagado");
+                    this.Close();
+                }
             }
             else {
-                if (decimal.Parse(precio.Text.Substring(0, precio.Text.IndexOf("€"))) < decimal.Parse(codigoTXT.Text))
+                MessageBox.Show("Este pedido no tiene productos");
+                if (decimal.Parse("0") > decimal.Parse(codigoTXT.Text))
                 {
-                    decimal precioDecimal = decimal.Parse(precio.Text.Substring(0, precio.Text.IndexOf("€")));
-                    decimal importeDecimal = decimal.Parse(codigoTXT.Text);
-                    MessageBox.Show("Cambio: " + (importeDecimal - precioDecimal));
+                    MessageBox.Show("El importe dado es menor que el costo del pedido");
                 }
-                else {
-                    MessageBox.Show("Cambio: 0.00");
+                else
+                {
+                    if (decimal.Parse("0") < decimal.Parse(codigoTXT.Text))
+                    {
+                        decimal precioDecimal = decimal.Parse("0");
+                        decimal importeDecimal = decimal.Parse(codigoTXT.Text);
+                        MessageBox.Show("Cambio: " + (importeDecimal - precioDecimal));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cambio: 0.00");
+                    }
+                    int numeroMesa = ExtraerNumeroMesa(pedido);
+                    DateTime fechaPedido = ExtraerFecha(pedido);
+                    p.ActualizarPedidoAPagado(numeroMesa, fechaPedido);
+                    MessageBox.Show("Pedido pagado");
+                    this.Close();
                 }
-                int numeroMesa = ExtraerNumeroMesa(pedido);      
-                DateTime fechaPedido = ExtraerFecha(pedido);
-                p.ActualizarPedidoAPagado(numeroMesa, fechaPedido);
-                MessageBox.Show("Pedido pagado");
-                this.Close();
             }
         }
 
