@@ -89,9 +89,12 @@ namespace ProyectoFinalTPV
             this.Close();
         }
 
-        private void baceptar_Click(object sender, EventArgs e)
+        public int sacarId() {
+            return int.Parse(pedido.Substring(0,pedido.IndexOf(" ")));
+        }
 
-        {
+        private void baceptar_Click(object sender, EventArgs e)
+        { 
             if (!precio.Text.Equals("0"))
             {
                 if (decimal.Parse(precio.Text.Substring(0, precio.Text.IndexOf("€"))) > decimal.Parse(codigoTXT.Text))
@@ -110,9 +113,8 @@ namespace ProyectoFinalTPV
                     {
                         MessageBox.Show("Cambio: 0.00");
                     }
-                    int numeroMesa = ExtraerNumeroMesa(pedido);
-                    DateTime fechaPedido = ExtraerFecha(pedido);
-                    p.ActualizarPedidoAPagado(numeroMesa, fechaPedido);
+                   
+                    p.ActualizarPedidoAPagado(sacarId());
                     MessageBox.Show("Pedido pagado");
                     this.Close();
                 }
@@ -135,9 +137,7 @@ namespace ProyectoFinalTPV
                     {
                         MessageBox.Show("Cambio: 0.00");
                     }
-                    int numeroMesa = ExtraerNumeroMesa(pedido);
-                    DateTime fechaPedido = ExtraerFecha(pedido);
-                    p.ActualizarPedidoAPagado(numeroMesa, fechaPedido);
+                    p.ActualizarPedidoAPagado(sacarId());
                     MessageBox.Show("Pedido pagado");
                     this.Close();
                 }
@@ -149,37 +149,6 @@ namespace ProyectoFinalTPV
             MessageBox.Show("No se detecta un datafono conectado");
         }
 
-        public static int ExtraerNumeroMesa(string input)
-        {
-            string patron = @"^\d+"; // Coincide con el primer número en el string
-            Match match = Regex.Match(input, patron);
 
-            if (match.Success)
-            {
-                return int.Parse(match.Value); // Convertir a entero
-            }
-            else
-            {
-                throw new Exception("No se encontró el número de mesa.");
-            }
-        }
-
-
-
-        // Método para extraer la fecha
-        public static DateTime ExtraerFecha(string input)
-        {
-            string patron = @"\d{2}/\d{2}/\d{4} \d{2}:\d{2}"; // Coincide con el formato dd/MM/yyyy HH:mm
-            Match match = Regex.Match(input, patron);
-
-            if (match.Success)
-            {
-                return DateTime.ParseExact(match.Value, "dd/MM/yyyy HH:mm", null); // Convertir a DateTime
-            }
-            else
-            {
-                throw new Exception("No se encontró la fecha.");
-            }
-        }
     }
     }

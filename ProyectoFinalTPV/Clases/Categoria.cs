@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProyectoFinalTPV.Clases
 {
@@ -127,6 +128,17 @@ namespace ProyectoFinalTPV.Clases
                     // Manejar errores
                     MessageBox.Show("Error al agregar categoría: " + ex.Message);
                 }
+            }
+        }
+
+        public void cargarAComboBox(System.Windows.Forms.ComboBox comboBox) {
+            SqlConnection sqlConnection = new SqlConnection(m.getConnectionString());
+            SqlCommand comadno = new SqlCommand("select Nombre from Categoria", sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = comadno.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                comboBox.Items.Add(sqlDataReader["Nombre"]);
             }
         }
         public void CargarCategorias(ListBox listaCategorias)

@@ -20,28 +20,13 @@ namespace ProyectoFinalTPV
         Categoria c;
         public EditarOEliminarComida(string accion)
         {
-
-            InitializeComponent();
-            
+            InitializeComponent();   
             this.accion = accion;
             m = new MiForm();
             p = new Producto();
             c = new Categoria();
             cargarAccion(accion);
-
-        }
-
-        private void productoBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.productoBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.restauranteTPVDataSet1);
-        }
-
-        private void EditarOEliminarComida_Load(object sender, EventArgs e)
-        {
-            this.categoriaTableAdapter.Fill(this.restauranteTPVDataSet1.Categoria);
-            this.productoTableAdapter.Fill(this.restauranteTPVDataSet1.Producto);
+            p.rellenarProducto(nombeAcambiarText);
         }
 
         private void button1_Click(object sender, EventArgs e)

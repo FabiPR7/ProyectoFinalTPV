@@ -185,7 +185,18 @@ namespace ProyectoFinalTPV.Clases
 
             return precio;
         }
+        public void rellenarProducto(ComboBox comboBox)
+        {
+            SqlConnection sqlConnection = new SqlConnection(m.getConnectionString());
+            SqlCommand comadno = new SqlCommand("select Nombre from Producto", sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = comadno.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                comboBox.Items.Add(sqlDataReader["Nombre"].ToString());
+            }
 
+        }
         public List<Producto> ObtenerProductosPorCategoria(int idCategoria)
         {
             List<Producto> productos = new List<Producto>();

@@ -32,8 +32,6 @@ namespace ProyectoFinalTPV
                 PagarVentana pagarVentana = new PagarVentana(listBox1.SelectedItem.ToString());
                 pagarVentana.ShowDialog();
                 p.ActualizarListBox(p.ObtenerNoPagados(),listBox1);
-                UsuariosReport usuariosReport = new UsuariosReport();
-
              }
         }
 

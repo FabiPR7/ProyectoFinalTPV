@@ -24,24 +24,8 @@ namespace ProyectoFinalTPV
             cargarAccion(accion);
             m = new MiForm();
             c = new Categoria();
+            c.cargarAComboBox(nombreCategoriaBox);
         }
-
-        private void categoriaBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.categoriaBindingSource.EndEdit();
-
-        }
-
-        private void EditarOEliminarCategoria_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'restauranteTPVDataSet1.Categoria' Puede moverla o quitarla según sea necesario.
-            this.categoriaTableAdapter.Fill(this.restauranteTPVDataSet1.Categoria);
-            // TODO: esta línea de código carga datos en la tabla 'restauranteTPVDataSet1.Categoria' Puede moverla o quitarla según sea necesario.
-            this.categoriaTableAdapter.Fill(this.restauranteTPVDataSet1.Categoria);
-
-        }
-
         public void cargarAccion(string accion) {
 
             if (accion.Equals("eliminar")) {
@@ -61,7 +45,7 @@ namespace ProyectoFinalTPV
             {
                DialogResult respuesta =  MessageBox.Show("¿Estas seguro que quieres eliminar esta categoria?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.OK) {
-                   c.EliminarCategoria(nombreComboBox.Text);
+                   c.EliminarCategoria(nombreCategoriaBox.Text);
                 }
             }
             if (accion.Equals("editar"))
@@ -69,7 +53,7 @@ namespace ProyectoFinalTPV
                 DialogResult respuesta = MessageBox.Show("¿Estas seguro que quieres editar esta categoria?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 if (respuesta == DialogResult.OK)
                 {
-                    c.ActualizarCategoria(nombreComboBox.Text, cambiarCategoriaTextBox.Text);
+                    c.ActualizarCategoria(nombreCategoriaBox.Text, cambiarCategoriaTextBox.Text);
                 }
             }
         }

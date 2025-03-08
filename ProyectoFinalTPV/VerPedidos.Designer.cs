@@ -47,6 +47,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nombreUs = new System.Windows.Forms.Label();
             this.volverBtn = new System.Windows.Forms.Button();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.restauranteTPVDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
@@ -91,14 +92,16 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(27, 137);
+            this.listView1.Location = new System.Drawing.Point(74, 419);
+            this.listView1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(629, 237);
+            this.listView1.Size = new System.Drawing.Size(1983, 667);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -129,21 +132,24 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(15, 19);
+            this.radioButton1.Location = new System.Drawing.Point(48, 54);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(70, 17);
+            this.radioButton1.Size = new System.Drawing.Size(199, 41);
             this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Ver todos";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             this.radioButton1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButton1_MouseClick);
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(452, 19);
+            this.radioButton2.Location = new System.Drawing.Point(1431, 54);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(83, 17);
+            this.radioButton2.Size = new System.Drawing.Size(236, 41);
             this.radioButton2.TabIndex = 2;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "No pagados";
@@ -153,9 +159,10 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(245, 19);
+            this.radioButton3.Location = new System.Drawing.Point(776, 54);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(67, 17);
+            this.radioButton3.Size = new System.Drawing.Size(188, 41);
             this.radioButton3.TabIndex = 3;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Pagados";
@@ -167,9 +174,11 @@
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Location = new System.Drawing.Point(27, 73);
+            this.groupBox1.Location = new System.Drawing.Point(86, 208);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(606, 47);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.groupBox1.Size = new System.Drawing.Size(1919, 134);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
@@ -179,9 +188,10 @@
             this.nombreUs.BackColor = System.Drawing.Color.Transparent;
             this.nombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreUs.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.nombreUs.Location = new System.Drawing.Point(33, 50);
+            this.nombreUs.Location = new System.Drawing.Point(104, 142);
+            this.nombreUs.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.nombreUs.Name = "nombreUs";
-            this.nombreUs.Size = new System.Drawing.Size(131, 20);
+            this.nombreUs.Size = new System.Drawing.Size(363, 55);
             this.nombreUs.TabIndex = 4;
             this.nombreUs.Text = "VER PEDIDOS";
             // 
@@ -189,26 +199,33 @@
             // 
             this.volverBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("volverBtn.BackgroundImage")));
             this.volverBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.volverBtn.Location = new System.Drawing.Point(12, 16);
+            this.volverBtn.Location = new System.Drawing.Point(38, 46);
+            this.volverBtn.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.volverBtn.Name = "volverBtn";
-            this.volverBtn.Size = new System.Drawing.Size(33, 31);
+            this.volverBtn.Size = new System.Drawing.Size(104, 88);
             this.volverBtn.TabIndex = 18;
             this.volverBtn.UseVisualStyleBackColor = true;
             this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
             // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 334;
+            // 
             // VerPedidos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(668, 402);
+            this.ClientSize = new System.Drawing.Size(2115, 1144);
             this.Controls.Add(this.volverBtn);
             this.Controls.Add(this.nombreUs);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.MaximizeBox = false;
             this.Name = "VerPedidos";
             this.Text = "VerPedidos";
@@ -241,5 +258,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label nombreUs;
         private System.Windows.Forms.Button volverBtn;
+        private System.Windows.Forms.ColumnHeader ID;
     }
 }

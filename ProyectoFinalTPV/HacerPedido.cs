@@ -20,7 +20,7 @@ namespace ProyectoFinalTPV
         Usuario u;
         Pedido pedido;
         string usuario;
-
+        Mesa mesa;
         public HacerPedido(string usuario)
         {
             InitializeComponent();
@@ -29,14 +29,16 @@ namespace ProyectoFinalTPV
             u = new Usuario();
             pedido = new Pedido();
             m.adaptarForm(this);
+            mesa = new Mesa();
             c = new Categoria();
             this.usuario = usuario;
+            c.cargarAComboBox(nombreCategoriaComboBox);
+            mesa.rellenarRoles(comboNumeroMesa);
         }
 
         private void HacerPedido_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'restauranteTPVDataSet1.Categoria' Puede moverla o quitarla según sea necesario.
-            this.categoriaTableAdapter.Fill(this.restauranteTPVDataSet1.Categoria);
 
         }
 
@@ -80,7 +82,7 @@ namespace ProyectoFinalTPV
         private void nombreComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             layaoutPanelCategoria.Controls.Clear();
-            List<Producto> productos = prod.ObtenerProductosPorCategoria(c.ObtenerIdPorNombre(nombreComboBox.Text));
+            List<Producto> productos = prod.ObtenerProductosPorCategoria(c.ObtenerIdPorNombre(nombreCategoriaComboBox.Text));
             foreach (Producto pro in productos)
             {
                 rellenarFlowLayout(pro.Nombre, pro.Precio.ToString());
@@ -134,11 +136,18 @@ namespace ProyectoFinalTPV
         {
             if (listpedidos.Items.Count > 0)
             {
-                pedido.GuardarPedido(numeroMesa,u.ObtenerUsuarioIDPorNombre(usuario),listpedidos);
+                pedido.GuardarPedido(int.Parse(comboNumeroMesa.Text),u.ObtenerUsuarioIDPorNombre(usuario),listpedidos);
+                listpedidos.Items.Clear();
+                precioAcumuladolbl.Text = "0.00";
             }
             else {
                 MessageBox.Show("No hay productos seleccionados");
             }
+        }
+
+        private void nombreCategoriaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

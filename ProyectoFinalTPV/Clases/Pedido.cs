@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace ProyectoFinalTPV.Clases
 {
     class Pedido
     {
+        public int Id { get; set; }
         public int Mesa { get; set; }
         public decimal PrecioTotal { get; set; }
         public DateTime Fecha { get; set; }
@@ -31,11 +33,11 @@ namespace ProyectoFinalTPV.Clases
         public void ActualizarListBox(List<Pedido> pedidos, System.Windows.Forms.ListBox listBox1)
         {
             listBox1.Items.Clear();
-            string inicio = "MESA               PRECIO               FECHA                PAGADO";
+            string inicio = "ID           MESA               PRECIO               FECHA                PAGADO";
             listBox1.Items.Add(inicio);
             foreach (var pedido in pedidos)
             {
-                string item = pedido.Mesa.ToString() + "                          " + pedido.PrecioTotal.ToString() + "€" +
+                string item = pedido.Id+"        "+pedido.Mesa.ToString() + "                          " + pedido.PrecioTotal.ToString() + "€" +
                     "            " + pedido.Fecha.ToString("dd/MM/yyyy HH:mm") + "        " + (pedido.Pagado ? "Sí" : "No");
                 listBox1.Items.Add(item);
             }
@@ -45,7 +47,8 @@ namespace ProyectoFinalTPV.Clases
             listView1.Items.Clear();
             foreach (var pedido in pedidos)
             {
-                var item = new ListViewItem(pedido.Mesa.ToString());
+                var item = new ListViewItem(pedido.Id.ToString());
+                item.SubItems.Add(pedido.Mesa.ToString());
                 item.SubItems.Add(pedido.PrecioTotal.ToString("C"));
                 item.SubItems.Add(pedido.Fecha.ToString("dd/MM/yyyy HH:mm"));
                 item.SubItems.Add(pedido.Pagado ? "Sí" : "No");
@@ -53,30 +56,19 @@ namespace ProyectoFinalTPV.Clases
                 listView1.Items.Add(item);
             }
         }
-        public  void ActualizarPedidoAPagado(int numeroMesa, DateTime fechaPedido)
+        public  void ActualizarPedidoAPagado(int ID)
         {
             string query = @"
             UPDATE Pedido
             SET Pagado = 1
-            WHERE MesaID = @MesaID AND FechaPedido = @Fecha";
-
-            using (SqlConnection connection = new SqlConnection(new MiForm().getConnectionString()))
+            WHERE PedidoID = @id";
+            MessageBox.Show("Entra a actualizar");
+            using (SqlConnection connection = new SqlConnection(m.getConnectionString()))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@MesaID", numeroMesa);
-                command.Parameters.AddWithValue("@Fecha", fechaPedido);
-
-                connection.Open();
-                int rowsAffected = command.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
-                {
-                    Console.WriteLine("Pedido actualizado a Pagado correctamente.");
-                }
-                else
-                {
-                    Console.WriteLine("No se encontró el pedido con la mesa y fecha especificadas.");
-                }
+                command.Parameters.AddWithValue("@id", ID);
+                connection.Open();           
+                command.ExecuteNonQuery();
             }
         }
 
@@ -84,11 +76,22 @@ namespace ProyectoFinalTPV.Clases
         {
             List<Pedido> pedidos = new List<Pedido>();
             string query = @"
-            SELECT p.MesaID, SUM(pp.Cantidad * prod.Precio) AS PrecioTotal, p.FechaPedido, p.Pagado
-            FROM Pedido p
-            INNER JOIN PedidoProducto pp ON p.PedidoID = pp.PedidoID
-            INNER JOIN Producto prod ON pp.ProductoID = prod.ProductoID
-            GROUP BY p.MesaID, p.FechaPedido, p.Pagado";
+            SELECT 
+    p.PedidoID,
+    p.MesaID, 
+    SUM(pp.Cantidad * prod.Precio) AS PrecioTotal, 
+    MAX(p.FechaPedido) AS FechaPedido, 
+    MAX(p.Pagado) AS Pagado
+FROM 
+    Pedido p
+INNER JOIN 
+    PedidoProducto pp ON p.PedidoID = pp.PedidoID
+INNER JOIN 
+    Producto prod ON pp.ProductoID = prod.ProductoID
+GROUP BY 
+    p.PedidoID, p.MesaID;
+            "
+            ;
             using (SqlConnection connection = new SqlConnection(m.getConnectionString()))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -96,13 +99,15 @@ namespace ProyectoFinalTPV.Clases
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    int mesa = reader.IsDBNull(0) ? 1 : reader.GetInt32(0);
-                    decimal precioTotal = reader.IsDBNull(1) ? 0 : reader.GetDecimal(1);
-                    DateTime fecha = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
-                    int pagado = reader.IsDBNull(3) ? 0 : reader.GetInt32(3);
+                    int id = reader.IsDBNull(0) ? 1 : reader.GetInt32(0);
+                    int mesa = reader.IsDBNull(1) ? 1 : reader.GetInt32(1);
+                    decimal precioTotal = reader.IsDBNull(2) ? 0 : reader.GetDecimal(2);
+                    DateTime fecha = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                    int pagado = reader.IsDBNull(4) ? 0 : reader.GetInt32(4);
 
                     pedidos.Add(new Pedido
                     {
+                        Id = id,
                         Mesa = mesa,
                         PrecioTotal = precioTotal,
                         Fecha = fecha,
@@ -122,7 +127,7 @@ namespace ProyectoFinalTPV.Clases
         {
             return ObtenerTodos().Where(p => !p.Pagado).ToList();
         }
-        public void GuardarPedido(NumericUpDown numeroMesa, int usuario, System.Windows.Forms.ListBox mibox)
+        public void GuardarPedido(int idMesa, int usuario, System.Windows.Forms.ListBox mibox)
         {
             using (SqlConnection connection = new SqlConnection(m.getConnectionString()))
             {
@@ -131,7 +136,7 @@ namespace ProyectoFinalTPV.Clases
 
                 try
                 {
-                    if (numeroMesa.Value <= 0)
+                    if (idMesa <= 0)
                     {
                         MessageBox.Show("Elige un número de mesa válido.");
                         return;
@@ -143,7 +148,7 @@ namespace ProyectoFinalTPV.Clases
 
                     using (SqlCommand command = new SqlCommand(insertPedidoQuery, connection, transaction))
                     {
-                        command.Parameters.AddWithValue("@MesaID", numeroMesa.Value);
+                        command.Parameters.AddWithValue("@MesaID", idMesa);
                         command.Parameters.AddWithValue("@UsuarioID",usuario);
                         command.Parameters.AddWithValue("@FechaPedido", DateTime.Now);
                         command.Parameters.AddWithValue("@Pagado", 0);
