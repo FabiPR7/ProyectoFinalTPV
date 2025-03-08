@@ -34,10 +34,6 @@ namespace ProyectoFinalTPV.Clases
         {
             return connectionString;
         }
-        public String getConnectionString2()
-        {
-            return connectionString2;
-        }
     }
 }
 

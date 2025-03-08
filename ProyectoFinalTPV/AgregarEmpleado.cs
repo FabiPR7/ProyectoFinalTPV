@@ -18,11 +18,12 @@ namespace ProyectoFinalTPV
     {
         private MiForm metodos = new MiForm();
         private Usuario u = new Usuario();
-
+        Rol rol = new Rol();
         public AgregarEmpleado()
         {
             InitializeComponent();
             metodos.adaptarForm(this);
+            rol.rellenarRoles(rolAgregarEmpeladoTXT);
         }
 
 

@@ -81,6 +81,7 @@
     <Compile Include="Clases\Pedido.cs" />
     <Compile Include="Clases\PedidoProducto.cs" />
     <Compile Include="Clases\Producto.cs" />
+    <Compile Include="Clases\Rol.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Comidas.cs">
       <AutoGen>True</AutoGen>

@@ -15,7 +15,7 @@ namespace ProyectoFinalTPV.Clases
         public bool VerificarSiHayUsuarios()
         {
             string query = "SELECT COUNT(*) FROM Usuario";
-            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString2()))
+            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
             {
                 try
                 {
@@ -39,7 +39,7 @@ namespace ProyectoFinalTPV.Clases
         public void eliminarUsuario(int id)
         {
             string sql = "DELETE FROM Usuario WHERE UsuarioID = @UsuarioID";
-            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString2()))
+            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
             {
                 try
                 {
@@ -77,7 +77,7 @@ namespace ProyectoFinalTPV.Clases
 
             string query = "select UsuarioID from Usuario";
 
-            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString2()))
+            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
             {
                 try
                 {
@@ -106,7 +106,7 @@ namespace ProyectoFinalTPV.Clases
         public string[] obtenerNombresUsuarios()
         {
             string query = "SELECT Nombre FROM Usuario";
-            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString2()))
+            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
             {
                 try
                 {
@@ -139,7 +139,7 @@ namespace ProyectoFinalTPV.Clases
         public int ObtenerUsuarioIDPorNombre(string nombre)
         {
             string query = "SELECT UsuarioID FROM Usuario WHERE Nombre = @Nombre";
-            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString2()))
+            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
             {
                 try
                 {
@@ -177,7 +177,7 @@ namespace ProyectoFinalTPV.Clases
             SET IDENTITY_INSERT Usuario ON;
             INSERT INTO Usuario (UsuarioID, Nombre, RolID) VALUES (@UsuarioID, @Nombre, @RolID);
             SET IDENTITY_INSERT Usuario OFF;";
-            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString2()))
+            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
             {
                 try
                 {

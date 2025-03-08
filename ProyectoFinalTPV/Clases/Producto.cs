@@ -37,7 +37,7 @@ namespace ProyectoFinalTPV.Clases
 
             string query = "DELETE FROM Producto WHERE nombre = @nombre";
 
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
                 {
@@ -66,7 +66,7 @@ namespace ProyectoFinalTPV.Clases
         }
         public void ActualizarProdudcto(string nombreActual, string nuevoNombre, float precio, bool existeCategoria, int idCategoria)
         {
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
                 {
@@ -107,7 +107,7 @@ namespace ProyectoFinalTPV.Clases
         }
         public void agregarComida(string nombre, float precio, int categoriaID)
         {
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
                 {
@@ -132,7 +132,7 @@ namespace ProyectoFinalTPV.Clases
         }
         public int ObtenerProductoIDPorNombre(string nombreProducto)
         {
-            using (SqlConnection connection = new SqlConnection(m.getConnectionString2()))
+            using (SqlConnection connection = new SqlConnection(m.getConnectionString()))
             {
                 connection.Open();
                 string query = "SELECT ProductoID FROM Producto WHERE Nombre = @Nombre";
@@ -155,7 +155,7 @@ namespace ProyectoFinalTPV.Clases
         {
             decimal precio = -1;
 
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
                 {
@@ -190,7 +190,7 @@ namespace ProyectoFinalTPV.Clases
         {
             List<Producto> productos = new List<Producto>();
 
-            string connectionString = m.getConnectionString2();
+            string connectionString = m.getConnectionString();
             string query = "SELECT nombre, precio FROM producto WHERE CategoriaID = @IdCategoria";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

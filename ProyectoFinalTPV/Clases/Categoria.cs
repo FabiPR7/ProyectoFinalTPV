@@ -14,7 +14,7 @@ namespace ProyectoFinalTPV.Clases
 
         public bool CategoriaExiste(int id)
         {
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 conn.Open();
                 string query = "SELECT COUNT(*) FROM Categoria WHERE CategoriaID = @id";
@@ -31,7 +31,7 @@ namespace ProyectoFinalTPV.Clases
 
             string query = "DELETE FROM Categoria WHERE nombre = @nombre";
 
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
                 {
@@ -62,7 +62,7 @@ namespace ProyectoFinalTPV.Clases
         {
             string query = "UPDATE Categoria SET nombre = @nuevoNombre WHERE nombre = @nombreActual";
 
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
                 {
@@ -96,7 +96,7 @@ namespace ProyectoFinalTPV.Clases
             string query = "INSERT INTO Categoria (Nombre) VALUES (@nombre)";
 
             // Usar la cadena de conexión (asumiendo que m.getConnectionString2() devuelve la cadena correcta)
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
                 {
@@ -133,7 +133,7 @@ namespace ProyectoFinalTPV.Clases
         {
             string query = "SELECT CategoriaID, nombre FROM Categoria";
             listaCategorias.Items.Clear();
-            using (SqlConnection conn = new SqlConnection(m.getConnectionString2()))
+            using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
                 {
@@ -159,7 +159,7 @@ namespace ProyectoFinalTPV.Clases
         {
             int id = 0;
 
-            string connectionString = m.getConnectionString2();
+            string connectionString = m.getConnectionString();
 
             string query = "SELECT CategoriaID FROM categoria WHERE nombre = @Nombre";
 
