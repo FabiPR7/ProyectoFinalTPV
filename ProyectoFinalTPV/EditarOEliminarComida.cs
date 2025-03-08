@@ -27,6 +27,7 @@ namespace ProyectoFinalTPV
             c = new Categoria();
             cargarAccion(accion);
             p.rellenarProducto(nombeAcambiarText);
+            c.cargarAComboBox(categriaComboBox);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,7 +59,7 @@ namespace ProyectoFinalTPV
 
             if (accion.Equals("eliminar"))
             {
-                accionTxt.Text = "Eliminar Categoria";
+                accionTxt.Text = "Eliminar Comida";
                 precioTextBox.Visible = false;
                 precioLbl.Visible = false;
                 cambiarAText.Visible = false;
@@ -69,7 +70,7 @@ namespace ProyectoFinalTPV
             }
             if (accion.Equals("editar"))
             {
-                accionTxt.Text = "Editar Categoria";
+                accionTxt.Text = "Editar Comida";
             }
         }
 

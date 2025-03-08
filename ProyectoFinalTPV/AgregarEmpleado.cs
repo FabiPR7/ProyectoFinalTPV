@@ -32,7 +32,6 @@ namespace ProyectoFinalTPV
             if (verificarCampos()) { 
                 u.InsertarUsuario(Convert.ToInt32(codigoAgregarEmpleadoTXT.Text), nameAgregarEmpleadoTXT.Text, rolAgregarEmpeladoTXT.Text == "Admin" ? 1 : 2);
                 this.Close();
-                MessageBox.Show("Cerrar la aplicacion para notar cambios.");
             }
         }
 

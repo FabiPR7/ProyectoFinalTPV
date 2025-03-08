@@ -47,15 +47,7 @@ namespace ProyectoFinalTPV.Clases
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@UsuarioID", id);
-                        int result = command.ExecuteNonQuery();
-                        if (result > 0)
-                        {
-                            MessageBox.Show("Usuario eliminado correctamente.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se pudo eliminar el usuario.");
-                        }
+                        command.ExecuteNonQuery();
                     }
                 }
                 catch (Exception ex)
@@ -116,8 +108,6 @@ namespace ProyectoFinalTPV.Clases
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             List<string> nombres = new List<string>();
-
-
                             while (reader.Read())
                             {
                                 string nombre = reader["Nombre"].ToString();
@@ -146,12 +136,8 @@ namespace ProyectoFinalTPV.Clases
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-
                         command.Parameters.AddWithValue("@Nombre", nombre);
-
                         object result = command.ExecuteScalar();
-
-
                         if (result != null)
                         {
                             return Convert.ToInt32(result);
@@ -168,6 +154,21 @@ namespace ProyectoFinalTPV.Clases
                     return -1;
                 }
             }
+        }
+
+        public int ObtenerRolIDusuarioPorNombre(string nombre)
+        {
+            SqlConnection conexion = new SqlConnection(miForm.getConnectionString());
+            SqlCommand comando = new SqlCommand("select RolID from Usuario where Nombre = @nombre",conexion);
+            comando.Parameters.AddWithValue("@nombre",nombre);
+            conexion.Open();
+            SqlDataReader reader = comando.ExecuteReader();
+            while (reader.Read()) {
+                return int.Parse(reader["RolID"].ToString());
+            }
+            MessageBox.Show("Error no va");
+            return -1;
+ 
         }
 
 

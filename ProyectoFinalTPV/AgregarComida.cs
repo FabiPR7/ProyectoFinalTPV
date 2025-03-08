@@ -21,19 +21,7 @@ namespace ProyectoFinalTPV
             InitializeComponent();
             p = new Producto();
             c = new Categoria();
-        }
-
-        private void categoriaBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.categoriaBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.restauranteTPVDataSet1);
-        }
-
-        private void AgregarComida_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'restauranteTPVDataSet1.Categoria' Puede moverla o quitarla según sea necesario.
-            this.categoriaTableAdapter.Fill(this.restauranteTPVDataSet1.Categoria);
+            c.cargarAComboBox(nombreCategoriaComboBox);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +32,7 @@ namespace ProyectoFinalTPV
             }
             else {            
                 p.agregarComida(nombreTextBox.Text, float.Parse(precioTextBox.Text), c.ObtenerIdPorNombre(nombreCategoriaComboBox.Text));
+                  this.Close();
             }
         }
 

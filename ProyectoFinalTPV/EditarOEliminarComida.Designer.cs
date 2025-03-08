@@ -46,19 +46,17 @@
             // nombreLabel1
             // 
             nombreLabel1.AutoSize = true;
-            nombreLabel1.Location = new System.Drawing.Point(120, 330);
-            nombreLabel1.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            nombreLabel1.Location = new System.Drawing.Point(38, 116);
             nombreLabel1.Name = "nombreLabel1";
-            nombreLabel1.Size = new System.Drawing.Size(141, 37);
+            nombreLabel1.Size = new System.Drawing.Size(47, 13);
             nombreLabel1.TabIndex = 22;
             nombreLabel1.Text = "Nombre:";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(66, 57);
-            this.button2.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.button2.Location = new System.Drawing.Point(21, 20);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(238, 65);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 14;
             this.button2.Text = "SALIR";
             this.button2.UseVisualStyleBackColor = true;
@@ -66,10 +64,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(367, 871);
-            this.button1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.button1.Location = new System.Drawing.Point(116, 306);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(238, 65);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
             this.button1.Text = "ACEPTAR";
             this.button1.UseVisualStyleBackColor = true;
@@ -78,93 +75,85 @@
             // accionTxt
             // 
             this.accionTxt.AutoSize = true;
-            this.accionTxt.Location = new System.Drawing.Point(358, 185);
-            this.accionTxt.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.accionTxt.Location = new System.Drawing.Point(113, 65);
             this.accionTxt.Name = "accionTxt";
-            this.accionTxt.Size = new System.Drawing.Size(102, 37);
+            this.accionTxt.Size = new System.Drawing.Size(35, 13);
             this.accionTxt.TabIndex = 12;
             this.accionTxt.Text = "label2";
             // 
             // precioTextBox
             // 
-            this.precioTextBox.Location = new System.Drawing.Point(317, 615);
-            this.precioTextBox.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.precioTextBox.Location = new System.Drawing.Point(100, 216);
             this.precioTextBox.Name = "precioTextBox";
-            this.precioTextBox.Size = new System.Drawing.Size(374, 44);
+            this.precioTextBox.Size = new System.Drawing.Size(121, 20);
             this.precioTextBox.TabIndex = 19;
             // 
             // categriaComboBox
             // 
+            this.categriaComboBox.DisplayMember = "Nombre";
             this.categriaComboBox.FormattingEnabled = true;
-            this.categriaComboBox.Location = new System.Drawing.Point(317, 689);
-            this.categriaComboBox.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.categriaComboBox.Location = new System.Drawing.Point(100, 242);
             this.categriaComboBox.Name = "categriaComboBox";
-            this.categriaComboBox.Size = new System.Drawing.Size(374, 45);
+            this.categriaComboBox.Size = new System.Drawing.Size(121, 21);
             this.categriaComboBox.TabIndex = 20;
             this.categriaComboBox.ValueMember = "Nombre";
             // 
             // precioLbl
             // 
             this.precioLbl.AutoSize = true;
-            this.precioLbl.Location = new System.Drawing.Point(124, 635);
-            this.precioLbl.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.precioLbl.Location = new System.Drawing.Point(39, 223);
             this.precioLbl.Name = "precioLbl";
-            this.precioLbl.Size = new System.Drawing.Size(116, 37);
+            this.precioLbl.Size = new System.Drawing.Size(40, 13);
             this.precioLbl.TabIndex = 21;
             this.precioLbl.Text = "Precio:";
             // 
             // categoriaNombre
             // 
             this.categoriaNombre.AutoSize = true;
-            this.categoriaNombre.Location = new System.Drawing.Point(120, 709);
-            this.categoriaNombre.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.categoriaNombre.Location = new System.Drawing.Point(38, 249);
             this.categoriaNombre.Name = "categoriaNombre";
-            this.categoriaNombre.Size = new System.Drawing.Size(156, 37);
+            this.categoriaNombre.Size = new System.Drawing.Size(52, 13);
             this.categoriaNombre.TabIndex = 22;
             this.categoriaNombre.Text = "Categoria";
             // 
             // nombeAcambiarText
             // 
             this.nombeAcambiarText.FormattingEnabled = true;
-            this.nombeAcambiarText.Location = new System.Drawing.Point(288, 307);
-            this.nombeAcambiarText.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.nombeAcambiarText.Location = new System.Drawing.Point(91, 108);
             this.nombeAcambiarText.Name = "nombeAcambiarText";
-            this.nombeAcambiarText.Size = new System.Drawing.Size(374, 45);
+            this.nombeAcambiarText.Size = new System.Drawing.Size(121, 21);
             this.nombeAcambiarText.TabIndex = 23;
             // 
             // cambiarAText
             // 
             this.cambiarAText.AutoSize = true;
-            this.cambiarAText.Location = new System.Drawing.Point(294, 427);
-            this.cambiarAText.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.cambiarAText.Location = new System.Drawing.Point(113, 151);
             this.cambiarAText.Name = "cambiarAText";
-            this.cambiarAText.Size = new System.Drawing.Size(168, 37);
+            this.cambiarAText.Size = new System.Drawing.Size(56, 13);
             this.cambiarAText.TabIndex = 24;
             this.cambiarAText.Text = "cambiar a:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(317, 546);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.textBox1.Location = new System.Drawing.Point(100, 192);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(374, 44);
+            this.textBox1.Size = new System.Drawing.Size(121, 20);
             this.textBox1.TabIndex = 25;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(133, 546);
-            this.label1.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label1.Location = new System.Drawing.Point(42, 192);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 37);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 26;
             this.label1.Text = "Nombre:";
             // 
             // EditarOEliminarComida
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 971);
+            this.ClientSize = new System.Drawing.Size(315, 338);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cambiarAText);
@@ -178,7 +167,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.accionTxt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.MaximizeBox = false;
             this.Name = "EditarOEliminarComida";
             this.Text = "EditarOEliminarComida";

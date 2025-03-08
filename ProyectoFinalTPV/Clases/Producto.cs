@@ -113,15 +113,12 @@ namespace ProyectoFinalTPV.Clases
                 {
                     conn.Open();
                     string query = "INSERT INTO Producto (Nombre, Precio, CategoriaID) VALUES (@Nombre, @Precio, @CategoriaID)";
-
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Nombre", nombre);
                         cmd.Parameters.AddWithValue("@Precio", precio);
                         cmd.Parameters.AddWithValue("@CategoriaID", categoriaID);
-                        MessageBox.Show("Lo ejecuta");
                         cmd.ExecuteNonQuery();
-
                     }
                 }
                 catch (Exception ex)

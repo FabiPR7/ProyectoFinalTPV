@@ -34,6 +34,7 @@ namespace ProyectoFinalTPV
             this.usuario = usuario;
             c.cargarAComboBox(nombreCategoriaComboBox);
             mesa.rellenarRoles(comboNumeroMesa);
+         
         }
 
         private void HacerPedido_Load(object sender, EventArgs e)
@@ -92,8 +93,16 @@ namespace ProyectoFinalTPV
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ConfigurComida configurComida = new ConfigurComida();
-            m.cargarForm(configurComida, this);
+
+
+            if (u.ObtenerRolIDusuarioPorNombre(usuario) == 1)
+            {
+                ConfigurComida configurComida = new ConfigurComida();
+                m.cargarForm(configurComida, this);
+            }
+            else {
+                MessageBox.Show("Debes ser administrador para entrar aqui");
+            }
         }
 
         private void volverBtn_Click(object sender, EventArgs e)
@@ -136,9 +145,12 @@ namespace ProyectoFinalTPV
         {
             if (listpedidos.Items.Count > 0)
             {
-                pedido.GuardarPedido(int.Parse(comboNumeroMesa.Text),u.ObtenerUsuarioIDPorNombre(usuario),listpedidos);
-                listpedidos.Items.Clear();
-                precioAcumuladolbl.Text = "0.00";
+                if (comboNumeroMesa.Text != "")
+                {
+                    pedido.GuardarPedido(int.Parse(comboNumeroMesa.Text), u.ObtenerUsuarioIDPorNombre(usuario), listpedidos);
+                    listpedidos.Items.Clear();
+                    precioAcumuladolbl.Text = "0.00";
+                }
             }
             else {
                 MessageBox.Show("No hay productos seleccionados");

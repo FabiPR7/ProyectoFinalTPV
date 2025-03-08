@@ -15,6 +15,7 @@ namespace ProyectoFinalTPV
     {
         MiForm m;
        private string nombreUsuario;
+        Usuario u;
         public MenuPrincipal(string nombreUsuario)
         {
             InitializeComponent();
@@ -50,8 +51,16 @@ namespace ProyectoFinalTPV
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Informes informes = new Informes(nombreUsuario);
+            if (u.ObtenerRolIDusuarioPorNombre(nombreUsuario) == 1)
+            {
+                Informes informes = new Informes(nombreUsuario);
             m.cargarForm(informes, this);
+            }
+            else
+            {
+                MessageBox.Show("Debes ser administrador para tener acceso a los infromes");
+            }
+           
         }
     }
 }

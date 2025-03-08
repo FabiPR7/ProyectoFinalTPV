@@ -34,9 +34,11 @@ namespace ProyectoFinalTPV
         private void listaCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
             listaComidas.Items.Clear();
-         productos =  new Producto().ObtenerProductosPorCategoria(new Categoria().ObtenerIdPorNombre(listaCategorias.SelectedItem.ToString()));
-            foreach (Producto prod in productos) { 
-                listaComidas.Items.Add(prod.Nombre);
+            if (listaCategorias.SelectedItem != null) {
+                productos = new Producto().ObtenerProductosPorCategoria(c.ObtenerIdPorNombre(listaCategorias.SelectedItem.ToString()));
+                foreach (Producto prod in productos) {
+                    listaComidas.Items.Add(prod.Nombre);
+                } 
             }
         }
 

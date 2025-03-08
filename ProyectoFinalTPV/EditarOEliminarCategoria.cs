@@ -46,6 +46,7 @@ namespace ProyectoFinalTPV
                DialogResult respuesta =  MessageBox.Show("¿Estas seguro que quieres eliminar esta categoria?", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.OK) {
                    c.EliminarCategoria(nombreCategoriaBox.Text);
+                    this.Close();
                 }
             }
             if (accion.Equals("editar"))
@@ -54,6 +55,7 @@ namespace ProyectoFinalTPV
                 if (respuesta == DialogResult.OK)
                 {
                     c.ActualizarCategoria(nombreCategoriaBox.Text, cambiarCategoriaTextBox.Text);
+                    this.Close();
                 }
             }
         }

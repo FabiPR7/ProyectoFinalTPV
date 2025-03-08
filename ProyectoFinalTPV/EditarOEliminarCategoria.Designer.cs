@@ -41,56 +41,50 @@
             // nombreCategoria
             // 
             nombreCategoria.AutoSize = true;
-            nombreCategoria.Location = new System.Drawing.Point(70, 373);
-            nombreCategoria.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            nombreCategoria.Location = new System.Drawing.Point(22, 131);
             nombreCategoria.Name = "nombreCategoria";
-            nombreCategoria.Size = new System.Drawing.Size(141, 37);
+            nombreCategoria.Size = new System.Drawing.Size(47, 13);
             nombreCategoria.TabIndex = 1;
             nombreCategoria.Text = "Nombre:";
             // 
             // nombreCategoriaBox
             // 
             this.nombreCategoriaBox.FormattingEnabled = true;
-            this.nombreCategoriaBox.Location = new System.Drawing.Point(238, 364);
-            this.nombreCategoriaBox.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.nombreCategoriaBox.Location = new System.Drawing.Point(75, 128);
             this.nombreCategoriaBox.Name = "nombreCategoriaBox";
-            this.nombreCategoriaBox.Size = new System.Drawing.Size(374, 45);
+            this.nombreCategoriaBox.Size = new System.Drawing.Size(121, 21);
             this.nombreCategoriaBox.TabIndex = 2;
             // 
             // cambiarCategoriaTXT
             // 
             this.cambiarCategoriaTXT.AutoSize = true;
-            this.cambiarCategoriaTXT.Location = new System.Drawing.Point(32, 512);
-            this.cambiarCategoriaTXT.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.cambiarCategoriaTXT.Location = new System.Drawing.Point(10, 180);
             this.cambiarCategoriaTXT.Name = "cambiarCategoriaTXT";
-            this.cambiarCategoriaTXT.Size = new System.Drawing.Size(177, 37);
+            this.cambiarCategoriaTXT.Size = new System.Drawing.Size(59, 13);
             this.cambiarCategoriaTXT.TabIndex = 3;
             this.cambiarCategoriaTXT.Text = "cambiar a :";
             // 
             // cambiarCategoriaTextBox
             // 
-            this.cambiarCategoriaTextBox.Location = new System.Drawing.Point(238, 504);
-            this.cambiarCategoriaTextBox.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.cambiarCategoriaTextBox.Location = new System.Drawing.Point(75, 177);
             this.cambiarCategoriaTextBox.Name = "cambiarCategoriaTextBox";
-            this.cambiarCategoriaTextBox.Size = new System.Drawing.Size(454, 44);
+            this.cambiarCategoriaTextBox.Size = new System.Drawing.Size(146, 20);
             this.cambiarCategoriaTextBox.TabIndex = 4;
             // 
             // accionCategoriaTxt
             // 
             this.accionCategoriaTxt.AutoSize = true;
-            this.accionCategoriaTxt.Location = new System.Drawing.Point(266, 191);
-            this.accionCategoriaTxt.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.accionCategoriaTxt.Location = new System.Drawing.Point(107, 67);
             this.accionCategoriaTxt.Name = "accionCategoriaTxt";
-            this.accionCategoriaTxt.Size = new System.Drawing.Size(102, 37);
+            this.accionCategoriaTxt.Size = new System.Drawing.Size(35, 13);
             this.accionCategoriaTxt.TabIndex = 5;
             this.accionCategoriaTxt.Text = "label2";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(314, 657);
-            this.button1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.button1.Location = new System.Drawing.Point(93, 230);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(238, 65);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "ACEPTAR";
             this.button1.UseVisualStyleBackColor = true;
@@ -98,10 +92,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(41, 34);
-            this.button2.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.button2.Location = new System.Drawing.Point(13, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(238, 65);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
             this.button2.Text = "SALIR";
             this.button2.UseVisualStyleBackColor = true;
@@ -109,9 +102,9 @@
             // 
             // EditarOEliminarCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 953);
+            this.ClientSize = new System.Drawing.Size(273, 293);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.accionCategoriaTxt);
@@ -120,7 +113,6 @@
             this.Controls.Add(nombreCategoria);
             this.Controls.Add(this.nombreCategoriaBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.MaximizeBox = false;
             this.Name = "EditarOEliminarCategoria";
             this.Text = " ";

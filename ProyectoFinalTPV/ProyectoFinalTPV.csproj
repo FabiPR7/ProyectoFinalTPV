@@ -195,6 +195,12 @@
       <DependentUpon>UsuariosReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UsuariosReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsuariosReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="VerPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,7 +277,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsuariosReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>UsuariosReport.cs</LastGenOutput>
+      <LastGenOutput>UsuariosReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="VerPedidos.resx">
       <DependentUpon>VerPedidos.cs</DependentUpon>

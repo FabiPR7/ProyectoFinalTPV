@@ -18,6 +18,7 @@ namespace ProyectoFinalTPV
         MiForm metodos;
         private string nombreUsuario = "";
         private string accion;
+        private string usuario;
         Usuario u;
 
         public EligeCuenta(string accion)
@@ -29,6 +30,19 @@ namespace ProyectoFinalTPV
             this.accion = accion;
             visibilizarBotones();
         }
+
+        public EligeCuenta(string accion,string usuario)
+        {
+            InitializeComponent();
+            metodos = new MiForm();
+            u = new Usuario();
+            this.usuario = usuario;
+            metodos.adaptarForm(this);
+            this.accion = accion;
+            visibilizarBotones();
+        }
+
+
 
         private void Button_Click(object sender, EventArgs e)
         {
@@ -98,20 +112,26 @@ namespace ProyectoFinalTPV
             }
             else if (accion.Equals("eliminar"))
             {
-                DialogResult result = MessageBox.Show(
-                            "¿Estás seguro de que quieres eliminar a este usuario?",
-                             "Confirmación",                          
-                             MessageBoxButtons.YesNo,                 
-                             MessageBoxIcon.Warning);
-
-                if (result == DialogResult.Yes)
+                if (nombreUsuario != usuario)
                 {
-                     int id = u.ObtenerUsuarioIDPorNombre(nombreUsuario);
+                    DialogResult result = MessageBox.Show(
+                                "¿Estás seguro de que quieres eliminar a este usuario?",
+                                 "Confirmación",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        int id = u.ObtenerUsuarioIDPorNombre(nombreUsuario);
                         if (id != -1)
                         {
                             u.eliminarUsuario(id);
-                        MessageBox.Show("Usuario eliminado,cerrar aplicación para notar cambios");
+                            metodos.cerrarForm(this);                        
                         }
+                    }
+                }
+                else {
+                    MessageBox.Show("No puedes eliminarte a ti mismo, debes cerrar esta cuenta de Administrador");
                 }
               
               

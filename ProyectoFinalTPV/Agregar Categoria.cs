@@ -31,6 +31,7 @@ namespace ProyectoFinalTPV
               DialogResult result =  MessageBox.Show("¿Estas seguro que quieres guardar la categoria "+nombreTextBox.Text+ " ?", "Aviso",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes) {
                     c.AgregarCategoria(nombreTextBox.Text,this);
+                    this.Close();
                 }
             }
         }
