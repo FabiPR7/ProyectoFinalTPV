@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProyectoFinalTPV {
+namespace ProyectoFinalTPV.Informes.Pedidos {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace ProyectoFinalTPV {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class UsuariosReport : ReportClass {
+    public class NoPagados : ReportClass {
         
-        public UsuariosReport() {
+        public NoPagados() {
         }
         
         public override string ResourceName {
             get {
-                return "UsuariosReport.rpt";
+                return "NoPagados.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProyectoFinalTPV {
         
         public override string FullResourceName {
             get {
-                return "ProyectoFinalTPV.UsuariosReport.rpt";
+                return "ProyectoFinalTPV.Informes.Pedidos.NoPagados.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace ProyectoFinalTPV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace ProyectoFinalTPV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,17 +82,33 @@ namespace ProyectoFinalTPV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+            get {
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[6];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedUsuariosReport : Component, ICachedReport {
+    public class CachedNoPagados : Component, ICachedReport {
         
-        public CachedUsuariosReport() {
+        public CachedNoPagados() {
         }
         
         [Browsable(false)]
@@ -129,7 +145,7 @@ namespace ProyectoFinalTPV {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            UsuariosReport rpt = new UsuariosReport();
+            NoPagados rpt = new NoPagados();
             rpt.Site = this.Site;
             return rpt;
         }

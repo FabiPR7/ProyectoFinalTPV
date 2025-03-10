@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProyectoFinalTPV {
+namespace ProyectoFinalTPV.Informes.Comidas {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace ProyectoFinalTPV {
         
         public override string FullResourceName {
             get {
-                return "ProyectoFinalTPV.Comidas.rpt";
+                return "ProyectoFinalTPV.Informes.Comidas.Comidas.rpt";
             }
             set {
                 // Do nothing

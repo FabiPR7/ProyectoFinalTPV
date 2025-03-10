@@ -14,24 +14,55 @@ namespace ProyectoFinalTPV
 {
     public partial class Agregar_Categoria : Form
     {
+        // Instancia de la clase Categoria para manejar operaciones relacionadas con categorías.
         Categoria c;
+
+        /// <summary>
+        /// Constructor de la clase Agregar_Categoria.
+        /// Inicializa los componentes del formulario y crea una instancia de la clase Categoria.
+        /// </summary>
         public Agregar_Categoria()
         {
-            InitializeComponent();
-            c = new Categoria();
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            InitializeComponent(); // Inicializa los componentes del formulario.
+            c = new Categoria();  // Crea una instancia de la clase Categoria.
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Cancelar".
+        /// Cierra el formulario actual.
+        /// </summary>
+        /// <param name="sender">Objeto que desencadenó el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close(); // Cierra el formulario actual.
+        }
+
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Guardar".
+        /// Verifica si el campo de nombre no está vacío y muestra un cuadro de diálogo de confirmación.
+        /// Si el usuario confirma, agrega la categoría y cierra el formulario.
+        /// </summary>
+        /// <param name="sender">Objeto que desencadenó el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (nombreTextBox.Text != "") {
-              DialogResult result =  MessageBox.Show("¿Estas seguro que quieres guardar la categoria "+nombreTextBox.Text+ " ?", "Aviso",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes) {
-                    c.AgregarCategoria(nombreTextBox.Text,this);
-                    this.Close();
+            // Verifica si el campo de nombre no está vacío.
+            if (nombreTextBox.Text != "")
+            {
+                // Muestra un cuadro de diálogo de confirmación.
+                DialogResult result = MessageBox.Show(
+                    "¿Estás seguro que quieres guardar la categoría " + nombreTextBox.Text + "?",
+                    "Aviso",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                // Si el usuario confirma, agrega la categoría y cierra el formulario.
+                if (result == DialogResult.Yes)
+                {
+                    c.agregarCategoria(nombreTextBox.Text, this); // Llama al método para agregar la categoría.
+                    this.Close(); // Cierra el formulario actual.
                 }
             }
         }

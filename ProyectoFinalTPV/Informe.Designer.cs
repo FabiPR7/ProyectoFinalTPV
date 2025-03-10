@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinalTPV
 {
-    partial class Informes
+    partial class Informe
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Informes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Informe));
             this.PagarPedido = new System.Windows.Forms.Button();
             this.verPedidoBtn = new System.Windows.Forms.Button();
             this.hacerPedidoBtn = new System.Windows.Forms.Button();
@@ -39,10 +39,9 @@
             // 
             // PagarPedido
             // 
-            this.PagarPedido.Location = new System.Drawing.Point(785, 754);
-            this.PagarPedido.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.PagarPedido.Location = new System.Drawing.Point(248, 265);
             this.PagarPedido.Name = "PagarPedido";
-            this.PagarPedido.Size = new System.Drawing.Size(545, 91);
+            this.PagarPedido.Size = new System.Drawing.Size(172, 32);
             this.PagarPedido.TabIndex = 5;
             this.PagarPedido.Text = "PEDIDOS";
             this.PagarPedido.UseVisualStyleBackColor = true;
@@ -50,10 +49,9 @@
             // 
             // verPedidoBtn
             // 
-            this.verPedidoBtn.Location = new System.Drawing.Point(1441, 529);
-            this.verPedidoBtn.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.verPedidoBtn.Location = new System.Drawing.Point(455, 186);
             this.verPedidoBtn.Name = "verPedidoBtn";
-            this.verPedidoBtn.Size = new System.Drawing.Size(545, 91);
+            this.verPedidoBtn.Size = new System.Drawing.Size(172, 32);
             this.verPedidoBtn.TabIndex = 4;
             this.verPedidoBtn.Text = "COMIDAS";
             this.verPedidoBtn.UseVisualStyleBackColor = true;
@@ -61,10 +59,9 @@
             // 
             // hacerPedidoBtn
             // 
-            this.hacerPedidoBtn.Location = new System.Drawing.Point(86, 529);
-            this.hacerPedidoBtn.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.hacerPedidoBtn.Location = new System.Drawing.Point(27, 186);
             this.hacerPedidoBtn.Name = "hacerPedidoBtn";
-            this.hacerPedidoBtn.Size = new System.Drawing.Size(545, 91);
+            this.hacerPedidoBtn.Size = new System.Drawing.Size(172, 32);
             this.hacerPedidoBtn.TabIndex = 3;
             this.hacerPedidoBtn.Text = "USUARIOS";
             this.hacerPedidoBtn.UseVisualStyleBackColor = true;
@@ -74,10 +71,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(267, 54);
-            this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label2.Location = new System.Drawing.Point(84, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(779, 55);
+            this.label2.Size = new System.Drawing.Size(278, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "INFORMES DEL RESTAURANTE";
             // 
@@ -85,10 +81,9 @@
             // 
             this.nombreUs.AutoSize = true;
             this.nombreUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreUs.Location = new System.Drawing.Point(621, 292);
-            this.nombreUs.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.nombreUs.Location = new System.Drawing.Point(196, 103);
             this.nombreUs.Name = "nombreUs";
-            this.nombreUs.Size = new System.Drawing.Size(779, 55);
+            this.nombreUs.Size = new System.Drawing.Size(278, 20);
             this.nombreUs.TabIndex = 6;
             this.nombreUs.Text = "INFORMES DEL RESTAURANTE";
             // 
@@ -96,21 +91,19 @@
             // 
             this.volverBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("volverBtn.BackgroundImage")));
             this.volverBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.volverBtn.Location = new System.Drawing.Point(38, 54);
-            this.volverBtn.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.volverBtn.Location = new System.Drawing.Point(12, 19);
             this.volverBtn.Name = "volverBtn";
-            this.volverBtn.Size = new System.Drawing.Size(104, 88);
+            this.volverBtn.Size = new System.Drawing.Size(33, 31);
             this.volverBtn.TabIndex = 18;
             this.volverBtn.UseVisualStyleBackColor = true;
-            this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
             // 
-            // Informes
+            // Informe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(2115, 1144);
+            this.ClientSize = new System.Drawing.Size(432, 246);
             this.Controls.Add(this.volverBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nombreUs);
@@ -118,8 +111,7 @@
             this.Controls.Add(this.verPedidoBtn);
             this.Controls.Add(this.hacerPedidoBtn);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.Name = "Informes";
+            this.Name = "Informe";
             this.Text = "Informes";
             this.ResumeLayout(false);
             this.PerformLayout();

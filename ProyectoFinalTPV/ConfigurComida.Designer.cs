@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurComida));
             this.label1 = new System.Windows.Forms.Label();
             this.listaCategorias = new System.Windows.Forms.ListBox();
@@ -45,7 +46,20 @@
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.volverBtn = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.comidaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -109,7 +123,7 @@
             this.toolStripComboBox1,
             this.comidaToolStripMenuItem});
             this.eDITARDATOSToolStripMenuItem.Name = "eDITARDATOSToolStripMenuItem";
-            this.eDITARDATOSToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.eDITARDATOSToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.eDITARDATOSToolStripMenuItem.Text = "EDITAR DATOS";
             // 
             // toolStripComboBox1
@@ -185,6 +199,92 @@
             this.volverBtn.UseVisualStyleBackColor = true;
             this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 388);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(676, 22);
+            this.statusStrip1.TabIndex = 18;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(115, 17);
+            this.toolStripStatusLabel1.Text = "Configura la comida";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comidaToolStripMenuItem1,
+            this.categoriaToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(126, 48);
+            // 
+            // comidaToolStripMenuItem1
+            // 
+            this.comidaToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarToolStripMenuItem2,
+            this.editarToolStripMenuItem2,
+            this.eliminarToolStripMenuItem2});
+            this.comidaToolStripMenuItem1.Name = "comidaToolStripMenuItem1";
+            this.comidaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.comidaToolStripMenuItem1.Text = "Comida";
+            // 
+            // categoriaToolStripMenuItem
+            // 
+            this.categoriaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarToolStripMenuItem3,
+            this.eliminarToolStripMenuItem3,
+            this.editarToolStripMenuItem3});
+            this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
+            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoriaToolStripMenuItem.Text = "Categoria";
+            // 
+            // agregarToolStripMenuItem2
+            // 
+            this.agregarToolStripMenuItem2.Name = "agregarToolStripMenuItem2";
+            this.agregarToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.agregarToolStripMenuItem2.Text = "Agregar";
+            this.agregarToolStripMenuItem2.Click += new System.EventHandler(this.agregarToolStripMenuItem2_Click);
+            // 
+            // editarToolStripMenuItem2
+            // 
+            this.editarToolStripMenuItem2.Name = "editarToolStripMenuItem2";
+            this.editarToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStripMenuItem2.Text = "Editar";
+            this.editarToolStripMenuItem2.Click += new System.EventHandler(this.editarToolStripMenuItem2_Click);
+            // 
+            // eliminarToolStripMenuItem2
+            // 
+            this.eliminarToolStripMenuItem2.Name = "eliminarToolStripMenuItem2";
+            this.eliminarToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem2.Text = "Eliminar";
+            this.eliminarToolStripMenuItem2.Click += new System.EventHandler(this.eliminarToolStripMenuItem2_Click);
+            // 
+            // agregarToolStripMenuItem3
+            // 
+            this.agregarToolStripMenuItem3.Name = "agregarToolStripMenuItem3";
+            this.agregarToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.agregarToolStripMenuItem3.Text = "Agregar";
+            this.agregarToolStripMenuItem3.Click += new System.EventHandler(this.agregarToolStripMenuItem3_Click);
+            // 
+            // eliminarToolStripMenuItem3
+            // 
+            this.eliminarToolStripMenuItem3.Name = "eliminarToolStripMenuItem3";
+            this.eliminarToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem3.Text = "Eliminar";
+            this.eliminarToolStripMenuItem3.Click += new System.EventHandler(this.eliminarToolStripMenuItem3_Click);
+            // 
+            // editarToolStripMenuItem3
+            // 
+            this.editarToolStripMenuItem3.Name = "editarToolStripMenuItem3";
+            this.editarToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStripMenuItem3.Text = "Editar";
+            this.editarToolStripMenuItem3.Click += new System.EventHandler(this.editarToolStripMenuItem3_Click);
+            // 
             // ConfigurComida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,6 +292,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(676, 410);
+            this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.volverBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listaComidas);
@@ -208,6 +310,9 @@
             this.Load += new System.EventHandler(this.ConfigurComida_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +336,16 @@
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem1;
         private System.Windows.Forms.Button volverBtn;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem comidaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem categoriaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem3;
     }
 }

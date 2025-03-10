@@ -13,40 +13,60 @@ using ProyectoFinalTPV.Clases;
 
 namespace ProyectoFinalTPV
 {
+    /// <summary>
+    /// Formulario de bienvenida que muestra una barra de progreso simulando una carga inicial.
+    /// Una vez completada la carga, redirige al formulario de inicio de sesión.
+    /// </summary>
     public partial class InicioBienvenida : Form
     {
+        /// <summary>
+        /// Constructor de la clase InicioBienvenida.
+        /// Inicializa los componentes del formulario y comienza la carga de la barra de progreso.
+        /// </summary>
         public InicioBienvenida()
         {
-            InitializeComponent();
-            cargarProgressBarAsync();
+            InitializeComponent(); // Inicializa los componentes del formulario.
+            cargarProgressBarAsync(); // Inicia la carga de la barra de progreso.
         }
 
+        /// <summary>
+        /// Simula la carga de una barra de progreso de manera asíncrona.
+        /// Una vez que la barra de progreso alcanza el 100%, redirige al formulario de inicio de sesión.
+        /// </summary>
+        /// <returns>Tarea asíncrona que representa la operación de carga.</returns>
         private async Task cargarProgressBarAsync()
         {
-            Random random = new Random();
+            Random random = new Random(); // Generador de números aleatorios para simular la carga.
+
+            // Bucle para incrementar el valor de la barra de progreso.
             for (int i = 0; i <= 100; i++)
             {
                 if (i < 80)
                 {
-                    i += random.Next(20);
-                    progressBar1.Value = i;
-                    await Task.Delay(random.Next(1000));
+                    // Incremento rápido de la barra de progreso.
+                    i += random.Next(20); // Aumenta el valor de la barra de manera aleatoria.
+                    progressBar1.Value = i; // Actualiza el valor de la barra de progreso.
+                    await Task.Delay(random.Next(1000)); // Espera un tiempo aleatorio antes de continuar.
                 }
                 else
                 {
                     if (i <= 100)
                     {
-                        progressBar1.Value = progressBar1.Value + 1;
+                        // Incremento lento de la barra de progreso al acercarse al 100%.
+                        progressBar1.Value = progressBar1.Value + 1; // Aumenta el valor de la barra en 1.
                     }
                     else
                     {
-
-                        break;
+                        break; // Sale del bucle cuando la barra alcanza el 100%.
                     }
                 }
             }
-            InicioSesion form = new InicioSesion();
-            MiForm metodos = new MiForm();
+
+            // Una vez completada la carga, redirige al formulario de inicio de sesión.
+            InicioSesion form = new InicioSesion(); // Crea una instancia del formulario de inicio de sesión.
+            MiForm metodos = new MiForm(); // Crea una instancia de la clase MiForm para gestionar formularios.
+
+            // Carga y muestra el formulario de inicio de sesión dentro del formulario actual.
             metodos.cargarForm(form, this);
         }
     }

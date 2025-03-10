@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProyectoFinalTPV {
+namespace ProyectoFinalTPV.Informes.Usuarios {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace ProyectoFinalTPV {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Pedidos : ReportClass {
+    public class admin : ReportClass {
         
-        public Pedidos() {
+        public admin() {
         }
         
         public override string ResourceName {
             get {
-                return "Pedidos.rpt";
+                return "admin.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProyectoFinalTPV {
         
         public override string FullResourceName {
             get {
-                return "ProyectoFinalTPV.Pedidos.rpt";
+                return "ProyectoFinalTPV.Informes.Usuarios.admin.rpt";
             }
             set {
                 // Do nothing
@@ -106,9 +106,9 @@ namespace ProyectoFinalTPV {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedPedidos : Component, ICachedReport {
+    public class Cachedadmin : Component, ICachedReport {
         
-        public CachedPedidos() {
+        public Cachedadmin() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace ProyectoFinalTPV {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Pedidos rpt = new Pedidos();
+            admin rpt = new admin();
             rpt.Site = this.Site;
             return rpt;
         }

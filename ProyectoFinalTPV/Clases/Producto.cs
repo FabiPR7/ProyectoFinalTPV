@@ -7,35 +7,66 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoFinalTPV.Clases
-{
-    class Producto
+{/// <summary>
+ /// Clase que representa un producto y proporciona métodos para interactuar con la base de datos.
+ /// </summary>
+    public class Producto
     {
-        MiForm m = new MiForm();
-      public  string Nombre { get; set; }
-     public   decimal Precio { set; get; }
-        public int ProductoID { get; set; }
-        
+        // Dependencia
+        private MiForm m = new MiForm();
 
+        // Propiedades
+        /// <summary>
+        /// Obtiene o establece el nombre del producto.
+        /// </summary>
+        public string Nombre { get; set; }
+
+        /// <summary>
+        /// Obtiene o establece el precio del producto.
+        /// </summary>
+        public decimal Precio { get; set; }
+
+        /// <summary>
+        /// Obtiene o establece el identificador único del producto.
+        /// </summary>
+        public int ProductoID { get; set; }
+
+        // Constructores
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="Producto"/> con el nombre y precio especificados.
+        /// </summary>
+        /// <param name="nombre">Nombre del producto.</param>
+        /// <param name="precio">Precio del producto.</param>
         public Producto(string nombre, decimal precio)
         {
             Nombre = nombre;
             Precio = precio;
         }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="Producto"/> con el precio y el identificador especificados.
+        /// </summary>
+        /// <param name="precio">Precio del producto.</param>
+        /// <param name="productoID">Identificador único del producto.</param>
         public Producto(decimal precio, int productoID)
         {
             Precio = precio;
             ProductoID = productoID;
         }
 
-        public Producto() { 
-        
-        }
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="Producto"/> con valores predeterminados.
+        /// </summary>
+        public Producto() { }
 
-        public void EliminarComida(string nombreCategoria)
+        // Métodos públicos
+        /// <summary>
+        /// Elimina un producto de la base de datos por su nombre.
+        /// </summary>
+        /// <param name="nombreProducto">Nombre del producto a eliminar.</param>
+        public void eliminarProducto(string nombreProducto)
         {
-
-            string query = "DELETE FROM Producto WHERE nombre = @nombre";
+            string query = "DELETE FROM Producto WHERE Nombre = @nombre";
 
             using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
@@ -44,27 +75,35 @@ namespace ProyectoFinalTPV.Clases
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@nombre", nombreCategoria); // Evita inyección SQL
+                        cmd.Parameters.AddWithValue("@nombre", nombreProducto); // Evita inyección SQL
 
                         int filasAfectadas = cmd.ExecuteNonQuery();
                         if (filasAfectadas > 0)
                         {
-                            MessageBox.Show("Categoría eliminada correctamente.");
-
+                            MessageBox.Show("Producto eliminado correctamente.");
                         }
                         else
                         {
-                            MessageBox.Show("No se encontró la categoría.");
+                            MessageBox.Show("No se encontró el producto.");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al eliminar categoría: " + ex.Message);
+                    MessageBox.Show("Error al eliminar producto: " + ex.Message);
                 }
             }
         }
-        public void ActualizarProdudcto(string nombreActual, string nuevoNombre, float precio, bool existeCategoria, int idCategoria)
+
+        /// <summary>
+        /// Actualiza un producto en la base de datos.
+        /// </summary>
+        /// <param name="nombreActual">Nombre actual del producto.</param>
+        /// <param name="nuevoNombre">Nuevo nombre del producto.</param>
+        /// <param name="precio">Nuevo precio del producto.</param>
+        /// <param name="existeCategoria">Indica si la categoría especificada existe.</param>
+        /// <param name="idCategoria">Identificador de la categoría del producto.</param>
+        public void actualizarProducto(string nombreActual, string nuevoNombre, decimal precio, bool existeCategoria, int idCategoria)
         {
             using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
@@ -85,7 +124,7 @@ namespace ProyectoFinalTPV.Clases
                         cmd.Parameters.AddWithValue("@nombreActual", nombreActual);
                         cmd.Parameters.AddWithValue("@nuevoNombre", nuevoNombre);
                         cmd.Parameters.AddWithValue("@precio", precio);
-                        cmd.Parameters.AddWithValue("@categoria",idCategoria);
+                        cmd.Parameters.AddWithValue("@categoria", idCategoria);
 
                         int filasAfectadas = cmd.ExecuteNonQuery();
 
@@ -105,7 +144,14 @@ namespace ProyectoFinalTPV.Clases
                 }
             }
         }
-        public void agregarComida(string nombre, float precio, int categoriaID)
+
+        /// <summary>
+        /// Agrega un nuevo producto a la base de datos.
+        /// </summary>
+        /// <param name="nombre">Nombre del producto.</param>
+        /// <param name="precio">Precio del producto.</param>
+        /// <param name="categoriaID">Identificador de la categoría del producto.</param>
+        public void agregarProducto(string nombre, decimal precio, int categoriaID)
         {
             using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
@@ -127,7 +173,13 @@ namespace ProyectoFinalTPV.Clases
                 }
             }
         }
-        public int ObtenerProductoIDPorNombre(string nombreProducto)
+
+        /// <summary>
+        /// Obtiene el identificador único de un producto por su nombre.
+        /// </summary>
+        /// <param name="nombreProducto">Nombre del producto.</param>
+        /// <returns>El identificador único del producto.</returns>
+        public int obtenerProductoIDPorNombre(string nombreProducto)
         {
             using (SqlConnection connection = new SqlConnection(m.getConnectionString()))
             {
@@ -148,10 +200,15 @@ namespace ProyectoFinalTPV.Clases
                 }
             }
         }
-        public decimal ObtenerPrecioPorNombre(string nombreProducto)
+
+        /// <summary>
+        /// Obtiene el precio de un producto por su nombre.
+        /// </summary>
+        /// <param name="nombreProducto">Nombre del producto.</param>
+        /// <returns>El precio del producto, o -1 si no se encuentra.</returns>
+        public decimal obtenerPrecioPorNombre(string nombreProducto)
         {
             decimal precio = -1;
-
             using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
@@ -182,24 +239,41 @@ namespace ProyectoFinalTPV.Clases
 
             return precio;
         }
-        public void rellenarProducto(ComboBox comboBox)
-        {
-            SqlConnection sqlConnection = new SqlConnection(m.getConnectionString());
-            SqlCommand comadno = new SqlCommand("select Nombre from Producto", sqlConnection);
-            sqlConnection.Open();
-            SqlDataReader sqlDataReader = comadno.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
-                comboBox.Items.Add(sqlDataReader["Nombre"].ToString());
-            }
 
+        /// <summary>
+        /// Rellena un ComboBox con los nombres de los productos obtenidos de la base de datos.
+        /// </summary>
+        /// <param name="comboBox">ComboBox que se actualizará con los nombres de los productos.</param>
+        public void rellenarProductos(ComboBox comboBox)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(m.getConnectionString()))
+            {
+                string query = "SELECT Nombre FROM Producto";
+                SqlCommand command = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                comboBox.Items.Clear();
+
+                while (reader.Read())
+                {
+                    comboBox.Items.Add(reader["Nombre"].ToString());
+                }
+            }
         }
-        public List<Producto> ObtenerProductosPorCategoria(int idCategoria)
+
+        /// <summary>
+        /// Obtiene una lista de productos asociados a una categoría específica.
+        /// </summary>
+        /// <param name="idCategoria">Identificador de la categoría.</param>
+        /// <returns>Una lista de objetos <see cref="Producto"/>.</returns>
+        public List<Producto> obtenerProductosPorCategoria(int idCategoria)
         {
             List<Producto> productos = new List<Producto>();
-
             string connectionString = m.getConnectionString();
-            string query = "SELECT nombre, precio FROM producto WHERE CategoriaID = @IdCategoria";
+            string query = "SELECT Nombre, Precio FROM Producto WHERE CategoriaID = @IdCategoria";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -213,8 +287,8 @@ namespace ProyectoFinalTPV.Clases
                             while (reader.Read())
                             {
                                 Producto producto = new Producto(
-                                    reader["nombre"].ToString(),
-                                    Convert.ToDecimal(reader["precio"])
+                                    reader["Nombre"].ToString(),
+                                    Convert.ToDecimal(reader["Precio"])
                                 );
                                 productos.Add(producto);
                             }
@@ -226,6 +300,7 @@ namespace ProyectoFinalTPV.Clases
                     }
                 }
             }
+
             return productos;
         }
     }

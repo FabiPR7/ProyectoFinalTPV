@@ -84,7 +84,13 @@
     <Compile Include="Clases\Producto.cs" />
     <Compile Include="Clases\Rol.cs" />
     <Compile Include="Clases\Usuario.cs" />
-    <Compile Include="Comidas.cs">
+    <Compile Include="Informes\Comidas\ComidaPorCategoria.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComidaPorCategoria.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Informes\Comidas\Comidas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Comidas.rpt</DependentUpon>
@@ -120,11 +126,53 @@
     <Compile Include="HacerPedido.Designer.cs">
       <DependentUpon>HacerPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="Informes.cs">
+    <Compile Include="Informe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Informes.Designer.cs">
-      <DependentUpon>Informes.cs</DependentUpon>
+    <Compile Include="Informe.Designer.cs">
+      <DependentUpon>Informe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\Comidas\Ventas.cs">
+      <DependentUpon>Ventas.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Informes\Pedidos\NoPagados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NoPagados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Informes\Pedidos\Pagados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pagados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Informes\Pedidos\Pedidos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pedidos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Informes\Usuarios\admin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>admin.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Informes\Usuarios\Empleados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Empleados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Informes\Usuarios\UsuariosReport.cs">
+      <DependentUpon>UsuariosReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="InicioBienvenida.cs">
       <SubType>Form</SubType>
@@ -156,12 +204,6 @@
     <Compile Include="PagarVentana.Designer.cs">
       <DependentUpon>PagarVentana.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pedidos.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Pedidos.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="PeticionCodigo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,18 +231,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestauranteTPVDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="UsuariosReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UsuariosReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UsuariosReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UsuariosReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="VerPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,7 +249,11 @@
     <EmbeddedResource Include="AgregarEmpleado.resx">
       <DependentUpon>AgregarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Comidas.rpt">
+    <EmbeddedResource Include="Informes\Comidas\ComidaPorCategoria.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComidaPorCategoria.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\Comidas\Comidas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Comidas.cs</LastGenOutput>
     </EmbeddedResource>
@@ -238,8 +272,36 @@
     <EmbeddedResource Include="HacerPedido.resx">
       <DependentUpon>HacerPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Informes.resx">
-      <DependentUpon>Informes.cs</DependentUpon>
+    <EmbeddedResource Include="Informe.resx">
+      <DependentUpon>Informe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\Comidas\Ventas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Ventas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\Pedidos\NoPagados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NoPagados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\Pedidos\Pagados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Pagados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\Pedidos\Pedidos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Pedidos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\Usuarios\admin.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>admin.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\Usuarios\Empleados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Empleados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\Usuarios\UsuariosReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>UsuariosReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioBienvenida.resx">
       <DependentUpon>InicioBienvenida.cs</DependentUpon>
@@ -256,10 +318,6 @@
     <EmbeddedResource Include="PagarVentana.resx">
       <DependentUpon>PagarVentana.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pedidos.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Pedidos.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="PeticionCodigo.resx">
       <DependentUpon>PeticionCodigo.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,13 +333,10 @@
     <EmbeddedResource Include="ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsuariosReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>UsuariosReport1.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="VerPedidos.resx">
       <DependentUpon>VerPedidos.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\ProyectoFinalTPV.Clases.MiForm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

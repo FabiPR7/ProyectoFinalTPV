@@ -25,7 +25,7 @@ namespace ProyectoFinalTPV
         private void InicioSesion_Load(object sender, EventArgs e)
         {
             Usuario u = new Usuario();
-            if (u.VerificarSiHayUsuarios())
+            if (u.verificarSiHayUsuarios())
             {
              iniciarSesionBtn.Enabled = true;
              crearCuentaBtn.Enabled = false;

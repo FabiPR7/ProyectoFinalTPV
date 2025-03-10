@@ -9,11 +9,22 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProyectoFinalTPV.Clases
 {
-    class Categoria
+    /// <summary>
+    /// Clase que gestiona las operaciones relacionadas con las categorías en la base de datos.
+    /// Permite verificar la existencia de una categoría, agregar, actualizar, eliminar categorías,
+    /// y cargar categorías en controles de interfaz de usuario como ComboBox y ListBox.
+    /// </summary>
+    public class Categoria
     {
-        MiForm m = new MiForm();
+        // Instancia de la clase MiForm para obtener la cadena de conexión a la base de datos.
+        private MiForm m = new MiForm();
 
-        public bool CategoriaExiste(int id)
+        /// <summary>
+        /// Verifica si una categoría existe en la base de datos según su ID.
+        /// </summary>
+        /// <param name="id">ID de la categoría a verificar.</param>
+        /// <returns>True si la categoría existe, False en caso contrario.</returns>
+        public bool categoriaExiste(int id)
         {
             using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
@@ -27,9 +38,16 @@ namespace ProyectoFinalTPV.Clases
                 }
             }
         }
-        public void EliminarCategoria(string nombreCategoria)
-        {
 
+        /// <summary>
+        /// Elimina una categoría de la base de datos según su nombre.
+        /// </summary>
+        /// <param name="nombreCategoria">Nombre de la categoría a eliminar.</param>
+        /// <remarks>
+        /// Muestra un mensaje de éxito o error dependiendo del resultado de la operación.
+        /// </remarks>
+        public void borrarCategoria(string nombreCategoria)
+        {
             string query = "DELETE FROM Categoria WHERE nombre = @nombre";
 
             using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
@@ -45,7 +63,6 @@ namespace ProyectoFinalTPV.Clases
                         if (filasAfectadas > 0)
                         {
                             MessageBox.Show("Categoría eliminada correctamente.");
-
                         }
                         else
                         {
@@ -59,7 +76,16 @@ namespace ProyectoFinalTPV.Clases
                 }
             }
         }
-        public void ActualizarCategoria(string nombreActual, string nuevoNombre)
+
+        /// <summary>
+        /// Actualiza el nombre de una categoría en la base de datos.
+        /// </summary>
+        /// <param name="nombreActual">Nombre actual de la categoría.</param>
+        /// <param name="nuevoNombre">Nuevo nombre para la categoría.</param>
+        /// <remarks>
+        /// Muestra un mensaje de éxito o error dependiendo del resultado de la operación.
+        /// </remarks>
+        public void actualizarCategoria(string nombreActual, string nuevoNombre)
         {
             string query = "UPDATE Categoria SET nombre = @nuevoNombre WHERE nombre = @nombreActual";
 
@@ -77,7 +103,6 @@ namespace ProyectoFinalTPV.Clases
                         if (filasAfectadas > 0)
                         {
                             MessageBox.Show("Categoría actualizada correctamente.");
-
                         }
                         else
                         {
@@ -91,27 +116,29 @@ namespace ProyectoFinalTPV.Clases
                 }
             }
         }
-        public void AgregarCategoria(string nombreCategoria, Form form)
+
+        /// <summary>
+        /// Agrega una nueva categoría a la base de datos.
+        /// </summary>
+        /// <param name="nombreCategoria">Nombre de la categoría a agregar.</param>
+        /// <param name="form">Formulario que se cerrará después de agregar la categoría.</param>
+        /// <remarks>
+        /// Muestra un mensaje de éxito o error dependiendo del resultado de la operación.
+        /// </remarks>
+        public void agregarCategoria(string nombreCategoria, Form form)
         {
-            // Query para insertar una nueva categoría
             string query = "INSERT INTO Categoria (Nombre) VALUES (@nombre)";
 
-            // Usar la cadena de conexión (asumiendo que m.getConnectionString2() devuelve la cadena correcta)
             using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
                 {
-                    conn.Open(); // Abrir la conexión
-
+                    conn.Open();
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        // Agregar el parámetro para evitar inyección SQL
                         cmd.Parameters.AddWithValue("@nombre", nombreCategoria);
 
-                        // Ejecutar la consulta
                         int filasAfectadas = cmd.ExecuteNonQuery();
-
-                        // Verificar si se insertó correctamente
                         if (filasAfectadas > 0)
                         {
                             MessageBox.Show("Categoría agregada correctamente.");
@@ -125,26 +152,42 @@ namespace ProyectoFinalTPV.Clases
                 }
                 catch (Exception ex)
                 {
-                    // Manejar errores
                     MessageBox.Show("Error al agregar categoría: " + ex.Message);
                 }
             }
         }
 
-        public void cargarAComboBox(System.Windows.Forms.ComboBox comboBox) {
-            SqlConnection sqlConnection = new SqlConnection(m.getConnectionString());
-            SqlCommand comadno = new SqlCommand("select Nombre from Categoria", sqlConnection);
-            sqlConnection.Open();
-            SqlDataReader sqlDataReader = comadno.ExecuteReader();
-            while (sqlDataReader.Read())
+        /// <summary>
+        /// Carga los nombres de las categorías en un ComboBox.
+        /// </summary>
+        /// <param name="comboBox">ComboBox que se desea rellenar con los nombres de las categorías.</param>
+        public void cargarAComboBox(System.Windows.Forms.ComboBox comboBox)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(m.getConnectionString()))
             {
-                comboBox.Items.Add(sqlDataReader["Nombre"]);
+                using (SqlCommand comando = new SqlCommand("SELECT Nombre FROM Categoria", sqlConnection))
+                {
+                    sqlConnection.Open();
+                    using (SqlDataReader sqlDataReader = comando.ExecuteReader())
+                    {
+                        while (sqlDataReader.Read())
+                        {
+                            comboBox.Items.Add(sqlDataReader["Nombre"]);
+                        }
+                    }
+                }
             }
         }
-        public void CargarCategorias(ListBox listaCategorias)
+
+        /// <summary>
+        /// Carga los nombres de las categorías en un ListBox.
+        /// </summary>
+        /// <param name="listaCategorias">ListBox que se desea rellenar con los nombres de las categorías.</param>
+        public void cargarCategoriasListBox(ListBox listaCategorias)
         {
             string query = "SELECT CategoriaID, nombre FROM Categoria";
             listaCategorias.Items.Clear();
+
             using (SqlConnection conn = new SqlConnection(m.getConnectionString()))
             {
                 try
@@ -167,12 +210,16 @@ namespace ProyectoFinalTPV.Clases
                 }
             }
         }
-        public int ObtenerIdPorNombre(string nombreCategoria)
+
+        /// <summary>
+        /// Obtiene el ID de una categoría según su nombre.
+        /// </summary>
+        /// <param name="nombreCategoria">Nombre de la categoría.</param>
+        /// <returns>El ID de la categoría si existe, o 0 si no se encuentra.</returns>
+        public int obtenerIdPorNombreCategoria(string nombreCategoria)
         {
             int id = 0;
-
             string connectionString = m.getConnectionString();
-
             string query = "SELECT CategoriaID FROM categoria WHERE nombre = @Nombre";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -191,7 +238,7 @@ namespace ProyectoFinalTPV.Clases
                         }
                         else
                         {
-                            MessageBox.Show("Es null");
+                            MessageBox.Show("No se encontró la categoría.");
                         }
                     }
                     catch (Exception ex)
@@ -204,4 +251,5 @@ namespace ProyectoFinalTPV.Clases
             return id;
         }
     }
+
 }

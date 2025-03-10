@@ -10,9 +10,16 @@ namespace ProyectoFinalTPV.Clases
 {
     class Usuario
     {
+        // Instancia de la clase MiForm para obtener la cadena de conexión.
         MiForm miForm = new MiForm();
 
-        public bool VerificarSiHayUsuarios()
+        /// <summary>
+        /// Verifica si hay usuarios registrados en la base de datos.
+        /// </summary>
+        /// <returns>
+        /// True si hay al menos un usuario registrado, False en caso contrario.
+        /// </returns>
+        public bool verificarSiHayUsuarios()
         {
             string query = "SELECT COUNT(*) FROM Usuario";
             using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
@@ -20,12 +27,9 @@ namespace ProyectoFinalTPV.Clases
                 try
                 {
                     connection.Open();
-
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-
                         int cantidadUsuarios = (int)command.ExecuteScalar();
-
                         return cantidadUsuarios > 0;
                     }
                 }
@@ -36,6 +40,11 @@ namespace ProyectoFinalTPV.Clases
                 }
             }
         }
+
+        /// <summary>
+        /// Elimina un usuario de la base de datos según su ID.
+        /// </summary>
+        /// <param name="id">ID del usuario a eliminar.</param>
         public void eliminarUsuario(int id)
         {
             string sql = "DELETE FROM Usuario WHERE UsuarioID = @UsuarioID";
@@ -56,18 +65,25 @@ namespace ProyectoFinalTPV.Clases
                 }
             }
         }
+
+        /// <summary>
+        /// Obtiene el código de un usuario basado en su nombre.
+        /// </summary>
+        /// <param name="nombre">Nombre del usuario.</param>
+        /// <returns>El código del usuario como una cadena.</returns>
         public string obtenerCodigo(string nombre)
         {
-            return ObtenerUsuarioIDPorNombre(nombre).ToString();
+            return obtenerUsuarioIDPorNombre(nombre).ToString();
         }
 
-       
-
+        /// <summary>
+        /// Obtiene una lista de códigos de empleados registrados en la base de datos.
+        /// </summary>
+        /// <returns>Lista de códigos de empleados.</returns>
         public List<int> obtenerCodigosEmpleados()
         {
             List<int> codigosEmpleados = new List<int>();
-
-            string query = "select UsuarioID from Usuario";
+            string query = "SELECT UsuarioID FROM Usuario";
 
             using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
             {
@@ -80,7 +96,7 @@ namespace ProyectoFinalTPV.Clases
                         {
                             while (reader.Read())
                             {
-                                int codigoEmpleado = reader.GetInt32(0); // Obtener el valor de la columna CodigoEmpleado
+                                int codigoEmpleado = reader.GetInt32(0); // Obtener el valor de la columna UsuarioID
                                 codigosEmpleados.Add(codigoEmpleado);
                             }
                         }
@@ -95,6 +111,10 @@ namespace ProyectoFinalTPV.Clases
             return codigosEmpleados;
         }
 
+        /// <summary>
+        /// Obtiene una lista de nombres de usuarios registrados en la base de datos.
+        /// </summary>
+        /// <returns>Arreglo de nombres de usuarios.</returns>
         public string[] obtenerNombresUsuarios()
         {
             string query = "SELECT Nombre FROM Usuario";
@@ -113,7 +133,6 @@ namespace ProyectoFinalTPV.Clases
                                 string nombre = reader["Nombre"].ToString();
                                 nombres.Add(nombre);
                             }
-
                             return nombres.ToArray();
                         }
                     }
@@ -124,9 +143,14 @@ namespace ProyectoFinalTPV.Clases
                     return null;
                 }
             }
-
         }
-        public int ObtenerUsuarioIDPorNombre(string nombre)
+
+        /// <summary>
+        /// Obtiene el ID de un usuario basado en su nombre.
+        /// </summary>
+        /// <param name="nombre">Nombre del usuario.</param>
+        /// <returns>El ID del usuario si existe, de lo contrario, -1.</returns>
+        public int obtenerUsuarioIDPorNombre(string nombre)
         {
             string query = "SELECT UsuarioID FROM Usuario WHERE Nombre = @Nombre";
             using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
@@ -156,46 +180,62 @@ namespace ProyectoFinalTPV.Clases
             }
         }
 
-        public int ObtenerRolIDusuarioPorNombre(string nombre)
+        /// <summary>
+        /// Obtiene el ID del rol de un usuario basado en su nombre.
+        /// </summary>
+        /// <param name="nombre">Nombre del usuario.</param>
+        /// <returns>El ID del rol si existe, de lo contrario, -1.</returns>
+        public int obtenerRolIDusuarioPorNombre(string nombre)
         {
             SqlConnection conexion = new SqlConnection(miForm.getConnectionString());
-            SqlCommand comando = new SqlCommand("select RolID from Usuario where Nombre = @nombre",conexion);
-            comando.Parameters.AddWithValue("@nombre",nombre);
+            SqlCommand comando = new SqlCommand("SELECT RolID FROM Usuario WHERE Nombre = @nombre", conexion);
+            comando.Parameters.AddWithValue("@nombre", nombre);
             conexion.Open();
             SqlDataReader reader = comando.ExecuteReader();
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 return int.Parse(reader["RolID"].ToString());
             }
             MessageBox.Show("Error no va");
             return -1;
- 
         }
 
-
-        public void InsertarUsuario(int id, string nombre, int rol)
+        /// <summary>
+        /// Inserta un nuevo usuario en la base de datos.
+        /// </summary>
+        /// <param name="id">ID del usuario.</param>
+        /// <param name="nombre">Nombre del usuario.</param>
+        /// <param name="rol">ID del rol del usuario.</param>
+        public void insertarUsuario(int id, string nombre, int rol)
         {
-            string query = @"
+            if (obtenerNombresUsuarios().Contains(nombre))
+            {
+                string query = @"
             SET IDENTITY_INSERT Usuario ON;
             INSERT INTO Usuario (UsuarioID, Nombre, RolID) VALUES (@UsuarioID, @Nombre, @RolID);
             SET IDENTITY_INSERT Usuario OFF;";
-            using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
-            {
-                try
+                using (SqlConnection connection = new SqlConnection(miForm.getConnectionString()))
                 {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    try
                     {
-                        command.Parameters.AddWithValue("@UsuarioID", id);
-                        command.Parameters.AddWithValue("@Nombre", nombre);
-                        command.Parameters.AddWithValue("@RolID", rol);
-                        int result = command.ExecuteNonQuery();
+                        connection.Open();
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@UsuarioID", id);
+                            command.Parameters.AddWithValue("@Nombre", nombre);
+                            command.Parameters.AddWithValue("@RolID", rol);
+                            int result = command.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-
+            }
+            else
+            {
+                MessageBox.Show("Ya existe alguien con este nombre, intenta con otro");
             }
         }
     }
