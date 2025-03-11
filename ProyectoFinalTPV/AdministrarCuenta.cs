@@ -95,5 +95,10 @@ namespace ProyectoFinalTPV
                 AgregarUsBtn.Enabled = false; // Deshabilita el botón de agregar usuario.
             }
         }
+
+        private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

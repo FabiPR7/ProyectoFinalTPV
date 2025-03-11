@@ -93,5 +93,10 @@ namespace ProyectoFinalTPV
             // Carga y muestra el formulario de informe dentro del formulario actual.
             m.cargarForm(reportForm, this);
         }
+
+        private void volverBtn_Click_1(object sender, EventArgs e)
+        {
+            m.cerrarForm(this);
+        }
     }
 }

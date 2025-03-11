@@ -208,7 +208,7 @@ namespace ProyectoFinalTPV.Clases
         /// <param name="rol">ID del rol del usuario.</param>
         public void insertarUsuario(int id, string nombre, int rol)
         {
-            if (obtenerNombresUsuarios().Contains(nombre))
+            if (!obtenerNombresUsuarios().Contains(nombre))
             {
                 string query = @"
             SET IDENTITY_INSERT Usuario ON;

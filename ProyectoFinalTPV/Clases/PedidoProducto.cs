@@ -75,10 +75,8 @@ namespace ProyectoFinalTPV.Clases
             {
                 pedidos.Add(text.Substring(0, text.IndexOf("    ")));
             }
-
             // Diccionario para contar la cantidad de cada producto en la lista.
             Dictionary<string, int> pedidosDic = contarPalabras(pedidos);
-
             // Recorre el diccionario y realiza la inserción de cada producto en la base de datos.
             foreach (var producto in pedidosDic)
             {
@@ -96,7 +94,7 @@ namespace ProyectoFinalTPV.Clases
                     command.Parameters.AddWithValue("@Cantidad", producto.Value);
 
                     // Ejecución del comando (no se muestra en el código proporcionado).
-                    // command.ExecuteNonQuery();
+                     command.ExecuteNonQuery();
                 }
             }
         }

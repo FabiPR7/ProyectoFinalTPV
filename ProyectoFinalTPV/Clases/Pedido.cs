@@ -152,7 +152,7 @@ namespace ProyectoFinalTPV.Clases
         INNER JOIN 
             Producto prod ON pp.ProductoID = prod.ProductoID
         GROUP BY 
-            p.PedidoID, p.MesaID;";
+            p.PedidoID, p.MesaID";
 
             using (SqlConnection connection = new SqlConnection(m.getConnectionString()))
             {

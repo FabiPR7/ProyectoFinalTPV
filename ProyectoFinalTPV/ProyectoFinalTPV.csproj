@@ -281,11 +281,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\Pedidos\NoPagados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>NoPagados.cs</LastGenOutput>
+      <LastGenOutput>NoPagados1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\Pedidos\Pagados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Pagados.cs</LastGenOutput>
+      <LastGenOutput>Pagados1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\Pedidos\Pedidos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
