@@ -207,5 +207,14 @@ namespace ProyectoFinalTPV
             ProyectoFinalTPV.Informes.Pedidos.NoPagados nopagados = new ProyectoFinalTPV.Informes.Pedidos.NoPagados();
             crystalReportViewer1.ReportSource = nopagados; // Carga el informe de pedidos no pagados.
         }
+
+        private void ReportForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                string rutaejecutable = System.IO.Directory.GetCurrentDirectory();
+                System.Diagnostics.Process.Start(rutaejecutable + "\\chm\\Manual de RestauranteTPV.html");
+            }
+        }
     }
 }

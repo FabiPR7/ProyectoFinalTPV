@@ -61,5 +61,15 @@ namespace ProyectoFinalTPV
         {
             m.cerrarForm(this); // Cierra el formulario.
         }
+
+        private void PagarPedido_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                string rutaejecutable = System.IO.Directory.GetCurrentDirectory();
+                System.Diagnostics.Process.Start(rutaejecutable + "\\chm\\Manual de RestauranteTPV.html");
+
+            }
+        }
     }
 }

@@ -229,9 +229,11 @@
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ReportForm";
             this.Text = "ReportForm";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);

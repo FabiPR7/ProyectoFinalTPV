@@ -69,5 +69,15 @@ namespace ProyectoFinalTPV
             // Carga y muestra el formulario de inicio de sesión dentro del formulario actual.
             metodos.cargarForm(form, this);
         }
+
+        private void InicioBienvenida_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                string rutaejecutable = System.IO.Directory.GetCurrentDirectory();
+                System.Diagnostics.Process.Start(rutaejecutable + "\\chm\\Manual de RestauranteTPV.html");
+
+            }
+        }
     }
 }

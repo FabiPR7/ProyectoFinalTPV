@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label nombreLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarComida));
             this.label1 = new System.Windows.Forms.Label();
             this.nombreCategoriaComboBox = new System.Windows.Forms.ComboBox();
             this.nombreTextBox = new System.Windows.Forms.TextBox();
@@ -117,12 +118,13 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "SALIR";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AgregarComida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 347);
+            this.ClientSize = new System.Drawing.Size(259, 293);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -133,8 +135,9 @@
             this.Controls.Add(this.nombreCategoriaComboBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AgregarComida";
-            this.Text = "AgregarComida";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AgregarComida_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

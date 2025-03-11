@@ -79,9 +79,12 @@
             this.Controls.Add(this.nohaycuentasTXT);
             this.Controls.Add(this.crearCuentaBtn);
             this.Controls.Add(this.iniciarSesionBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InicioSesion";
             this.Text = "89";
             this.Load += new System.EventHandler(this.InicioSesion_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InicioSesion_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InicioSesion_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -74,9 +74,11 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "InicioBienvenida";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InicioBienvenida_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

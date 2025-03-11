@@ -115,8 +115,10 @@
             this.Controls.Add(this.verPedidoBtn);
             this.Controls.Add(this.hacerPedidoBtn);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MenuPrincipal_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

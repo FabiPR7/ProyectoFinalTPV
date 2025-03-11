@@ -88,8 +88,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PagarPedido";
             this.Text = "PagarPedido";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PagarPedido_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

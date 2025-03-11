@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label nombreLabel1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarOEliminarComida));
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.accionTxt = new System.Windows.Forms.Label();
@@ -167,9 +168,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.accionTxt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "EditarOEliminarComida";
             this.Text = "EditarOEliminarComida";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditarOEliminarComida_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

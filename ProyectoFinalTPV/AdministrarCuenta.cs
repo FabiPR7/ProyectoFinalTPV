@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,6 +100,17 @@ namespace ProyectoFinalTPV
         private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AdministrarCuenta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                // Ruta del archivo CHM
+                string rutaejecutable = System.IO.Directory.GetCurrentDirectory();
+                System.Diagnostics.Process.Start(rutaejecutable + "\\chm\\Manual de RestauranteTPV.html");
+
+            }
         }
     }
 }

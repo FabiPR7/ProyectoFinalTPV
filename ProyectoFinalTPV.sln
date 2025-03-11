@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoFinalTPV", "ProyectoFinalTPV\ProyectoFinalTPV.csproj", "{80944890-7817-48A4-AF03-E4DC67B210FF}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstaladorRestauranteTPV", "InstaladorRestauranteTPV\InstaladorRestauranteTPV.vdproj", "{1A5D6004-B4BC-5004-03BD-18E4E010FC10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{80944890-7817-48A4-AF03-E4DC67B210FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80944890-7817-48A4-AF03-E4DC67B210FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80944890-7817-48A4-AF03-E4DC67B210FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A5D6004-B4BC-5004-03BD-18E4E010FC10}.Debug|Any CPU.ActiveCfg = Debug
+		{1A5D6004-B4BC-5004-03BD-18E4E010FC10}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

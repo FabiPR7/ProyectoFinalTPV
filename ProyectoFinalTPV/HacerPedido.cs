@@ -240,6 +240,16 @@ namespace ProyectoFinalTPV
         {
             // Este método está vacío y puede ser utilizado para manejar cambios en la selección de categorías.
         }
+
+        private void HacerPedido_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                string rutaejecutable = System.IO.Directory.GetCurrentDirectory();
+                System.Diagnostics.Process.Start(rutaejecutable + "\\chm\\Manual de RestauranteTPV.html");
+
+            }
+        }
     }
 }
 

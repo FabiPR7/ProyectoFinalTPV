@@ -113,6 +113,16 @@ namespace ProyectoFinalTPV
         {
             // Este método está vacío, pero puede utilizarse para manejar cambios en el estado del RadioButton.
         }
+
+        private void VerPedidos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                string rutaejecutable = System.IO.Directory.GetCurrentDirectory();
+                System.Diagnostics.Process.Start(rutaejecutable + "\\chm\\Manual de RestauranteTPV.html");
+
+            }
+        }
     }
 }
 

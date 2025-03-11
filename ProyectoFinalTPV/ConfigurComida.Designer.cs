@@ -50,10 +50,10 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.comidaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.categoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -230,8 +230,29 @@
             this.editarToolStripMenuItem2,
             this.eliminarToolStripMenuItem2});
             this.comidaToolStripMenuItem1.Name = "comidaToolStripMenuItem1";
-            this.comidaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.comidaToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.comidaToolStripMenuItem1.Text = "Comida";
+            // 
+            // agregarToolStripMenuItem2
+            // 
+            this.agregarToolStripMenuItem2.Name = "agregarToolStripMenuItem2";
+            this.agregarToolStripMenuItem2.Size = new System.Drawing.Size(117, 22);
+            this.agregarToolStripMenuItem2.Text = "Agregar";
+            this.agregarToolStripMenuItem2.Click += new System.EventHandler(this.agregarToolStripMenuItem2_Click);
+            // 
+            // editarToolStripMenuItem2
+            // 
+            this.editarToolStripMenuItem2.Name = "editarToolStripMenuItem2";
+            this.editarToolStripMenuItem2.Size = new System.Drawing.Size(117, 22);
+            this.editarToolStripMenuItem2.Text = "Editar";
+            this.editarToolStripMenuItem2.Click += new System.EventHandler(this.editarToolStripMenuItem2_Click);
+            // 
+            // eliminarToolStripMenuItem2
+            // 
+            this.eliminarToolStripMenuItem2.Name = "eliminarToolStripMenuItem2";
+            this.eliminarToolStripMenuItem2.Size = new System.Drawing.Size(117, 22);
+            this.eliminarToolStripMenuItem2.Text = "Eliminar";
+            this.eliminarToolStripMenuItem2.Click += new System.EventHandler(this.eliminarToolStripMenuItem2_Click);
             // 
             // categoriaToolStripMenuItem
             // 
@@ -240,48 +261,27 @@
             this.eliminarToolStripMenuItem3,
             this.editarToolStripMenuItem3});
             this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.categoriaToolStripMenuItem.Text = "Categoria";
-            // 
-            // agregarToolStripMenuItem2
-            // 
-            this.agregarToolStripMenuItem2.Name = "agregarToolStripMenuItem2";
-            this.agregarToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.agregarToolStripMenuItem2.Text = "Agregar";
-            this.agregarToolStripMenuItem2.Click += new System.EventHandler(this.agregarToolStripMenuItem2_Click);
-            // 
-            // editarToolStripMenuItem2
-            // 
-            this.editarToolStripMenuItem2.Name = "editarToolStripMenuItem2";
-            this.editarToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.editarToolStripMenuItem2.Text = "Editar";
-            this.editarToolStripMenuItem2.Click += new System.EventHandler(this.editarToolStripMenuItem2_Click);
-            // 
-            // eliminarToolStripMenuItem2
-            // 
-            this.eliminarToolStripMenuItem2.Name = "eliminarToolStripMenuItem2";
-            this.eliminarToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.eliminarToolStripMenuItem2.Text = "Eliminar";
-            this.eliminarToolStripMenuItem2.Click += new System.EventHandler(this.eliminarToolStripMenuItem2_Click);
             // 
             // agregarToolStripMenuItem3
             // 
             this.agregarToolStripMenuItem3.Name = "agregarToolStripMenuItem3";
-            this.agregarToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.agregarToolStripMenuItem3.Size = new System.Drawing.Size(117, 22);
             this.agregarToolStripMenuItem3.Text = "Agregar";
             this.agregarToolStripMenuItem3.Click += new System.EventHandler(this.agregarToolStripMenuItem3_Click);
             // 
             // eliminarToolStripMenuItem3
             // 
             this.eliminarToolStripMenuItem3.Name = "eliminarToolStripMenuItem3";
-            this.eliminarToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem3.Size = new System.Drawing.Size(117, 22);
             this.eliminarToolStripMenuItem3.Text = "Eliminar";
             this.eliminarToolStripMenuItem3.Click += new System.EventHandler(this.eliminarToolStripMenuItem3_Click);
             // 
             // editarToolStripMenuItem3
             // 
             this.editarToolStripMenuItem3.Name = "editarToolStripMenuItem3";
-            this.editarToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStripMenuItem3.Size = new System.Drawing.Size(117, 22);
             this.editarToolStripMenuItem3.Text = "Editar";
             this.editarToolStripMenuItem3.Click += new System.EventHandler(this.editarToolStripMenuItem3_Click);
             // 
@@ -303,11 +303,13 @@
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "ConfigurComida";
             this.Text = "ConfigurComida";
             this.Load += new System.EventHandler(this.ConfigurComida_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConfigurComida_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

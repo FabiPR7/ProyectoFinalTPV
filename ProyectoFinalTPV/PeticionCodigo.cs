@@ -122,5 +122,15 @@ namespace ProyectoFinalTPV
                 MessageBox.Show("Código incorrecto");
             }
         }
+
+        private void PeticionCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                string rutaejecutable = System.IO.Directory.GetCurrentDirectory();
+                System.Diagnostics.Process.Start(rutaejecutable + "\\chm\\Manual de RestauranteTPV.html");
+
+            }
+        }
     }
 }

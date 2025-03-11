@@ -49,5 +49,20 @@ namespace ProyectoFinalTPV
         {
             m.cargarForm(new EligeCuenta("elegir"), this);
         }
+
+        private void InicioSesion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void InicioSesion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                string rutaejecutable = System.IO.Directory.GetCurrentDirectory();
+                System.Diagnostics.Process.Start(rutaejecutable + "\\chm\\Manual de RestauranteTPV.html");
+
+            }
+        }
     }
 }
